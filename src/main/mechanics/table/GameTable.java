@@ -38,9 +38,9 @@ public final class GameTable {
 
         this.playerTurn = startGameInput.getStartingPlayer();
 
-        this.playerOne.setPlayingHand(this.playerOne.getDecks().get(startGameInput
+        this.playerOne.setPlayingDeck(this.playerOne.getDecks().get(startGameInput
                 .getPlayerOneDeckIdx()), new Random(startGameInput.getShuffleSeed()));
-        this.playerTwo.setPlayingHand(this.playerTwo.getDecks().get(startGameInput
+        this.playerTwo.setPlayingDeck(this.playerTwo.getDecks().get(startGameInput
                 .getPlayerTwoDeckIdx()), new Random(startGameInput.getShuffleSeed()));
 
     }

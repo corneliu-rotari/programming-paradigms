@@ -25,4 +25,6 @@ public abstract class Card {
         this.description = card.getDescription();
         this.colors = card.getColors();
     }
+
+    protected Card() {}
 }

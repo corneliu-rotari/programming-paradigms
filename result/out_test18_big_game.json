@@ -167,7 +167,8 @@
 }, {
   "command" : "useAttackHero"
 }, {
-  "command" : "getCardsOnTable"
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,

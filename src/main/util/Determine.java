@@ -2,6 +2,7 @@ package main.util;
 
 import fileio.CardInput;
 import main.cards.card.Card;
+import main.cards.card.character.hero.*;
 import main.cards.card.character.minion.normal.Berserker;
 import main.cards.card.character.minion.normal.Goliath;
 import main.cards.card.character.minion.normal.Sentinel;
@@ -16,7 +17,7 @@ import main.cards.card.environment.Winterfell;
 
 public final class Determine {
 //    TODO transform in singleton
-    public Card determineCard(final Card card) {
+    public static Card createCard(final Card card) {
         return switch (card.getName()) {
             case GameConstants.SENTINEL -> new Sentinel((Sentinel) card);
             case GameConstants.DISCIPLE -> new Disciple((Disciple) card);
@@ -33,7 +34,7 @@ public final class Determine {
         };
     }
 
-    public Card determineCard(final CardInput cardInput) {
+    public static Card createCard(final CardInput cardInput) {
         return switch (cardInput.getName()) {
             case GameConstants.SENTINEL -> new Sentinel(cardInput);
             case GameConstants.DISCIPLE -> new Disciple(cardInput);
@@ -50,4 +51,13 @@ public final class Determine {
         };
     }
 
+    public static HeroCard createHero(final CardInput cardInput){
+        return switch (cardInput.getName()) {
+            case GameConstants.LORD -> new LordRice(cardInput);
+            case GameConstants.KING -> new KingMudface(cardInput);
+            case GameConstants.EMPRESS -> new EmpressThorina(cardInput);
+            case GameConstants.GENERAL -> new GeneralKocioraw(cardInput);
+            default -> null;
+        };
+    }
 }

@@ -22,14 +22,14 @@ public final class Player {
     @Getter @Setter private int mana = 0;
     @Getter private HeroCard heroCard;
 
-    @Getter private ArrayList<Card> playingHand;
+    @Getter private ArrayList<Card> playingDeck;
     @Getter private ArrayList<Card> playingCards;
 
 
-    // TODO 09-Nov-22 Add Player character
-
     public Player(final DecksInput decks) {
         this.decks = new Decks(decks);
+        this.playingCards = new ArrayList<>();
+        this.playingDeck = new ArrayList<>();
     }
 
     /**
@@ -40,23 +40,15 @@ public final class Player {
     }
 
     public void setHeroCard(CardInput cardInput) {
-        this.heroCard = switch (cardInput.getName()) {
-            case GameConstants.LORD -> new LordRice(cardInput);
-            case GameConstants.KING -> new KingMudface(cardInput);
-            case GameConstants.EMPRESS -> new EmpressThorina(cardInput);
-            case GameConstants.GENERAL -> new GeneralKocioraw(cardInput);
-            default -> null;
-        };
+        this.heroCard = Determine.createHero(cardInput);
     }
 
-    public void setPlayingHand(ArrayList<Card> playingHand, Random random) {
-        this.playingHand = new ArrayList<>();
+    public void setPlayingDeck(ArrayList<Card> playingHand, Random random) {
         for (Card card : playingHand) {
-            this.playingHand.add(new Determine().determineCard(card));
+            this.playingDeck.add(Determine.createCard(card));
         }
-        Collections.shuffle(this.playingHand, random);
+        Collections.shuffle(this.playingDeck, random);
 
-        this.playingCards = new ArrayList<>();
-        this.playingCards.add(this.playingHand.remove(0));
+        this.playingCards.add(this.playingDeck.remove(0));
     }
 }

@@ -18,6 +18,6 @@ public interface CommandsConstants {
     String GET_TOTAL_GAMES_PLAYED = "getTotalGamesPlayed";
     String GET_PLAYER_ONE_WINS = "getPlayerOneWins";
     String GET_PLAYER_TWO_WINS = "getPlayerTwoWins";
-    String GET_CARD_ON_TABLE = "getCardsOnTable";
+    String GET_CARDS_ON_TABLE = "getCardsOnTable";
 
 }

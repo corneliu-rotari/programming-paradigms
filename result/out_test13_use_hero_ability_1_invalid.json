@@ -96,7 +96,8 @@
   "command" : "getPlayerMana",
   "output" : 0
 }, {
-  "command" : "getCardsOnTable"
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,

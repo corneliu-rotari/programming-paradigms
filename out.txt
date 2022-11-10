@@ -79,5 +79,9 @@
     "health" : 30
   }
 }, {
-  "command" : "getPlayerTurn"
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
 } ]

@@ -90,7 +90,8 @@
   "command" : "getPlayerMana",
   "output" : 0
 }, {
-  "command" : "getCardsOnTable"
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
@@ -197,22 +198,37 @@
   "command" : "getPlayerMana",
   "output" : 0
 }, {
-  "command" : "getCardsOnTable"
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
   "output" : [ {
     "mana" : 2,
-    "name" : "Goliath",
-    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 8,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
     "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "attackDamage" : 6
   } ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "attackDamage" : 5
+  }, {
     "mana" : 2,
     "name" : "The Cursed One",
     "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
