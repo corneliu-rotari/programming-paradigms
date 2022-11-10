@@ -13,9 +13,19 @@
 }, {
   "command" : "endPlayerTurn"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "attackDamage" : 2
+  } ]
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -32,18 +42,38 @@
 }, {
   "command" : "endPlayerTurn"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 6,
+    "attackDamage" : 2
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "attackDamage" : 2
+  } ]
 }, {
   "command" : "getPlayerDeck",
   "playerIdx" : 2,

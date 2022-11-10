@@ -15,28 +15,21 @@ import java.util.Collections;
 import java.util.Random;
 
 public final class Player {
-    @Getter @Setter private int nrOfGames = 0;
+    public static int nrOfGames = 0;
     @Getter @Setter private int nrOfWins = 0;
     @Setter @Getter private Decks decks;
 
-    @Getter @Setter private int manaCapacity = 0;
+    @Getter @Setter private int mana = 0;
     @Getter private HeroCard heroCard;
 
     @Getter private ArrayList<Card> playingHand;
-    @Getter private Card playingCard;
+    @Getter private ArrayList<Card> playingCards;
 
 
     // TODO 09-Nov-22 Add Player character
 
     public Player(final DecksInput decks) {
         this.decks = new Decks(decks);
-    }
-
-    /**
-     * After a game is played the counter of total games goes up
-     */
-    public void setGame() {
-        this.nrOfGames++;
     }
 
     /**
@@ -62,7 +55,8 @@ public final class Player {
             this.playingHand.add(new Determine().determineCard(card));
         }
         Collections.shuffle(this.playingHand, random);
-        this.playingCard = this.playingHand.remove(0);
-        System.out.println(this.playingCard);
+
+        this.playingCards = new ArrayList<>();
+        this.playingCards.add(this.playingHand.remove(0));
     }
 }

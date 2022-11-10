@@ -34,13 +34,33 @@
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 1,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "attackDamage" : 6
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "health" : 1,
+    "attackDamage" : 0
+  } ]
 } ]

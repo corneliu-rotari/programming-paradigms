@@ -6,9 +6,6 @@ import lombok.Setter;
 import main.mechanics.player.Player;
 import main.util.GameConstants;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public final class GameTable {
@@ -34,6 +31,8 @@ public final class GameTable {
      * @param startGameInput - the default config for the game to be played
      */
     public void startGame(final StartGameInput startGameInput) {
+        Player.nrOfGames++;
+
         this.playerOne.setHeroCard(startGameInput.getPlayerOneHero());
         this.playerTwo.setHeroCard(startGameInput.getPlayerTwoHero());
 

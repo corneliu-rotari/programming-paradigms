@@ -76,12 +76,12 @@ public final class Main {
         // TODO add here the entry point to your implementation
         GameTable gameTable = new GameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
-        CommandController commandController = new CommandController(output);
+        CommandController commandController = new CommandController(output, gameTable);
 
         for (GameInput game: inputData.getGames()) {
             gameTable.startGame(game.getStartGame());
             for (ActionsInput action: game.getActions()) {
-                commandController.determineAction(action, gameTable);
+                commandController.determineAction(action);
             }
 
         }

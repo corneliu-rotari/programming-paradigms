@@ -1,5 +1,6 @@
 [ {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -18,7 +19,8 @@
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
@@ -47,7 +49,8 @@
 }, {
   "command" : "getFrozenCardsOnTable"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -66,7 +69,8 @@
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -85,7 +89,8 @@
 }, {
   "command" : "placeCard"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useAttackHero"
 }, {
@@ -131,7 +136,8 @@
 }, {
   "command" : "useAttackHero"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useHeroAbility"
 }, {
@@ -147,7 +153,8 @@
 }, {
   "command" : "useHeroAbility"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -162,13 +169,32 @@
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2
+  } ]
 }, {
-  "command" : "getTotalGamesPlayed"
+  "command" : "getTotalGamesPlayed",
+  "output" : 9
 }, {
-  "command" : "getPlayerTwoWins"
+  "command" : "getPlayerTwoWins",
+  "output" : 0
 }, {
-  "command" : "getPlayerOneWins"
+  "command" : "getPlayerOneWins",
+  "output" : 0
 } ]

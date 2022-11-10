@@ -20,7 +20,8 @@
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -58,7 +59,8 @@
 }, {
   "command" : "cardUsesAttack"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useAttackHero"
 }, {
@@ -84,20 +86,42 @@
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 1,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 2,
+    "attackDamage" : 5
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 1,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 6
+  } ]
 }, {
-  "command" : "getTotalGamesPlayed"
+  "command" : "getTotalGamesPlayed",
+  "output" : 18
 }, {
-  "command" : "getPlayerTwoWins"
+  "command" : "getPlayerTwoWins",
+  "output" : 0
 }, {
-  "command" : "getPlayerOneWins"
+  "command" : "getPlayerOneWins",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
@@ -120,7 +144,8 @@
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -128,7 +153,8 @@
 }, {
   "command" : "getCardAtPosition"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getFrozenCardsOnTable"
 }, {
@@ -153,7 +179,8 @@
 }, {
   "command" : "getFrozenCardsOnTable"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -177,7 +204,8 @@
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
@@ -204,13 +232,32 @@
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 6,
+    "attackDamage" : 7
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Green", "Black" ]
+  } ]
 }, {
-  "command" : "getTotalGamesPlayed"
+  "command" : "getTotalGamesPlayed",
+  "output" : 19
 }, {
-  "command" : "getPlayerTwoWins"
+  "command" : "getPlayerTwoWins",
+  "output" : 0
 }, {
-  "command" : "getPlayerOneWins"
+  "command" : "getPlayerOneWins",
+  "output" : 0
 } ]

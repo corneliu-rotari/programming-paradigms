@@ -79,6 +79,5 @@
     "health" : 30
   }
 }, {
-  "command" : "getPlayerTurn",
-  "output" : 2
+  "command" : "getPlayerTurn"
 } ]

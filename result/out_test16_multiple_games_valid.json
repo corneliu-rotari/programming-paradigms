@@ -10,7 +10,8 @@
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -20,7 +21,8 @@
 }, {
   "command" : "getEnvironmentCardsInHand"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useAttackHero"
 }, {
@@ -82,20 +84,41 @@
 }, {
   "command" : "useAttackHero"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "attackDamage" : 5
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 5
+  } ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "endPlayerTurn"
 }, {
@@ -116,7 +139,8 @@
 }, {
   "command" : "placeCard"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "cardUsesAbility"
 }, {
@@ -130,7 +154,8 @@
 }, {
   "command" : "getCardAtPosition"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useAttackHero"
 }, {
@@ -161,23 +186,47 @@
 }, {
   "command" : "getFrozenCardsOnTable"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "useAttackHero"
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
-  "command" : "getPlayerMana"
+  "command" : "getPlayerMana",
+  "output" : 0
 }, {
   "command" : "getCardsOnTable"
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 8,
+    "attackDamage" : 5
+  } ]
 }, {
-  "command" : "getCardsInHand"
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Pink", "Purple" ],
+    "health" : 1,
+    "attackDamage" : 0
+  } ]
 }, {
-  "command" : "getPlayerOneWins"
+  "command" : "getPlayerOneWins",
+  "output" : 0
 }, {
-  "command" : "getPlayerTwoWins"
+  "command" : "getPlayerTwoWins",
+  "output" : 0
 }, {
-  "command" : "getTotalGamesPlayed"
+  "command" : "getTotalGamesPlayed",
+  "output" : 2
 } ]
