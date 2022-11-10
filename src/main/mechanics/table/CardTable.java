@@ -1,34 +1,43 @@
 package main.mechanics.table;
 
-import main.cards.Decks;
-import main.cards.card.Card;
+import lombok.Getter;
+import main.cards.card.character.minion.MinionCard;
 import main.util.GameConstants;
 
 import java.util.ArrayList;
 
-public final class CardTable extends Decks {
+public final class CardTable {
+    @Getter private final ArrayList<ArrayList<MinionCard>> cardTable;
     public CardTable(final int rows, final int columns) {
-        super(rows, columns);
+        this.cardTable = new ArrayList<>(rows);
+
         for (int i = 0; i < GameConstants.NR_TABLE_ROWS; i++) {
+            this.cardTable.add(new ArrayList<>(columns));
             for (int j = 0; j < GameConstants.NR_TABLE_COLUMNS; j++) {
-                this.decks.get(i).add(null);
+                this.cardTable.get(i).add(null);
             }
         }
-    }
-    public ArrayList<ArrayList<Card>> getCards(){
-        return this.getDecks();
     }
 
     public void printCardTable() {
         for (int i = 0; i < GameConstants.NR_TABLE_ROWS; i++) {
             for (int j = 0; j < GameConstants.NR_TABLE_COLUMNS; j++) {
-                if (this.decks.get(i).get(j) == null) {
+                if (this.cardTable.get(i).get(j) == null) {
                     System.out.print("[]");
                 } else {
-                    System.out.print("["+this.decks.get(i).get(j).getName()+"]");
+                    System.out.print("[" + this.cardTable.get(i).get(j).getName() + "]");
                 }
             }
             System.out.println();
         }
+    }
+
+    /**
+     * Get the deck on position index
+     * @param index - position of deck
+     * @return - deck of cards
+     */
+    public ArrayList<MinionCard> get(final int index) {
+        return this.cardTable.get(index);
     }
 }

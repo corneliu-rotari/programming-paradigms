@@ -1,171 +1,163 @@
 [ {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2,
+    "frozen" : false
+  } ]
 }, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "getFrozenCardsOnTable"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
-}, {
-  "command" : "endPlayerTurn"
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
-  "command" : "getEnvironmentCardsInHand"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getFrozenCardsOnTable"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "getFrozenCardsOnTable"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "placeCard"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "getFrozenCardsOnTable"
-}, {
-  "command" : "getEnvironmentCardsInHand"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2,
+    "frozen" : false
+  } ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "cardUsesAttack"
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 1
-}, {
-  "command" : "getFrozenCardsOnTable"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "useAttackHero"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "cardUsesAttack"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "placeCard"
+  "command" : "getPlayerTurn",
+  "output" : 1
 }, {
-  "command" : "getCardAtPosition"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "cardUsesAttack"
-}, {
-  "command" : "getFrozenCardsOnTable"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
-  "command" : "useHeroAbility"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  } ]
 }, {
-  "command" : "getEnvironmentCardsInHand"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getFrozenCardsOnTable"
-}, {
-  "command" : "useHeroAbility"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAttack"
-}, {
-  "command" : "useAttackHero"
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]

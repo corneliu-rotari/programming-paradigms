@@ -1,89 +1,52 @@
 [ {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 7,
+    "attackDamage" : 1,
+    "frozen" : false
+  } ]
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 7,
+    "attackDamage" : 1,
+    "frozen" : false
+  } ]
 }, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "getFrozenCardsOnTable"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getCardsOnTable",

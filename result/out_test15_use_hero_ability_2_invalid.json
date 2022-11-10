@@ -1,91 +1,28 @@
 [ {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getFrozenCardsOnTable"
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "useHeroAbility"
-}, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getCardsOnTable",

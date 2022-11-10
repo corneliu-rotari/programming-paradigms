@@ -1,15 +1,22 @@
 [ {
-  "command" : "endPlayerTurn"
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Blue", "Green", "White" ]
+  } ]
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getPlayerMana",
+  "playerIdx" : 1,
+  "output" : 0
 }, {
-  "command" : "placeCard"
+  "command" : "getPlayerTurn",
+  "output" : 1
 }, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
@@ -21,92 +28,21 @@
   } ]
 }, {
   "command" : "getPlayerMana",
-  "output" : 0
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 1
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getCardsInHand",
   "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Firestorm",
-    "description" : "Standard card: The dragon was unleashed, run for your lives.",
-    "colors" : [ "Blue", "Green", "White" ]
-  } ]
-}, {
-  "command" : "getPlayerMana",
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "cardUsesAbility"
-}, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",

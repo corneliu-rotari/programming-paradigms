@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import main.cards.card.Card;
 import main.util.Determine;
-import main.util.GameConstants;
 
 import java.util.ArrayList;
 

@@ -1,60 +1,46 @@
 [ {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "attackDamage" : 2,
+    "frozen" : false
+  } ]
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "endPlayerTurn"
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "attackDamage" : 2,
+    "frozen" : false
+  } ]
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "getEnvironmentCardsInHand"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "useEnvironmentCard"
-}, {
-  "command" : "endPlayerTurn"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getCardsOnTable",

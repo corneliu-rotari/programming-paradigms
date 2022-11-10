@@ -7,14 +7,16 @@
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Yellow", "Orange", "Red" ],
     "health" : 4,
-    "attackDamage" : 4
+    "attackDamage" : 4,
+    "frozen" : false
   }, {
     "mana" : 2,
     "name" : "The Cursed One",
     "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
     "colors" : [ "Black", "White", "Red" ],
     "health" : 3,
-    "attackDamage" : 0
+    "attackDamage" : 0,
+    "frozen" : false
   }, {
     "mana" : 2,
     "name" : "Winterfell",
@@ -26,7 +28,8 @@
     "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
     "colors" : [ "Brown", "Blue" ],
     "health" : 5,
-    "attackDamage" : 3
+    "attackDamage" : 3,
+    "frozen" : false
   } ]
 }, {
   "command" : "getPlayerDeck",
@@ -37,7 +40,8 @@
     "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
     "colors" : [ "Yellow", "White" ],
     "health" : 4,
-    "attackDamage" : 0
+    "attackDamage" : 0,
+    "frozen" : false
   }, {
     "mana" : 1,
     "name" : "Winterfell",
@@ -49,14 +53,16 @@
     "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
     "colors" : [ "Black", "White" ],
     "health" : 3,
-    "attackDamage" : 2
+    "attackDamage" : 2,
+    "frozen" : false
   }, {
     "mana" : 4,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Red", "Purple" ],
     "health" : 7,
-    "attackDamage" : 1
+    "attackDamage" : 1,
+    "frozen" : false
   } ]
 }, {
   "command" : "getPlayerHero",
@@ -66,7 +72,8 @@
     "name" : "General Kocioraw",
     "description" : "Premium card: An army is not sufficient, he is ready obliterate, it is time for chaos.",
     "colors" : [ "Red", "Black", "Purple" ],
-    "health" : 30
+    "health" : 30,
+    "frozen" : false
   }
 }, {
   "command" : "getPlayerHero",
@@ -76,12 +83,10 @@
     "name" : "King Mudface",
     "description" : "Premium card: Time to show who we are, the low-class was never scared of you.",
     "colors" : [ "Brown", "Pink", "Purple" ],
-    "health" : 30
+    "health" : 30,
+    "frozen" : false
   }
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
-}, {
-  "command" : "getCardsOnTable",
-  "output" : [ [ ], [ ], [ ], [ ] ]
 } ]

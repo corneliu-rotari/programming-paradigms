@@ -81,7 +81,7 @@ public final class Main {
         for (GameInput game: inputData.getGames()) {
             gameTable.startGame(game.getStartGame());
             for (ActionsInput action: game.getActions()) {
-                commandController.determineAction(action);
+                commandController.determineCommand(action);
             }
 
         }

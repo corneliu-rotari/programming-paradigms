@@ -1,26 +1,4 @@
 [ {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "endPlayerTurn"
-}, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
   "output" : [ {
@@ -33,16 +11,17 @@
   } ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,
@@ -64,22 +43,6 @@
     "health" : 30
   }
 }, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "endPlayerTurn"
-}, {
-  "command" : "placeCard"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "endPlayerTurn"
-}, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
   "output" : [ {
@@ -92,16 +55,17 @@
   } ]
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "placeCard"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
-  "command" : "getCardAtPosition"
-}, {
-  "command" : "getCardAtPosition"
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,
@@ -123,14 +87,12 @@
     "health" : 30
   }
 }, {
-  "command" : "useAttackHero"
-}, {
-  "command" : "useAttackHero"
-}, {
   "command" : "getPlayerMana",
+  "playerIdx" : 1,
   "output" : 0
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
   "output" : 0
 }, {
   "command" : "getCardsOnTable",

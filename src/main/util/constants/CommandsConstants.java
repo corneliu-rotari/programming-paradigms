@@ -14,7 +14,7 @@ public interface CommandsConstants {
 
 //    No parameters
     String GET_PLAYER_TURN = "getPlayerTurn";
-    String GET_FROZEN_CARDS_TABLE = "getFrozenCardsOnTable";
+    String GET_FROZEN_CARDS_ON_TABLE = "getFrozenCardsOnTable";
     String GET_TOTAL_GAMES_PLAYED = "getTotalGamesPlayed";
     String GET_PLAYER_ONE_WINS = "getPlayerOneWins";
     String GET_PLAYER_TWO_WINS = "getPlayerTwoWins";

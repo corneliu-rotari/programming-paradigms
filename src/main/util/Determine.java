@@ -17,6 +17,13 @@ import main.cards.card.environment.Winterfell;
 
 public final class Determine {
 //    TODO transform in singleton
+//    TODO JAVADOC
+
+    /**
+     *
+     * @param card -
+     * @return -
+     */
     public static Card createCard(final Card card) {
         return switch (card.getName()) {
             case GameConstants.SENTINEL -> new Sentinel((Sentinel) card);
@@ -34,6 +41,11 @@ public final class Determine {
         };
     }
 
+    /**
+     *
+     * @param cardInput -
+     * @return -
+     */
     public static Card createCard(final CardInput cardInput) {
         return switch (cardInput.getName()) {
             case GameConstants.SENTINEL -> new Sentinel(cardInput);
@@ -51,7 +63,12 @@ public final class Determine {
         };
     }
 
-    public static HeroCard createHero(final CardInput cardInput){
+    /**
+     *
+     * @param cardInput -
+     * @return -
+     */
+    public static HeroCard createHero(final CardInput cardInput) {
         return switch (cardInput.getName()) {
             case GameConstants.LORD -> new LordRice(cardInput);
             case GameConstants.KING -> new KingMudface(cardInput);
