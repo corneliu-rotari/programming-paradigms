@@ -65,7 +65,7 @@ public final class Main {
      * @param filePath2 for output file
      * @throws IOException in case of exceptions to reading / writing
      */
-    public static void action(final String filePath1,
+    public static synchronized void action(final String filePath1,
                               final String filePath2) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Input inputData = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH + filePath1),
@@ -74,15 +74,14 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
         // TODO add here the entry point to your implementation
-        System.out.println(filePath1 + " || " + filePath2);
-        GameTable gameTable = GameTable.createGameTable(inputData.getPlayerOneDecks(),
+        GameTable gameTable = new GameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
         CommandController commandController = new CommandController(output);
 
         for (GameInput game: inputData.getGames()) {
             gameTable.startGame(game.getStartGame());
             for (ActionsInput action: game.getActions()) {
-                commandController.determineAction(action);
+                commandController.determineAction(action, gameTable);
             }
 
         }
