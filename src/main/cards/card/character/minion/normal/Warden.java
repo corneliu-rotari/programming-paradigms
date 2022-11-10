@@ -7,4 +7,7 @@ public final class Warden extends MinionCard {
     public Warden(final CardInput cardInput) {
         super(cardInput);
     }
+    public Warden(final Warden card) {
+        super(card);
+    }
 }

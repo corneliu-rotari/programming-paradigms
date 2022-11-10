@@ -7,4 +7,7 @@ public final class TheRipper extends MinionCard {
     public TheRipper(final CardInput cardInput) {
         super(cardInput);
     }
+    public TheRipper(final TheRipper card) {
+        super(card);
+    }
 }

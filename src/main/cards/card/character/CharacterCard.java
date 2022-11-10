@@ -11,4 +11,9 @@ public abstract class CharacterCard extends Card {
         super(cardInput);
         this.health = health;
     }
+
+    public CharacterCard(final Card card, final int health) {
+        super(card);
+        this.health = health;
+    }
 }

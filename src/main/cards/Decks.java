@@ -1,47 +1,40 @@
 package main.cards;
 
-import fileio.CardInput;
 import fileio.DecksInput;
+import lombok.Getter;
+import lombok.Setter;
 import main.cards.card.Card;
-import main.cards.card.character.minion.normal.Berserker;
-import main.cards.card.character.minion.normal.Goliath;
-import main.cards.card.character.minion.normal.Sentinel;
-import main.cards.card.character.minion.normal.Warden;
-import main.cards.card.character.minion.special.Disciple;
-import main.cards.card.character.minion.special.Miraj;
-import main.cards.card.character.minion.special.TheCursedOne;
-import main.cards.card.character.minion.special.TheRipper;
-import main.cards.card.environment.Firestorm;
-import main.cards.card.environment.HeartHound;
-import main.cards.card.environment.Winterfell;
-import main.util.GameConstants;
-import main.util.MatrixOfCards;
+import main.util.Determine;
 
-public class Decks extends MatrixOfCards {
+import java.util.ArrayList;
+
+public class Decks {
+    @Getter @Setter protected ArrayList<ArrayList<Card>> decks;
+
+    protected Decks(final int rows, final int columns) {
+        this.decks = new ArrayList<ArrayList<Card>>(rows);
+        for (int i = 0; i < rows; i++) {
+            this.decks.add(i, new ArrayList<Card>(columns));
+        }
+    }
 
     public Decks(final DecksInput deck) {
-        super(deck.getNrDecks(), deck.getNrCardsInDeck());
+        this(deck.getNrDecks(), deck.getNrCardsInDeck());
         for (int i = 0; i < deck.getNrDecks(); i++) {
             for (int j = 0; j < deck.getNrCardsInDeck(); j++) {
-                this.getMatrixOfCards().get(i).add(determineCard(deck.getDecks().get(i).get(j)));
+                this.decks.get(i).add(
+                        new Determine().determineCard(deck.getDecks().get(i).get(j)));
             }
         }
     }
 
-    private Card determineCard(final CardInput cardInput) {
-        return switch (cardInput.getName()) {
-            case GameConstants.SENTINEL -> new Sentinel(cardInput);
-            case GameConstants.DISCIPLE -> new Disciple(cardInput);
-            case GameConstants.FIRESTORM -> new Firestorm(cardInput);
-            case GameConstants.GOLIATH -> new Goliath(cardInput);
-            case GameConstants.BERSERKER -> new Berserker(cardInput);
-            case GameConstants.HEART_HOUND -> new HeartHound(cardInput);
-            case GameConstants.MIRAJ -> new Miraj(cardInput);
-            case GameConstants.THE_CURSED_ONE -> new TheCursedOne(cardInput);
-            case GameConstants.THE_REAPER -> new TheRipper(cardInput);
-            case GameConstants.WARDEN -> new Warden(cardInput);
-            case GameConstants.WINTERFALL -> new Winterfell(cardInput);
-            default -> null;
-        };
-    }
+    /**
+     * Get the deck on position index
+     * @param index
+     * @return
+     */
+    public ArrayList<Card> get(final int index) {
+        return this.decks.get(index);
+    };
+
 }

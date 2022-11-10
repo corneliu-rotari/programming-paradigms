@@ -7,4 +7,8 @@ public final class Goliath extends MinionCard {
     public Goliath(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public Goliath(final Goliath card) {
+        super(card);
+    }
 }

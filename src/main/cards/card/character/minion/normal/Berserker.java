@@ -7,4 +7,8 @@ public final class Berserker extends MinionCard {
     public Berserker(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public Berserker(final Berserker card) {
+        super(card);
+    }
 }

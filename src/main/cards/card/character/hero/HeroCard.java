@@ -9,11 +9,12 @@ public abstract class HeroCard extends CharacterCard {
         super(cardInput, GameConstants.HERO_HEALTH);
     }
 
-    /**
-     * Check if the hero is dead
-     * @return - boolean
-     */
-    public boolean isHeroDead() {
-        return this.health == 0;
-    }
+//    /**
+//     * Check if the hero is dead
+//     * @return - boolean
+//     */
+//    public boolean isHeroDead() {
+//        return this.health == 0;
+//    }
+
 }

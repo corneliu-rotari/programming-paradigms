@@ -7,4 +7,8 @@ public final class TheCursedOne extends MinionCard {
     public TheCursedOne(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public TheCursedOne(final TheCursedOne card) {
+        super(card);
+    }
 }

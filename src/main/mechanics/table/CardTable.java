@@ -1,8 +1,8 @@
 package main.mechanics.table;
 
-import main.util.MatrixOfCards;
+import main.cards.Decks;
 
-public class CardTable extends MatrixOfCards {
+public final class CardTable extends Decks {
     public CardTable(final int rows, final int columns) {
         super(rows, columns);
     }

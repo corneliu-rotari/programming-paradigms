@@ -7,4 +7,8 @@ public final class Sentinel extends MinionCard {
     public Sentinel(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public Sentinel(final Sentinel card) {
+        super(card);
+    }
 }

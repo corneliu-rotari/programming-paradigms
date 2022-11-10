@@ -8,4 +8,8 @@ public abstract class EnvironmentCard extends Card {
     public EnvironmentCard(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public EnvironmentCard(final EnvironmentCard card) {
+        super(card);
+    }
 }

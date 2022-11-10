@@ -18,4 +18,11 @@ public abstract class Card {
         this.description = cardInput.getDescription();
         this.colors = cardInput.getColors();
     }
+
+    protected Card(final Card card) {
+        this.mana = card.getMana();
+        this.name = card.getName();
+        this.description = card.getDescription();
+        this.colors = card.getColors();
+    }
 }

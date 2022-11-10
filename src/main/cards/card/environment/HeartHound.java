@@ -6,4 +6,8 @@ public final class HeartHound extends EnvironmentCard {
     public HeartHound(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public HeartHound(final HeartHound card) {
+        super(card);
+    }
 }

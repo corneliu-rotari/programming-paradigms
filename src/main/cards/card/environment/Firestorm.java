@@ -6,4 +6,8 @@ public final class Firestorm extends EnvironmentCard {
     public Firestorm(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public Firestorm(final Firestorm card) {
+        super(card);
+    }
 }

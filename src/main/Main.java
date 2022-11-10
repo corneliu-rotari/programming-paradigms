@@ -6,7 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
+import fileio.ActionsInput;
+import fileio.GameInput;
 import fileio.Input;
+import main.mechanics.commands.CommandController;
 import main.mechanics.table.GameTable;
 
 import java.io.File;
@@ -71,7 +74,18 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
         // TODO add here the entry point to your implementation
-        GameTable gameTable = GameTable.createGameTable(inputData);
+        System.out.println(filePath1 + " || " + filePath2);
+        GameTable gameTable = GameTable.createGameTable(inputData.getPlayerOneDecks(),
+                                                        inputData.getPlayerTwoDecks());
+        CommandController commandController = new CommandController(output);
+
+        for (GameInput game: inputData.getGames()) {
+            gameTable.startGame(game.getStartGame());
+            for (ActionsInput action: game.getActions()) {
+                commandController.determineAction(action);
+            }
+
+        }
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);

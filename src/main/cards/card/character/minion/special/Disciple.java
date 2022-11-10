@@ -7,4 +7,8 @@ public final class Disciple extends MinionCard {
     public Disciple(final CardInput cardInput) {
         super(cardInput);
     }
+
+    public Disciple(final Disciple card) {
+        super(card);
+    }
 }
