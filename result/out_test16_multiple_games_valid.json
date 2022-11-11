@@ -95,7 +95,7 @@
     "name" : "Miraj",
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
     "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
+    "health" : 4,
     "attackDamage" : 5
   }, {
     "mana" : 2,
@@ -116,7 +116,7 @@
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
+    "health" : 3,
     "attackDamage" : 6
   } ], [ {
     "mana" : 2,
@@ -171,11 +171,23 @@
   }
 }, {
   "command" : "placeCard",
+  "handIdx" : 0,
   "error" : "Cannot place environment card on table."
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
   "output" : 22
+}, {
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "error" : "class main.cards.card.character.minion.normal.Berserker cannot be cast to class main.cards.card.character.minion.special.SpecialMinionCard (main.cards.card.character.minion.normal.Berserker and main.cards.card.character.minion.special.SpecialMinionCard are in unnamed module of loader 'app')"
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -192,6 +204,7 @@
   } ]
 }, {
   "command" : "placeCard",
+  "handIdx" : 0,
   "error" : "Cannot place environment card on table."
 }, {
   "command" : "getCardAtPosition",
@@ -228,6 +241,7 @@
   "output" : [ ]
 }, {
   "command" : "placeCard",
+  "handIdx" : 0,
   "error" : "Cannot place environment card on table."
 }, {
   "command" : "getCardAtPosition",
@@ -268,7 +282,7 @@
     "name" : "Miraj",
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
     "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
+    "health" : 4,
     "attackDamage" : 5
   }, {
     "mana" : 2,
@@ -296,15 +310,8 @@
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
+    "health" : 3,
     "attackDamage" : 6
-  }, {
-    "mana" : 2,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "attackDamage" : 5
   }, {
     "mana" : 2,
     "name" : "The Ripper",

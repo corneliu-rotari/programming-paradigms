@@ -9,11 +9,6 @@
     "attackDamage" : 6
   }
 }, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 2,
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.setFrozen(boolean)\" because \"card\" is null"
-}, {
   "command" : "getCardAtPosition",
   "output" : {
     "mana" : 3,
@@ -24,24 +19,53 @@
     "attackDamage" : 6
   }
 }, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "error" : "Attacker card is frozen."
+}, {
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "error" : "Attacked card is not of type 'Tank'."
+}, {
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 3,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 1,
+    "y" : 0
+  },
+  "error" : "Attacker card has already attacked this turn."
+}, {
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 2,
+    "y" : 1
+  },
+  "error" : "Attacked card does not belong to the enemy."
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
-    "mana" : 1,
-    "name" : "Winterfell",
-    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
-    "colors" : [ "White", "Grey", "Black" ]
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
-    "colors" : [ "Red", "Purple" ],
-    "health" : 8,
-    "attackDamage" : 1
-  }, {
     "mana" : 4,
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
@@ -52,19 +76,21 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 8
+  "output" : 4
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
-}, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
-}, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
+  "command" : "cardUsesAbility",
+  "cardAttacker" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "cardAttacked" : {
+    "x" : 2,
+    "y" : 1
+  },
+  "error" : "Attacked card does not belong to the current player."
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
@@ -72,7 +98,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 26
+  "output" : 11
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
@@ -82,7 +108,35 @@
     "colors" : [ "Green", "Yellow", "Blue" ],
     "health" : 2,
     "attackDamage" : 0
-  } ], [ ], [ {
+  } ], [ {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 1,
+    "attackDamage" : 8
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 4
+  }, {
+    "mana" : 4,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 7,
+    "attackDamage" : 1
+  }, {
+    "mana" : 3,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 6,
+    "attackDamage" : 3
+  } ], [ {
     "mana" : 3,
     "name" : "The Ripper",
     "description" : "Standard card: Death incarnate. No better time to die than now.",
@@ -138,39 +192,6 @@
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
-    "mana" : 1,
-    "name" : "Winterfell",
-    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
-    "colors" : [ "White", "Grey", "Black" ]
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
-    "colors" : [ "Red", "Purple" ],
-    "health" : 8,
-    "attackDamage" : 1
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
-    "attackDamage" : 4
-  }, {
-    "mana" : 4,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "attackDamage" : 1
-  }, {
-    "mana" : 3,
-    "name" : "Warden",
-    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
-    "colors" : [ "Black", "White", "Green" ],
-    "health" : 6,
-    "attackDamage" : 3
-  }, {
     "mana" : 4,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",

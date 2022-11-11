@@ -4,6 +4,7 @@ import fileio.CardInput;
 import main.cards.card.character.minion.MinionCard;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public final class Winterfell extends EnvironmentCard {
     public Winterfell(final CardInput cardInput) {
@@ -15,6 +16,6 @@ public final class Winterfell extends EnvironmentCard {
 
     @Override
     public void useAbility(final ArrayList<MinionCard> cardRow, final int affectedRow) {
-        cardRow.forEach(card -> card.setFrozen(true));
+        cardRow.stream().filter(Objects::nonNull).forEach(card -> card.setFrozen(true));
     }
 }

@@ -12,5 +12,5 @@ public abstract class SpecialMinionCard extends MinionCard {
         super(card);
     }
 
-//    abstract public void useAbility();
+    abstract public void useAbility(MinionCard attacked);
 }

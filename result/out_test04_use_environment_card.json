@@ -8,11 +8,6 @@
     "colors" : [ "White", "Blue" ]
   } ]
 }, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 0,
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.setFrozen(boolean)\" because \"card\" is null"
-}, {
   "command" : "getCardAtPosition",
   "output" : {
     "mana" : 2,
@@ -32,23 +27,10 @@
     "health" : 3,
     "attackDamage" : 1
   }
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 3,
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.setFrozen(boolean)\" because \"card\" is null"
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 1,
-    "name" : "Winterfell",
-    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
-    "colors" : [ "White", "Blue" ]
-  } ]
-}, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
+  "output" : [ ]
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -70,26 +52,13 @@
     "attackDamage" : 2
   }
 }, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 0,
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.setFrozen(boolean)\" because \"card\" is null"
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 3,
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.setFrozen(boolean)\" because \"card\" is null"
-}, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 18
+  "output" : 15
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 17
+  "output" : 11
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
@@ -106,42 +75,25 @@
     "colors" : [ "Purple", "Yellow" ],
     "health" : 2,
     "attackDamage" : 3
+  }, {
+    "mana" : 2,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "Grey", "Blue" ],
+    "health" : 3,
+    "attackDamage" : 1
   } ], [ ], [ ], [ {
     "mana" : 1,
     "name" : "Sentinel",
     "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
     "colors" : [ "Black", "White" ],
-    "health" : 3,
+    "health" : 2,
     "attackDamage" : 1
-  }, {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
-    "colors" : [ "Red", "Blue", "Pink" ],
-    "health" : 1,
-    "attackDamage" : 2
   } ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
   "output" : [ {
-    "mana" : 1,
-    "name" : "Winterfell",
-    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
-    "colors" : [ "White", "Blue" ]
-  }, {
-    "mana" : 1,
-    "name" : "Berserker",
-    "description" : "Premium card: Fear him. Your last breath is now.",
-    "colors" : [ "Red", "Blue", "Pink" ],
-    "health" : 1,
-    "attackDamage" : 2
-  }, {
-    "mana" : 1,
-    "name" : "Winterfell",
-    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
-    "colors" : [ "White", "Grey", "Black" ]
-  }, {
     "mana" : 3,
     "name" : "The Cursed One",
     "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
@@ -153,23 +105,6 @@
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
-    "mana" : 2,
-    "name" : "Winterfell",
-    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
-    "colors" : [ "White", "Grey", "Black" ]
-  }, {
-    "mana" : 2,
-    "name" : "Sentinel",
-    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 3,
-    "attackDamage" : 1
-  }, {
-    "mana" : 2,
-    "name" : "Firestorm",
-    "description" : "Standard card: The dragon was unleashed, run for your lives.",
-    "colors" : [ "Blue", "Green", "White" ]
-  }, {
     "mana" : 3,
     "name" : "Disciple",
     "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",

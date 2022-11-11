@@ -17,7 +17,8 @@ public abstract class EnvironmentCard extends Card {
         super(card);
     }
 
-    abstract public void useAbility(ArrayList<MinionCard> cardRow, int affectedRow);
+
+    abstract public void useAbility(ArrayList<MinionCard> cardRow, int affectedRow) throws Exception;
 
     public int getMirrorRow(final int affectedRow) {
         int mirrorRow;

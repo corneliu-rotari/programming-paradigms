@@ -4,16 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
+import fileio.Coordinates;
 import main.mechanics.table.GameTable;
 import main.util.Const;
 
 public final class GameControlCommands implements CommandUser {
     private ObjectNode objectNode;
+    private ObjectMapper mapper;
     private ArrayNode output;
     private GameTable gameTable;
     public GameControlCommands(final ArrayNode output) {
         this.gameTable = GameTable.getGameTable();
         this.output = output;
+        this.mapper = new ObjectMapper();
     }
 
     /**
@@ -21,29 +24,42 @@ public final class GameControlCommands implements CommandUser {
      * @param actionsInput - command information
      */
     public void determineCommand(final ActionsInput actionsInput) {
-        this.objectNode = new ObjectMapper().createObjectNode();
+        this.objectNode = mapper.createObjectNode();
         this.objectNode.put("command", actionsInput.getCommand());
         try {
             switch (actionsInput.getCommand()) {
-                case Const.END_PLAYER_TURN ->
-                        this.gameTable.endPlayerTurn();
+                case Const.END_PLAYER_TURN -> this.gameTable.endPlayerTurn();
                 case Const.PLACE_CARD -> {
-                    this.gameTable.getCardTable().printCardTable();
+                    this.objectNode.put("handIdx", actionsInput.getHandIdx());
                     this.gameTable.getCardTable().placeCard(actionsInput.getHandIdx());
                 }
-                case Const.CARD_USES_ABILITY -> {
-                }
                 case Const.CARD_USES_ATTACK -> {
-                }
-                case Const.USE_ATTACK_ON_HERO -> {
+                    Coordinates attacker = actionsInput.getCardAttacker();
+                    Coordinates attacked = actionsInput.getCardAttacked();
+
+                    outputCordJSON(attacker, attacked);
+
+                    this.gameTable.getCardTable().attackCard(attacker, attacked);
                 }
                 case Const.USE_ENV_CARD -> {
                     this.objectNode.put("handIdx", actionsInput.getHandIdx());
                     this.objectNode.put("affectedRow", actionsInput.getAffectedRow());
-                    this.gameTable.getPlayer().useEnvironmentCard(actionsInput.getHandIdx(),
+                    this.gameTable.getOffensivePlayer().useEnvironmentCard(actionsInput.getHandIdx(),
                             actionsInput.getAffectedRow());
                 }
+                case Const.CARD_USES_ABILITY -> {
+                    Coordinates attacker = actionsInput.getCardAttacker();
+                    Coordinates attacked = actionsInput.getCardAttacked();
+
+                    outputCordJSON(attacker, attacked);
+
+                    this.gameTable.getCardTable().useAbility(attacker, attacked);
+                }
+                case Const.USE_ATTACK_ON_HERO -> {
+                }
                 case Const.USE_HERO_ABILITY -> {
+                    this.objectNode.put("affectedRow", actionsInput.getAffectedRow());
+//                    this.gameTable.getCardTable().useHeroAbility(actionsInput.getAffectedRow());
                 }
                 default -> {
                 }
@@ -54,6 +70,12 @@ public final class GameControlCommands implements CommandUser {
 
         }
         this.objectNode = null;
-
+        GameTable.getGameTable().getCardTable().checkCardsHealth();
     }
+
+    private void outputCordJSON(Coordinates attacker, Coordinates attacked) {
+        this.objectNode.set("cardAttacker", mapper.valueToTree(attacker));
+        this.objectNode.set("cardAttacked", mapper.valueToTree(attacked));
+    }
+
 }

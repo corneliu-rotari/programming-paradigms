@@ -15,7 +15,6 @@ public final class GameTable {
     @Getter private Player playerTwo;
 
     @Getter @Setter private int playerTurn;
-    private int roundNumber = 0;
     private int manaCapaity = 0;
     private int turnsPlayed = 0;
 
@@ -76,8 +75,15 @@ public final class GameTable {
      * Return which player is able to take action
      * @return - Player
      */
-    public Player getPlayer() {
+    public Player getOffensivePlayer() {
         if (this.playerTurn == Const.PLAYER_ONE) {
+            return this.playerOne;
+        }
+        return this.playerTwo;
+    }
+
+    public Player getDefensivePlayer() {
+        if (this.playerTurn != Const.PLAYER_ONE) {
             return this.playerOne;
         }
         return this.playerTwo;
@@ -87,6 +93,8 @@ public final class GameTable {
      *
      */
     public void endPlayerTurn() {
+        System.out.println("endPlayerTurn");
+        cardTable.endTurnDestroyEffects(getOffensivePlayer());
         if (playerTurn == Const.PLAYER_ONE) {
             playerTurn = Const.PLAYER_TWO;
         } else {
@@ -104,6 +112,7 @@ public final class GameTable {
     }
 
     private void roundStarts() {
+        System.out.println("\nRounds start\n");
         if (manaCapaity < 10) {
             manaCapaity++;
         }
@@ -112,4 +121,5 @@ public final class GameTable {
         this.playerOne.setMana(manaCapaity);
         this.playerTwo.setMana(manaCapaity);
     }
+
 }

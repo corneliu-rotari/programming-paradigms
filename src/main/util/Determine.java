@@ -3,6 +3,7 @@ package main.util;
 import fileio.CardInput;
 import main.cards.card.Card;
 import main.cards.card.character.hero.*;
+import main.cards.card.character.minion.MinionCard;
 import main.cards.card.character.minion.normal.Berserker;
 import main.cards.card.character.minion.normal.Goliath;
 import main.cards.card.character.minion.normal.Sentinel;
@@ -15,12 +16,14 @@ import main.cards.card.environment.Firestorm;
 import main.cards.card.environment.HeartHound;
 import main.cards.card.environment.Winterfell;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 public final class Determine {
     private Determine() {
     }
 
     /**
-     *
      * @param card -
      * @return -
      */
@@ -42,7 +45,6 @@ public final class Determine {
     }
 
     /**
-     *
      * @param cardInput -
      * @return -
      */
@@ -64,7 +66,6 @@ public final class Determine {
     }
 
     /**
-     *
      * @param cardInput -
      * @return -
      */
@@ -80,6 +81,7 @@ public final class Determine {
 
     /**
      * D
+     *
      * @param card -
      * @return -
      */
@@ -92,25 +94,22 @@ public final class Determine {
 
     /**
      * D
+     *
      * @param card -
      * @return -
      */
     public static boolean determineFrontRowCard(final Card card) {
-        return switch (card.getName()) {
-            case Const.THE_RIPPER, Const.MIRAJ, Const.GOLIATH, Const.WARDEN -> true;
+        return isTank(card) || switch (card.getName()) {
+            case Const.THE_RIPPER, Const.MIRAJ -> true;
             default -> false;
         };
     }
 
-    /**
-     * d
-     * @param card -
-     * @return -
-     */
-    public static boolean determineBackRowCard(final Card card) {
+    public static boolean isTank(final Card card) {
         return switch (card.getName()) {
-            case Const.SENTINEL, Const.BERSERKER, Const.THE_CURSED_ONE, Const.DISCIPLE -> true;
+            case Const.GOLIATH, Const.WARDEN -> true;
             default -> false;
         };
     }
+
 }

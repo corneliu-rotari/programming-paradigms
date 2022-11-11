@@ -81,10 +81,12 @@ public final class Player {
         if (affectedRow == this.backRow || affectedRow == this.frontRow) {
             throw new Exception("Chosen row does not belong to the enemy.");
         }
-        if (false/* TODO Need to check if row is full*/) {
-            throw new Exception("Cannot steal enemy card since the player's row is full.");
+        try {
+            card.useAbility(GameTable.getGameTable().getCardTable().get(affectedRow), affectedRow);
+        } catch (Exception exception) {
+            throw exception;
         }
-        card.useAbility(GameTable.getGameTable().getCardTable().get(affectedRow), affectedRow);
+        this.mana = this.mana - card.getMana();
         this.playingHand.remove(handIdx);
     }
 

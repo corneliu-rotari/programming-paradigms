@@ -88,15 +88,12 @@ public final class DebugAndStatsCommands implements CommandUser {
                 } else {
                     inputArray = this.gameTable.getPlayerTwo().getPlayingHand();
                 }
-                //                TODO Posibil greseli cu ordinea cartilor in output
-
                 inputArray.stream().filter(Determine::determineEnv).toList().
                         forEach(card -> outputArray.add((EnvironmentCard) card));
                 this.objectNode.set("output", mapper.valueToTree(outputArray));
             }
 
             case Const.GET_FROZEN_CARDS_ON_TABLE -> {
-//                TODO Posibil greseli cu ordinea cartilor in output
                 ArrayList<ObjectNode> outputArray = new ArrayList<>();
                 this.gameTable.getCardTable().getCardTable()
                         .forEach(minionCardsList -> minionCardsList.stream().
@@ -162,6 +159,7 @@ public final class DebugAndStatsCommands implements CommandUser {
         node.remove("frozen");
         node.remove("hasAttacked");
         node.remove("heroDead");
+        node.remove("dead");
         return node;
     }
 }

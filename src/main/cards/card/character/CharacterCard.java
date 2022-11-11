@@ -18,4 +18,9 @@ public abstract class CharacterCard extends Card {
         super(card);
         this.health = health;
     }
+
+    public boolean isDead() {
+        return this.health <= 0;
+    }
+
 }

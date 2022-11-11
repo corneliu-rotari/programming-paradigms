@@ -5,6 +5,7 @@ import main.cards.card.character.minion.MinionCard;
 import main.mechanics.table.GameTable;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public final class Firestorm extends EnvironmentCard {
     public Firestorm(final CardInput cardInput) {
@@ -17,7 +18,7 @@ public final class Firestorm extends EnvironmentCard {
 
     @Override
     public void useAbility(final ArrayList<MinionCard> cardRow, final int affectedRow) {
-        cardRow.forEach(minionCard -> minionCard.setHealth(minionCard.getHealth() - 1));
-        GameTable.getGameTable().getCardTable().checkCardsHealth();
+        cardRow.stream().filter(Objects::nonNull).
+                forEach(minionCard -> minionCard.setHealth(minionCard.getHealth() - 1));
     }
 }

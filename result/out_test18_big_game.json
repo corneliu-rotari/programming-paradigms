@@ -63,7 +63,7 @@
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "health" : 4,
+    "health" : 2,
     "attackDamage" : 5
   }
 }, {
@@ -89,7 +89,7 @@
     "name" : "Berserker",
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
+    "health" : 4,
     "attackDamage" : 2
   }
 }, {
@@ -125,7 +125,7 @@
     "name" : "Berserker",
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
+    "health" : 5,
     "attackDamage" : 2
   }
 }, {
@@ -138,7 +138,7 @@
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "health" : 4,
+    "health" : 2,
     "attackDamage" : 5
   }
 }, {
@@ -169,7 +169,7 @@
     "name" : "Berserker",
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
+    "health" : 5,
     "attackDamage" : 2
   }
 }, {
@@ -189,15 +189,8 @@
     "name" : "Berserker",
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
+    "health" : 5,
     "attackDamage" : 2
-  }, {
-    "mana" : 3,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 2,
-    "attackDamage" : 0
   } ], [ {
     "mana" : 4,
     "name" : "The Ripper",
@@ -224,14 +217,14 @@
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "health" : 4,
+    "health" : 2,
     "attackDamage" : 5
   }, {
     "mana" : 3,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
+    "health" : 2,
     "attackDamage" : 1
   }, {
     "mana" : 5,

@@ -19,5 +19,12 @@ public abstract class MinionCard extends CharacterCard {
         this.isFrozen = false;
     }
 
+    public void attackCard(MinionCard card){
+        card.setHealth(card.getHealth() - this.attackDamage);
+        this.hasAttacked = true;
+    }
 
+    public void setAttackDamage(int attackDamage) {
+        this.attackDamage = Math.max(attackDamage, 0);
+    }
 }
