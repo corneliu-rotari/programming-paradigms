@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
-import fileio.ActionsInput;
-import fileio.GameInput;
 import fileio.Input;
 import main.mechanics.commands.CommandController;
 import main.mechanics.table.GameTable;
@@ -74,7 +72,7 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
 
-        GameTable gameTable = GameTable.createGameTable(inputData.getPlayerOneDecks(),
+        GameTable gameTable = GameTable.getGameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
         CommandController commandController = new CommandController(output);
 

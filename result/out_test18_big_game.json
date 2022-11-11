@@ -8,16 +8,7 @@
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Premium card: Fear him. Your last breath is now.",
-    "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
-    "hasAttacked" : false,
-    "attackDamage" : 2,
-    "frozen" : false
-  } ]
+  "output" : [ ]
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -39,15 +30,6 @@
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
   } ]
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -63,24 +45,6 @@
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 4,
-    "frozen" : false
   } ]
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -88,13 +52,20 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 6
+  "output" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
+  "output" : {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -106,88 +77,32 @@
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 4,
-    "frozen" : false
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 10
+  "output" : 3
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 2
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 2,
-  "output" : [ {
+  "output" : {
     "mana" : 2,
     "name" : "Berserker",
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Purple", "Yellow" ],
     "health" : 2,
-    "hasAttacked" : false,
-    "attackDamage" : 2,
-    "frozen" : false
-  }, {
-    "mana" : 4,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Orange", "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 4,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Orange", "Red", "Black" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 3,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 2,
-    "hasAttacked" : false,
-    "attackDamage" : 0,
-    "frozen" : false
-  } ]
+    "attackDamage" : 2
+  }
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 15
+  "output" : 3
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
@@ -196,42 +111,6 @@
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 4,
-    "frozen" : false
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
-  }, {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 2,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
   } ]
 }, {
   "command" : "getPlayerTurn",
@@ -241,20 +120,34 @@
   "output" : [ ]
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
+  "output" : {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2
+  }
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
+  "output" : {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 21
+  "output" : 8
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
@@ -264,42 +157,6 @@
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
   }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 4,
-    "frozen" : false
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
-  }, {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 2,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
-  }, {
     "mana" : 2,
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
@@ -307,20 +164,97 @@
   } ]
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
+  "output" : {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2
+  }
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 21
+  "output" : 4
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
   "command" : "getCardsOnTable",
-  "output" : [ [ ], [ ], [ ], [ ] ]
+  "output" : [ [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 2,
+    "attackDamage" : 2
+  }, {
+    "mana" : 3,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "attackDamage" : 0
+  } ], [ {
+    "mana" : 4,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 4,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 4
+  } ], [ {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 7,
+    "attackDamage" : 1
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "attackDamage" : 4
+  }, {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 8,
+    "attackDamage" : 2
+  } ], [ {
+    "mana" : 1,
+    "name" : "Sentinel",
+    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
+    "colors" : [ "Black", "Grey", "Blue" ],
+    "health" : 2,
+    "attackDamage" : 1
+  } ] ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
@@ -330,85 +264,15 @@
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Red", "White", "Grey" ]
   }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "attackDamage" : 5
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "attackDamage" : 4
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "attackDamage" : 1
-  }, {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 2,
-    "attackDamage" : 1
-  }, {
     "mana" : 2,
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Green", "Black" ]
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
-    "colors" : [ "Red", "Purple" ],
-    "health" : 8,
-    "attackDamage" : 2
   } ]
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Premium card: Fear him. Your last breath is now.",
-    "colors" : [ "Purple", "Yellow" ],
-    "health" : 2,
-    "attackDamage" : 2
-  }, {
-    "mana" : 4,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Orange", "Red", "Black" ],
-    "health" : 4,
-    "attackDamage" : 5
-  }, {
-    "mana" : 4,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Orange", "Red", "Black" ],
-    "health" : 3,
-    "attackDamage" : 5
-  }, {
-    "mana" : 3,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 2,
-    "attackDamage" : 0
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
-    "attackDamage" : 4
-  }, {
     "mana" : 5,
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",

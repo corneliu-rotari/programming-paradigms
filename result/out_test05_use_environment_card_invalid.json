@@ -3,74 +3,43 @@
   "playerIdx" : 1,
   "output" : [ {
     "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
-    "colors" : [ "Brown", "Black", "Grey" ],
-    "health" : 7,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
-  }, {
-    "mana" : 3,
     "name" : "Firestorm",
     "description" : "Standard card: The dragon was unleashed, run for your lives.",
     "colors" : [ "Red", "Yellow" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
   } ]
 }, {
   "command" : "useEnvironmentCard",
   "handIdx" : 0,
   "affectedRow" : 1,
-  "error" : "Chosen card is not of type environment."
+  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.getHealth()\" because \"minionCard\" is null"
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
+  "output" : {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 7,
+    "attackDamage" : 2
+  }
 }, {
   "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
+  "output" : {
     "mana" : 3,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
-    "hasAttacked" : false,
-    "attackDamage" : 1,
-    "frozen" : false
-  }, {
+    "attackDamage" : 1
+  }
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
     "mana" : 3,
     "name" : "Firestorm",
     "description" : "Standard card: The dragon was unleashed, run for your lives.",
     "colors" : [ "Red", "Yellow" ]
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 3,
-    "hasAttacked" : false,
-    "attackDamage" : 5,
-    "frozen" : false
   } ]
 }, {
   "command" : "getFrozenCardsOnTable",
@@ -79,68 +48,103 @@
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
-  "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 2,
-  "error" : "Chosen card is not of type environment."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 3,
-  "error" : "Chosen card is not of type environment."
-}, {
   "command" : "placeCard",
   "error" : "Cannot place environment card on table."
 }, {
-  "command" : "placeCard",
-  "error" : "Cannot place environment card on table."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 3,
-  "error" : "Chosen card is not of type environment."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 1,
-  "error" : "Chosen card is not of type environment."
-}, {
-  "command" : "useEnvironmentCard",
-  "handIdx" : 0,
-  "affectedRow" : 2,
-  "error" : "Chosen card is not of type environment."
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 1,
-  "output" : 45
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 2,
-  "output" : 45
-}, {
-  "command" : "getCardsOnTable",
-  "output" : [ [ ], [ ], [ ], [ ] ]
-}, {
-  "command" : "getCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
+  "command" : "getCardAtPosition",
+  "output" : {
     "mana" : 3,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
     "attackDamage" : 1
+  }
+}, {
+  "command" : "getCardAtPosition",
+  "output" : {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 7,
+    "attackDamage" : 2
+  }
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 2,
+  "error" : "Chosen row does not belong to the enemy."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 3,
+  "error" : "Chosen card is not of type environment."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 3,
+  "error" : "Chosen row does not belong to the enemy."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 1,
+  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.getHealth()\" because \"minionCard\" is null"
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 1,
+  "output" : 33
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 2,
+  "output" : 25
+}, {
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 6,
+    "attackDamage" : 2
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 2,
+    "attackDamage" : 5
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 5
   }, {
     "mana" : 3,
-    "name" : "Firestorm",
-    "description" : "Standard card: The dragon was unleashed, run for your lives.",
-    "colors" : [ "Red", "Yellow" ]
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 5,
+    "attackDamage" : 3
+  } ], [ {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Brown", "Black", "Grey" ],
+    "health" : 7,
+    "attackDamage" : 1
   }, {
     "mana" : 4,
     "name" : "Miraj",
@@ -155,6 +159,15 @@
     "colors" : [ "Red", "Black" ],
     "health" : 3,
     "attackDamage" : 5
+  } ], [ ] ]
+}, {
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 3,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Red", "Yellow" ]
   }, {
     "mana" : 4,
     "name" : "Firestorm",
@@ -191,46 +204,6 @@
   "command" : "getCardsInHand",
   "playerIdx" : 2,
   "output" : [ {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
-    "attackDamage" : 5
-  }, {
-    "mana" : 3,
-    "name" : "Goliath",
-    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
-    "colors" : [ "Red", "Purple" ],
-    "health" : 8,
-    "attackDamage" : 2
-  }, {
-    "mana" : 4,
-    "name" : "Miraj",
-    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
-    "colors" : [ "Red", "Black" ],
-    "health" : 4,
-    "attackDamage" : 5
-  }, {
-    "mana" : 5,
-    "name" : "Miraj",
-    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
-    "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 4,
-    "attackDamage" : 5
-  }, {
-    "mana" : 3,
-    "name" : "Warden",
-    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
-    "colors" : [ "Brown", "Blue" ],
-    "health" : 6,
-    "attackDamage" : 3
-  }, {
-    "mana" : 2,
-    "name" : "Heart Hound",
-    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
-    "colors" : [ "Red", "White", "Grey" ]
-  }, {
     "mana" : 1,
     "name" : "Heart Hound",
     "description" : "Standard card: Corruption is easy, you always wanted it, now I help you embrace it.",

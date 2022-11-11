@@ -4,7 +4,7 @@ import fileio.*;
 import lombok.Getter;
 import lombok.Setter;
 import main.mechanics.player.Player;
-import main.util.GameConstants;
+import main.util.Const;
 
 import java.util.Random;
 
@@ -21,22 +21,32 @@ public final class GameTable {
 
 
     private GameTable() {
-        this.cardTable = new CardTable(GameConstants.NR_TABLE_ROWS, GameConstants.NR_TABLE_COLUMNS);
+        this.cardTable = new CardTable(Const.NR_TABLE_ROWS, Const.NR_TABLE_COLUMNS);
     }
 
     private GameTable(final DecksInput playerOne, final DecksInput playerTwo) {
         this();
-        this.playerOne = new Player(playerOne, GameConstants.PLAYER_ONE_FRONT, GameConstants.PLAYER_ONE_BACK);
-        this.playerTwo = new Player(playerTwo, GameConstants.PLAYER_TWO_FRONT, GameConstants.PLAYER_TWO_BACK);
+        this.playerOne = new Player(playerOne, Const.PLAYER_ONE_FRONT, Const.PLAYER_ONE_BACK);
+        this.playerTwo = new Player(playerTwo, Const.PLAYER_TWO_FRONT, Const.PLAYER_TWO_BACK);
     }
 
-    public static GameTable createGameTable(final DecksInput playerOne, final DecksInput playerTwo) {
+    /**
+     * Creates a game table for the players
+     * @param playerOne
+     * @param playerTwo
+     * @return
+     */
+    public static GameTable getGameTable(final DecksInput playerOne,
+                                         final DecksInput playerTwo) {
         if (gameTable == null) {
             gameTable = new GameTable(playerOne, playerTwo);
         }
         return gameTable;
     }
 
+    /**
+     * After a game is finished deletes a game table
+     */
     public static void deleteGameTable() {
         gameTable = null;
     }
@@ -62,18 +72,25 @@ public final class GameTable {
         this.roundStarts();
     }
 
+    /**
+     * Return which player is able to take action
+     * @return - Player
+     */
     public Player getPlayer() {
-        if (this.playerTurn == GameConstants.PLAYER_ONE) {
+        if (this.playerTurn == Const.PLAYER_ONE) {
             return this.playerOne;
         }
         return this.playerTwo;
     }
 
+    /**
+     *
+     */
     public void endPlayerTurn() {
-        if (playerTurn == GameConstants.PLAYER_ONE) {
-            playerTurn = GameConstants.PLAYER_TWO;
+        if (playerTurn == Const.PLAYER_ONE) {
+            playerTurn = Const.PLAYER_TWO;
         } else {
-            playerTurn = GameConstants.PLAYER_ONE;
+            playerTurn = Const.PLAYER_ONE;
         }
         this.turnsCounter();
     }

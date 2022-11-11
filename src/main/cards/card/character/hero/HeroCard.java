@@ -2,11 +2,11 @@ package main.cards.card.character.hero;
 
 import fileio.CardInput;
 import main.cards.card.character.CharacterCard;
-import main.util.GameConstants;
+import main.util.Const;
 
 public abstract class HeroCard extends CharacterCard {
     public HeroCard(final CardInput cardInput) {
-        super(cardInput, GameConstants.HERO_HEALTH);
+        super(cardInput, Const.HERO_HEALTH);
     }
 
     /**

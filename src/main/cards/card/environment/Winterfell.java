@@ -14,7 +14,7 @@ public final class Winterfell extends EnvironmentCard {
     }
 
     @Override
-    public void useAbility(final ArrayList<MinionCard> cardRow, final int affectedRow){
+    public void useAbility(final ArrayList<MinionCard> cardRow, final int affectedRow) {
         cardRow.forEach(card -> card.setFrozen(true));
     }
 }

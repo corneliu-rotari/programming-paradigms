@@ -4,11 +4,11 @@ import fileio.CardInput;
 import main.cards.card.character.minion.MinionCard;
 
 public abstract class NormalMinionCard extends MinionCard {
-    public NormalMinionCard(CardInput cardInput) {
+    public NormalMinionCard(final CardInput cardInput) {
         super(cardInput);
     }
 
-    public NormalMinionCard(MinionCard card) {
+    public NormalMinionCard(final MinionCard card) {
         super(card);
     }
 }

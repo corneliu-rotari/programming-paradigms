@@ -7,17 +7,15 @@ import fileio.ActionsInput;
 import lombok.Getter;
 import lombok.Setter;
 import main.cards.card.Card;
-import main.cards.card.character.CharacterCard;
 import main.cards.card.character.minion.MinionCard;
 import main.cards.card.environment.EnvironmentCard;
 import main.mechanics.player.Player;
 import main.mechanics.table.GameTable;
 import main.util.Determine;
-import main.util.GameConstants;
+import main.util.Const;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public final class DebugAndStatsCommands implements CommandUser {
     private int playerIdx;
@@ -49,7 +47,7 @@ public final class DebugAndStatsCommands implements CommandUser {
         }
 
         switch (actionsInput.getCommand()) {
-            case GameConstants.GET_PLAYER_DECK -> {
+            case Const.GET_PLAYER_DECK -> {
                 if (isPlayerOne()) {
                     outputJSON(this.gameTable.getPlayerOne().getPlayingDeck());
                 } else {
@@ -57,7 +55,7 @@ public final class DebugAndStatsCommands implements CommandUser {
                 }
             }
 
-            case GameConstants.GET_CARDS_IN_HAND -> {
+            case Const.GET_CARDS_IN_HAND -> {
                 if (isPlayerOne()) {
                     outputJSON(this.gameTable.getPlayerOne().getPlayingHand());
                 } else {
@@ -65,24 +63,24 @@ public final class DebugAndStatsCommands implements CommandUser {
                 }
             }
 
-            case GameConstants.GET_PLAYER_HERO -> {
+            case Const.GET_PLAYER_HERO -> {
                 if (isPlayerOne()) {
                     outputJSON(this.gameTable.getPlayerOne().getHeroCard());
                 } else {
                     outputJSON(this.gameTable.getPlayerTwo().getHeroCard());
                 }
             }
-            case GameConstants.GET_PLAYER_ONE_WINS ->
+            case Const.GET_PLAYER_ONE_WINS ->
                     outputJSON(this.gameTable.getPlayerOne().getNrOfWins());
 
-            case GameConstants.GET_PLAYER_TWO_WINS ->
+            case Const.GET_PLAYER_TWO_WINS ->
                     outputJSON(this.gameTable.getPlayerTwo().getNrOfWins());
 
-            case GameConstants.GET_TOTAL_GAMES_PLAYED -> outputJSON(Player.nrOfGames);
-            case GameConstants.GET_PLAYER_TURN -> outputJSON(this.gameTable.getPlayerTurn());
-            case GameConstants.GET_CARDS_ON_TABLE ->
+            case Const.GET_TOTAL_GAMES_PLAYED -> outputJSON(Player.nrOfGames);
+            case Const.GET_PLAYER_TURN -> outputJSON(this.gameTable.getPlayerTurn());
+            case Const.GET_CARDS_ON_TABLE ->
                     outputTableJSON(this.gameTable.getCardTable().getCardTable());
-            case GameConstants.GET_ENV_CARD_IN_HAND -> {
+            case Const.GET_ENV_CARD_IN_HAND -> {
                 ArrayList<EnvironmentCard> outputArray = new ArrayList<>();
                 ArrayList<Card> inputArray;
                 if (isPlayerOne()) {
@@ -94,10 +92,10 @@ public final class DebugAndStatsCommands implements CommandUser {
 
                 inputArray.stream().filter(Determine::determineEnv).toList().
                         forEach(card -> outputArray.add((EnvironmentCard) card));
-                this.objectNode.set("output", mapper.valueToTree(inputArray));
+                this.objectNode.set("output", mapper.valueToTree(outputArray));
             }
 
-            case GameConstants.GET_FROZEN_CARDS_ON_TABLE -> {
+            case Const.GET_FROZEN_CARDS_ON_TABLE -> {
 //                TODO Posibil greseli cu ordinea cartilor in output
                 ArrayList<ObjectNode> outputArray = new ArrayList<>();
                 this.gameTable.getCardTable().getCardTable()
@@ -106,14 +104,14 @@ public final class DebugAndStatsCommands implements CommandUser {
                                 forEach(minionCard -> outputArray.add(removeFiledNames(minionCard))));
                 this.objectNode.set("output", this.mapper.valueToTree(outputArray));
             }
-            case GameConstants.GET_PLAYER_MANA -> {
+            case Const.GET_PLAYER_MANA -> {
                 if (isPlayerOne()) {
                     outputJSON(this.gameTable.getPlayerOne().getMana());
                 } else {
                     outputJSON(this.gameTable.getPlayerTwo().getMana());
                 }
             }
-            case GameConstants.GET_CARD_AT_POS -> {
+            case Const.GET_CARD_AT_POS -> {
                 Card card = this.gameTable.getCardTable().get(actionsInput.getX())
                         .get(actionsInput.getY());
                 if (card == null) {
@@ -129,7 +127,7 @@ public final class DebugAndStatsCommands implements CommandUser {
     }
 
     private boolean isPlayerOne() {
-        return this.playerIdx == GameConstants.PLAYER_ONE;
+        return this.playerIdx == Const.PLAYER_ONE;
     }
 
     private void outputJSON(final int number) {
@@ -150,7 +148,7 @@ public final class DebugAndStatsCommands implements CommandUser {
 
     private void outputTableJSON(final ArrayList<ArrayList<MinionCard>> cards) {
         ArrayList<ArrayList<ObjectNode>> outputArray = new ArrayList<>();
-        for (int i = 0; i < GameConstants.NR_TABLE_ROWS; i++) {
+        for (int i = 0; i < Const.NR_TABLE_ROWS; i++) {
             ArrayList<ObjectNode> newRow = new ArrayList<>();
             cards.get(i).stream().filter(Objects::nonNull).
                     forEach(minionCard -> newRow.add(removeFiledNames(minionCard)));

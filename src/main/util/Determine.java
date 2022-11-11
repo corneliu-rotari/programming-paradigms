@@ -16,8 +16,8 @@ import main.cards.card.environment.HeartHound;
 import main.cards.card.environment.Winterfell;
 
 public final class Determine {
-//    TODO transform in singleton
-//    TODO JAVADOC
+    private Determine() {
+    }
 
     /**
      *
@@ -26,17 +26,17 @@ public final class Determine {
      */
     public static Card createCard(final Card card) {
         return switch (card.getName()) {
-            case GameConstants.SENTINEL -> new Sentinel((Sentinel) card);
-            case GameConstants.DISCIPLE -> new Disciple((Disciple) card);
-            case GameConstants.FIRESTORM -> new Firestorm((Firestorm) card);
-            case GameConstants.GOLIATH -> new Goliath((Goliath) card);
-            case GameConstants.BERSERKER -> new Berserker((Berserker) card);
-            case GameConstants.HEART_HOUND -> new HeartHound((HeartHound) card);
-            case GameConstants.MIRAJ -> new Miraj((Miraj) card);
-            case GameConstants.THE_CURSED_ONE -> new TheCursedOne((TheCursedOne) card);
-            case GameConstants.THE_RIPPER -> new TheRipper((TheRipper) card);
-            case GameConstants.WARDEN -> new Warden((Warden) card);
-            case GameConstants.WINTERFELL -> new Winterfell((Winterfell) card);
+            case Const.SENTINEL -> new Sentinel((Sentinel) card);
+            case Const.DISCIPLE -> new Disciple((Disciple) card);
+            case Const.FIRESTORM -> new Firestorm((Firestorm) card);
+            case Const.GOLIATH -> new Goliath((Goliath) card);
+            case Const.BERSERKER -> new Berserker((Berserker) card);
+            case Const.HEART_HOUND -> new HeartHound((HeartHound) card);
+            case Const.MIRAJ -> new Miraj((Miraj) card);
+            case Const.THE_CURSED_ONE -> new TheCursedOne((TheCursedOne) card);
+            case Const.THE_RIPPER -> new TheRipper((TheRipper) card);
+            case Const.WARDEN -> new Warden((Warden) card);
+            case Const.WINTERFELL -> new Winterfell((Winterfell) card);
             default -> null;
         };
     }
@@ -48,17 +48,17 @@ public final class Determine {
      */
     public static Card createCard(final CardInput cardInput) {
         return switch (cardInput.getName()) {
-            case GameConstants.SENTINEL -> new Sentinel(cardInput);
-            case GameConstants.DISCIPLE -> new Disciple(cardInput);
-            case GameConstants.FIRESTORM -> new Firestorm(cardInput);
-            case GameConstants.GOLIATH -> new Goliath(cardInput);
-            case GameConstants.BERSERKER -> new Berserker(cardInput);
-            case GameConstants.HEART_HOUND -> new HeartHound(cardInput);
-            case GameConstants.MIRAJ -> new Miraj(cardInput);
-            case GameConstants.THE_CURSED_ONE -> new TheCursedOne(cardInput);
-            case GameConstants.THE_RIPPER -> new TheRipper(cardInput);
-            case GameConstants.WARDEN -> new Warden(cardInput);
-            case GameConstants.WINTERFELL -> new Winterfell(cardInput);
+            case Const.SENTINEL -> new Sentinel(cardInput);
+            case Const.DISCIPLE -> new Disciple(cardInput);
+            case Const.FIRESTORM -> new Firestorm(cardInput);
+            case Const.GOLIATH -> new Goliath(cardInput);
+            case Const.BERSERKER -> new Berserker(cardInput);
+            case Const.HEART_HOUND -> new HeartHound(cardInput);
+            case Const.MIRAJ -> new Miraj(cardInput);
+            case Const.THE_CURSED_ONE -> new TheCursedOne(cardInput);
+            case Const.THE_RIPPER -> new TheRipper(cardInput);
+            case Const.WARDEN -> new Warden(cardInput);
+            case Const.WINTERFELL -> new Winterfell(cardInput);
             default -> null;
         };
     }
@@ -70,17 +70,46 @@ public final class Determine {
      */
     public static HeroCard createHero(final CardInput cardInput) {
         return switch (cardInput.getName()) {
-            case GameConstants.LORD -> new LordRice(cardInput);
-            case GameConstants.KING -> new KingMudface(cardInput);
-            case GameConstants.EMPRESS -> new EmpressThorina(cardInput);
-            case GameConstants.GENERAL -> new GeneralKocioraw(cardInput);
+            case Const.LORD -> new LordRice(cardInput);
+            case Const.KING -> new KingMudface(cardInput);
+            case Const.EMPRESS -> new EmpressThorina(cardInput);
+            case Const.GENERAL -> new GeneralKocioraw(cardInput);
             default -> null;
         };
     }
 
+    /**
+     * D
+     * @param card -
+     * @return -
+     */
     public static boolean determineEnv(final Card card) {
         return switch (card.getName()) {
-            case GameConstants.FIRESTORM, GameConstants.WINTERFELL, GameConstants.HEART_HOUND -> true;
+            case Const.FIRESTORM, Const.WINTERFELL, Const.HEART_HOUND -> true;
+            default -> false;
+        };
+    }
+
+    /**
+     * D
+     * @param card -
+     * @return -
+     */
+    public static boolean determineFrontRowCard(final Card card) {
+        return switch (card.getName()) {
+            case Const.THE_RIPPER, Const.MIRAJ, Const.GOLIATH, Const.WARDEN -> true;
+            default -> false;
+        };
+    }
+
+    /**
+     * d
+     * @param card -
+     * @return -
+     */
+    public static boolean determineBackRowCard(final Card card) {
+        return switch (card.getName()) {
+            case Const.SENTINEL, Const.BERSERKER, Const.THE_CURSED_ONE, Const.DISCIPLE -> true;
             default -> false;
         };
     }

@@ -8,9 +8,9 @@ import main.util.constants.MinionCardConstants;
 /**
  * Class of constants used for developments
  */
-public final class GameConstants implements
+public final class Const implements
         HeroCardConst, MinionCardConstants, EnvironmentCardConstants, CommandsConstants {
-    private GameConstants() {
+    private Const() {
     }
     public static final int PLAYER_ONE = 1;
     public static final int PLAYER_ONE_BACK = 3;

@@ -7,9 +7,11 @@ import lombok.Setter;
 import main.cards.Decks;
 import main.cards.card.Card;
 import main.cards.card.character.hero.*;
+import main.cards.card.character.minion.MinionCard;
 import main.cards.card.environment.EnvironmentCard;
 import main.mechanics.table.GameTable;
 import main.util.Determine;
+import main.util.Const;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +35,8 @@ public final class Player {
         this.decks = new Decks(decks);
         this.playingHand = new ArrayList<>();
         this.playingDeck = new ArrayList<>();
+        this.backRow = backRow;
+        this.frontRow = frontRow;
     }
 
     /**
@@ -60,8 +64,14 @@ public final class Player {
         this.playingHand.add(this.playingDeck.remove(0));
     }
 
+    /**
+     * use Env Card
+     * @param handIdx -
+     * @param affectedRow -
+     * @throws Exception -
+     */
     public void useEnvironmentCard(final int handIdx, final int affectedRow) throws Exception {
-        if (!(playingHand.get(handIdx) instanceof EnvironmentCard)) {
+        if (!Determine.determineEnv(playingHand.get(handIdx))) {
             throw new Exception("Chosen card is not of type environment.");
         }
         EnvironmentCard card = (EnvironmentCard) playingHand.get(handIdx);
@@ -76,5 +86,28 @@ public final class Player {
         }
         card.useAbility(GameTable.getGameTable().getCardTable().get(affectedRow), affectedRow);
         this.playingHand.remove(handIdx);
+    }
+
+    /**
+     * Place card
+     * @param card -
+     * @throws Exception -
+     */
+    public void placeCardOnRow(final MinionCard card) throws Exception {
+        ArrayList<MinionCard> rowToAdd;
+        if (Determine.determineFrontRowCard(card)) {
+            rowToAdd = GameTable.getGameTable().getCardTable().get(this.frontRow);
+        } else {
+            rowToAdd = GameTable.getGameTable().getCardTable().get(this.backRow);
+        }
+        for (int i = 0; i < Const.NR_TABLE_COLUMNS; i++) {
+            if (rowToAdd.get(i) == null) {
+                rowToAdd.add(i, card);
+                this.playingHand.remove(card);
+                this.mana = this.mana - card.getMana();
+                return;
+            }
+        }
+        throw new Exception("Cannot place card on table since row is full.");
     }
 }

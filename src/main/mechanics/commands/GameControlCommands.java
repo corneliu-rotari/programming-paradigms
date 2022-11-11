@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
-import main.cards.card.environment.EnvironmentCard;
 import main.mechanics.table.GameTable;
-import main.util.GameConstants;
+import main.util.Const;
 
 public final class GameControlCommands implements CommandUser {
     private ObjectNode objectNode;
@@ -26,20 +25,26 @@ public final class GameControlCommands implements CommandUser {
         this.objectNode.put("command", actionsInput.getCommand());
         try {
             switch (actionsInput.getCommand()) {
-                case GameConstants.END_PLAYER_TURN ->
+                case Const.END_PLAYER_TURN ->
                         this.gameTable.endPlayerTurn();
-                case GameConstants.PLACE_CARD ->
-                        this.gameTable.getCardTable().placeCard(actionsInput.getHandIdx());
-                case GameConstants.CARD_USES_ABILITY -> {}
-                case GameConstants.CARD_USES_ATTACK -> {}
-                case GameConstants.USE_ATTACK_ON_HERO -> {}
-                case GameConstants.USE_ENV_CARD -> {
+                case Const.PLACE_CARD -> {
+                    this.gameTable.getCardTable().printCardTable();
+                    this.gameTable.getCardTable().placeCard(actionsInput.getHandIdx());
+                }
+                case Const.CARD_USES_ABILITY -> {
+                }
+                case Const.CARD_USES_ATTACK -> {
+                }
+                case Const.USE_ATTACK_ON_HERO -> {
+                }
+                case Const.USE_ENV_CARD -> {
                     this.objectNode.put("handIdx", actionsInput.getHandIdx());
                     this.objectNode.put("affectedRow", actionsInput.getAffectedRow());
                     this.gameTable.getPlayer().useEnvironmentCard(actionsInput.getHandIdx(),
                             actionsInput.getAffectedRow());
                 }
-                case GameConstants.USE_HERO_ABILITY -> {}
+                case Const.USE_HERO_ABILITY -> {
+                }
                 default -> {
                 }
             }

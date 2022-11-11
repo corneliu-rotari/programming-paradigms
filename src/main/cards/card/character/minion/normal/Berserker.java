@@ -1,7 +1,6 @@
 package main.cards.card.character.minion.normal;
 
 import fileio.CardInput;
-import main.cards.card.character.minion.MinionCard;
 
 public final class Berserker extends NormalMinionCard {
     public Berserker(final CardInput cardInput) {
