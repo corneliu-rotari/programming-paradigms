@@ -74,17 +74,16 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
 
-        GameTable gameTable = new GameTable(inputData.getPlayerOneDecks(),
+        GameTable gameTable = GameTable.createGameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
-        CommandController commandController = new CommandController(output, gameTable);
+        CommandController commandController = new CommandController(output);
 
-        for (GameInput game: inputData.getGames()) {
-            gameTable.startGame(game.getStartGame());
-            for (ActionsInput action: game.getActions()) {
-                commandController.determineCommand(action);
-            }
+        inputData.getGames().forEach(gameInput -> {
+                    gameTable.startGame(gameInput.getStartGame());
+                    gameInput.getActions().forEach(commandController::determineCommand);
+                });
 
-        }
+        GameTable.deleteGameTable();
         System.out.println();
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();

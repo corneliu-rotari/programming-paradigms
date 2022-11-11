@@ -1,4 +1,14 @@
 [ {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 0,
+  "error" : "Chosen row does not belong to the enemy."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 3,
+  "error" : "Chosen card is not of type environment."
+}, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
@@ -11,11 +21,30 @@
     "colors" : [ "Yellow", "White" ],
     "health" : 4,
     "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "Grey", "Blue" ],
+    "health" : 3,
+    "attackDamage" : 2
+  }, {
+    "mana" : 2,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 10
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
@@ -23,13 +52,19 @@
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 21
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 21
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]
@@ -43,6 +78,37 @@
     "colors" : [ "Yellow", "White" ],
     "health" : 4,
     "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "Grey", "Blue" ],
+    "health" : 3,
+    "attackDamage" : 2
+  }, {
+    "mana" : 2,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 1,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 2,
+    "attackDamage" : 3
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -52,5 +118,38 @@
     "name" : "Winterfell",
     "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
     "colors" : [ "White", "Blue" ]
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Yellow", "White" ],
+    "health" : 4,
+    "attackDamage" : 0
+  }, {
+    "mana" : 4,
+    "name" : "Goliath",
+    "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 7,
+    "attackDamage" : 2
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 4,
+    "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Blue" ]
+  }, {
+    "mana" : 1,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "White" ],
+    "health" : 2,
+    "attackDamage" : 2
   } ]
 } ]

@@ -77,4 +77,11 @@ public final class Determine {
             default -> null;
         };
     }
+
+    public static boolean determineEnv(final Card card) {
+        return switch (card.getName()) {
+            case GameConstants.FIRESTORM, GameConstants.WINTERFELL, GameConstants.HEART_HOUND -> true;
+            default -> false;
+        };
+    }
 }

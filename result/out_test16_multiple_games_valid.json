@@ -7,6 +7,7 @@
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
+    "hasAttacked" : false,
     "attackDamage" : 5,
     "frozen" : false
   } ]
@@ -19,142 +20,23 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 5,
     "frozen" : false
   } ]
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 2
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 1,
-  "output" : 0
-}, {
-  "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 2,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
-    "colors" : [ "Red", "Blue", "Pink" ],
-    "health" : 1,
-    "attackDamage" : 5,
-    "frozen" : false
-  } ]
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 2,
-  "output" : 0
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Black", "Yellow" ],
-    "health" : 4,
-    "attackDamage" : 5,
-    "frozen" : false
-  } ]
-}, {
-  "command" : "getFrozenCardsOnTable",
-  "output" : [ ]
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 2
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 2,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
-    "colors" : [ "Red", "Blue", "Pink" ],
-    "health" : 1,
-    "attackDamage" : 5,
-    "frozen" : false
-  } ]
-}, {
-  "command" : "getFrozenCardsOnTable",
-  "output" : [ ]
-}, {
-  "command" : "getPlayerTurn",
-  "output" : 2
-}, {
-  "command" : "getEnvironmentCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Black", "Yellow" ],
-    "health" : 4,
-    "attackDamage" : 5,
-    "frozen" : false
-  } ]
-}, {
-  "command" : "getCardAtPosition",
-  "output" : "No card at that position."
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 2,
-  "output" : 0
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 1,
-  "output" : 0
-}, {
-  "command" : "getCardsOnTable",
-  "output" : [ [ ], [ ], [ ], [ ] ]
-}, {
-  "command" : "getCardsInHand",
-  "playerIdx" : 2,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Berserker",
-    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
-    "colors" : [ "Red", "Blue", "Pink" ],
-    "health" : 1,
-    "attackDamage" : 5
-  } ]
-}, {
-  "command" : "getCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "The Ripper",
-    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
-    "colors" : [ "Black", "Yellow" ],
-    "health" : 4,
-    "attackDamage" : 5
-  } ]
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
-}, {
-  "command" : "getPlayerTurn",
   "output" : 1
-}, {
-  "command" : "getFrozenCardsOnTable",
-  "output" : [ ]
 }, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
-}, {
-  "command" : "getPlayerMana",
-  "playerIdx" : 2,
-  "output" : 0
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -164,14 +46,112 @@
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
+    "hasAttacked" : false,
     "attackDamage" : 5,
     "frozen" : false
   }, {
     "mana" : 2,
-    "name" : "The Cursed One",
-    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
-    "colors" : [ "Pink", "Purple" ],
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  } ]
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 2,
+  "output" : 3
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  } ]
+}, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Blue", "Green", "White" ]
+  } ]
+}, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 1,
+    "hasAttacked" : false,
     "attackDamage" : 0,
     "frozen" : false
   } ]
@@ -180,8 +160,163 @@
   "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
+  "playerIdx" : 2,
+  "output" : 10
+}, {
+  "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 10
+}, {
+  "command" : "getCardsOnTable",
+  "output" : [ [ ], [ ], [ ], [ ] ]
+}, {
+  "command" : "getCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "attackDamage" : 5
+  }, {
+    "mana" : 2,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Blue", "Green", "White" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 6
+  } ]
+}, {
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 1,
+    "attackDamage" : 0
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "attackDamage" : 6
+  } ]
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 1
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 1,
+  "output" : 15
+}, {
+  "command" : "getPlayerTurn",
+  "output" : 2
+}, {
+  "command" : "getFrozenCardsOnTable",
+  "output" : [ ]
+}, {
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 2,
+  "output" : 28
+}, {
+  "command" : "getEnvironmentCardsInHand",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Blue", "Green", "White" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 6,
+    "hasAttacked" : false,
+    "attackDamage" : 7,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  }, {
+    "mana" : 2,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "White" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  } ]
+}, {
+  "command" : "getCardAtPosition",
+  "output" : "No card at that position."
+}, {
+  "command" : "getPlayerMana",
+  "playerIdx" : 1,
+  "output" : 28
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -203,15 +338,15 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 36
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 36
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 36
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]
@@ -225,6 +360,46 @@
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
     "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 1,
+    "attackDamage" : 0
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Blue" ]
+  }, {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 5,
+    "attackDamage" : 8
   }, {
     "mana" : 1,
     "name" : "The Ripper",
@@ -242,6 +417,44 @@
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
+    "attackDamage" : 5
+  }, {
+    "mana" : 2,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Blue", "Green", "White" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 6,
+    "attackDamage" : 7
+  }, {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  }, {
+    "mana" : 2,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "White" ],
+    "health" : 3,
     "attackDamage" : 5
   }, {
     "mana" : 2,

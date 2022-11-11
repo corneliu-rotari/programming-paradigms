@@ -10,6 +10,7 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
     "frozen" : false
   } ]
@@ -28,13 +29,14 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
     "frozen" : false
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 1
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
@@ -50,12 +52,27 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
     "frozen" : false
   } ]
 }, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 0,
+  "error" : "Chosen card is not of type environment."
+}, {
   "command" : "getPlayerTurn",
-  "output" : 2
+  "output" : 1
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
@@ -65,8 +82,14 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
     "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
   } ]
 }, {
   "command" : "getCardAtPosition",
@@ -77,7 +100,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 6
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
@@ -87,7 +110,22 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
     "frozen" : false
   } ]
 }, {
@@ -106,6 +144,27 @@
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
     "attackDamage" : 5
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "attackDamage" : 0
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 6
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -117,6 +176,25 @@
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
     "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Yellow", "White" ],
+    "health" : 2,
+    "attackDamage" : 0
   } ]
 }, {
   "command" : "getTotalGamesPlayed",
@@ -133,7 +211,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 15
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -143,7 +221,26 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
     "frozen" : false
   }, {
     "mana" : 2,
@@ -151,7 +248,17 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
     "frozen" : false
   } ]
 }, {
@@ -162,18 +269,18 @@
   "output" : [ ]
 }, {
   "command" : "getPlayerTurn",
-  "output" : 2
+  "output" : 1
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 28
 }, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 28
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -189,7 +296,26 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
     "frozen" : false
   }, {
     "mana" : 2,
@@ -197,19 +323,55 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
     "frozen" : false
   } ]
 }, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 1,
+  "error" : "Chosen card is not of type environment."
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 36
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -219,7 +381,26 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
     "frozen" : false
   }, {
     "mana" : 2,
@@ -227,7 +408,44 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
     "frozen" : false
   } ]
 }, {
@@ -245,7 +463,22 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
     "frozen" : false
   }, {
     "mana" : 1,
@@ -253,16 +486,54 @@
     "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
     "colors" : [ "Yellow", "White" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
+    "colors" : [ "White", "Blue" ]
+  }, {
+    "mana" : 1,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Winterfell",
+    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 5,
+    "hasAttacked" : false,
+    "attackDamage" : 7,
     "frozen" : false
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 45
 }, {
   "command" : "getPlayerTurn",
-  "output" : 2
+  "output" : 1
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -272,7 +543,26 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "hasAttacked" : false,
     "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
     "frozen" : false
   }, {
     "mana" : 2,
@@ -280,7 +570,53 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
+    "hasAttacked" : false,
     "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 6,
+    "frozen" : false
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 2,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "health" : 1,
+    "hasAttacked" : false,
+    "attackDamage" : 0,
     "frozen" : false
   } ]
 }, {
@@ -300,12 +636,62 @@
     "health" : 4,
     "attackDamage" : 6
   }, {
+    "mana" : 2,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 2,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Purple", "Yellow" ],
+    "health" : 1,
+    "attackDamage" : 5
+  }, {
     "mana" : 1,
     "name" : "Disciple",
     "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
     "colors" : [ "Yellow", "White" ],
     "health" : 2,
     "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
+    "colors" : [ "White", "Blue" ]
+  }, {
+    "mana" : 1,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 2,
+    "name" : "Winterfell",
+    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 1,
+    "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 5,
+    "attackDamage" : 7
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 5
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -319,11 +705,67 @@
     "attackDamage" : 5
   }, {
     "mana" : 2,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Green", "Yellow", "Blue" ],
+    "health" : 2,
+    "attackDamage" : 0
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
     "name" : "The Ripper",
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 4,
     "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Standard card: Death incarnate. No better time to die than now.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 6
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Berserker",
+    "description" : "Premium card: Fear him. Your last breath is now.",
+    "colors" : [ "Red", "Blue", "Pink" ],
+    "health" : 2,
+    "attackDamage" : 5
+  }, {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "health" : 1,
+    "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "The Cursed One",
+    "description" : "Standard card: Thrown from the highest cliff, revenge will be his glory.",
+    "colors" : [ "Pink", "Purple" ],
+    "health" : 1,
+    "attackDamage" : 0
   } ]
 }, {
   "command" : "getTotalGamesPlayed",

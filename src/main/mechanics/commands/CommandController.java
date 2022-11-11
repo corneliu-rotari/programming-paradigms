@@ -10,9 +10,9 @@ public final class CommandController implements CommandUser {
     private GameControlCommands gameControlCommands;
 
 
-    public CommandController(ArrayNode output, GameTable gameTable) {
-        this.debugAndStatsCommands = new DebugAndStatsCommands(output, gameTable);
-        this.gameControlCommands = new GameControlCommands(gameTable);
+    public CommandController(final ArrayNode output) {
+        this.debugAndStatsCommands = new DebugAndStatsCommands(output);
+        this.gameControlCommands = new GameControlCommands(output);
     }
 
     public void determineCommand(final ActionsInput actionsInput) {

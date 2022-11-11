@@ -6,17 +6,34 @@
     "name" : "Firestorm",
     "description" : "Standard card: The dragon was unleashed, run for your lives.",
     "colors" : [ "Blue", "Green", "White" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 5
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 6
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
@@ -25,11 +42,32 @@
     "name" : "Firestorm",
     "description" : "Standard card: The dragon was unleashed, run for your lives.",
     "colors" : [ "Blue", "Green", "White" ]
+  }, {
+    "mana" : 2,
+    "name" : "The Cursed One",
+    "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
+    "colors" : [ "Black", "White", "Red" ],
+    "health" : 3,
+    "attackDamage" : 0
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 3,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 5
   } ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 10
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -37,16 +75,22 @@
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 21
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 21
 }, {
   "command" : "getPlayerTurn",
-  "output" : 1
+  "output" : 2
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]
@@ -60,20 +104,7 @@
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
     "attackDamage" : 2
-  } ]
-}, {
-  "command" : "getCardsInHand",
-  "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Firestorm",
-    "description" : "Standard card: The dragon was unleashed, run for your lives.",
-    "colors" : [ "Blue", "Green", "White" ]
-  } ]
-}, {
-  "command" : "getPlayerDeck",
-  "playerIdx" : 2,
-  "output" : [ {
+  }, {
     "mana" : 1,
     "name" : "Winterfell",
     "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
@@ -106,16 +137,16 @@
     "colors" : [ "Orange", "Red", "Black" ],
     "health" : 3,
     "attackDamage" : 5
-  }, {
-    "mana" : 1,
+  } ]
+}, {
+  "command" : "getCardsInHand",
+  "playerIdx" : 1,
+  "output" : [ {
+    "mana" : 2,
     "name" : "Firestorm",
     "description" : "Standard card: The dragon was unleashed, run for your lives.",
     "colors" : [ "Blue", "Green", "White" ]
-  } ]
-}, {
-  "command" : "getPlayerDeck",
-  "playerIdx" : 1,
-  "output" : [ {
+  }, {
     "mana" : 2,
     "name" : "The Cursed One",
     "description" : "Premium card: Nobody suspects an outcast, not even the Gods.",
@@ -148,7 +179,20 @@
     "name" : "Heart Hound",
     "description" : "Standard card: Corruption is easy, you always wanted it, now I help you embrace it.",
     "colors" : [ "Green", "Black" ]
-  }, {
+  } ]
+}, {
+  "command" : "getPlayerDeck",
+  "playerIdx" : 2,
+  "output" : [ {
+    "mana" : 1,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Blue", "Green", "White" ]
+  } ]
+}, {
+  "command" : "getPlayerDeck",
+  "playerIdx" : 1,
+  "output" : [ {
     "mana" : 2,
     "name" : "Berserker",
     "description" : "Standard card: A drink can always be served, with the blood of his enemies.",

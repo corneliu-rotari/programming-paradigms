@@ -7,9 +7,29 @@
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
+    "hasAttacked" : false,
     "attackDamage" : 1,
     "frozen" : false
+  }, {
+    "mana" : 3,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
   } ]
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 1,
+  "error" : "Chosen card is not of type environment."
 }, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
@@ -25,7 +45,31 @@
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
+    "hasAttacked" : false,
     "attackDamage" : 1,
+    "frozen" : false
+  }, {
+    "mana" : 3,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
+    "frozen" : false
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 3,
+    "hasAttacked" : false,
+    "attackDamage" : 5,
     "frozen" : false
   } ]
 }, {
@@ -41,13 +85,44 @@
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 2,
+  "error" : "Chosen card is not of type environment."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 3,
+  "error" : "Chosen card is not of type environment."
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 3,
+  "error" : "Chosen card is not of type environment."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 1,
+  "error" : "Chosen card is not of type environment."
+}, {
+  "command" : "useEnvironmentCard",
+  "handIdx" : 0,
+  "affectedRow" : 2,
+  "error" : "Chosen card is not of type environment."
+}, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 45
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 45
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]
@@ -61,6 +136,56 @@
     "colors" : [ "Brown", "Black", "Grey" ],
     "health" : 7,
     "attackDamage" : 1
+  }, {
+    "mana" : 3,
+    "name" : "Firestorm",
+    "description" : "Standard card: The dragon was unleashed, run for your lives.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 4,
+    "name" : "Firestorm",
+    "description" : "Premium card: The fury of hell is upon us, please kill us.",
+    "colors" : [ "Red", "Yellow" ]
+  }, {
+    "mana" : 4,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Orange", "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 4
+  }, {
+    "mana" : 1,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Green", "Black" ]
+  }, {
+    "mana" : 3,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 5,
+    "attackDamage" : 2
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -69,6 +194,58 @@
     "mana" : 5,
     "name" : "Miraj",
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 3,
+    "attackDamage" : 5
+  }, {
+    "mana" : 3,
+    "name" : "Goliath",
+    "description" : "Standard card: A warrior who is never afraid of battle, no matter the costs",
+    "colors" : [ "Red", "Purple" ],
+    "health" : 8,
+    "attackDamage" : 2
+  }, {
+    "mana" : 4,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
+    "colors" : [ "Red", "Black" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
+    "colors" : [ "Yellow", "Orange", "Red" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 3,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 6,
+    "attackDamage" : 3
+  }, {
+    "mana" : 2,
+    "name" : "Heart Hound",
+    "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
+    "colors" : [ "Red", "White", "Grey" ]
+  }, {
+    "mana" : 1,
+    "name" : "Heart Hound",
+    "description" : "Standard card: Corruption is easy, you always wanted it, now I help you embrace it.",
+    "colors" : [ "Green", "Black" ]
+  }, {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Black", "White", "Green" ],
+    "health" : 6,
+    "attackDamage" : 3
+  }, {
+    "mana" : 5,
+    "name" : "Miraj",
+    "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Yellow", "Orange", "Red" ],
     "health" : 3,
     "attackDamage" : 5

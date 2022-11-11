@@ -1,4 +1,7 @@
 [ {
+  "command" : "placeCard",
+  "error" : "Cannot place environment card on table."
+}, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
 }, {
@@ -13,11 +16,11 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 0
+  "output" : 10
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 0
+  "output" : 10
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ ], [ ], [ ], [ ] ]
@@ -31,6 +34,25 @@
     "colors" : [ "Green", "Yellow", "Blue" ],
     "health" : 4,
     "attackDamage" : 0
+  }, {
+    "mana" : 1,
+    "name" : "Winterfell",
+    "description" : "Standard card: The days are cold and so are we. We hope we can close our eyes again.",
+    "colors" : [ "White", "Grey", "Black" ]
+  }, {
+    "mana" : 2,
+    "name" : "Warden",
+    "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 5,
+    "attackDamage" : 8
+  }, {
+    "mana" : 1,
+    "name" : "Disciple",
+    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
+    "colors" : [ "Yellow", "White" ],
+    "health" : 4,
+    "attackDamage" : 0
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -41,6 +63,27 @@
     "description" : "Premium card: Fear him. Your last breath is now.",
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
+    "attackDamage" : 6
+  }, {
+    "mana" : 1,
+    "name" : "Warden",
+    "description" : "Premium card: You shall not pass, you shall not prevail, you shall perish.",
+    "colors" : [ "Brown", "Blue" ],
+    "health" : 6,
+    "attackDamage" : 8
+  }, {
+    "mana" : 2,
+    "name" : "The Ripper",
+    "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
+    "colors" : [ "Black", "Yellow" ],
+    "health" : 4,
+    "attackDamage" : 5
+  }, {
+    "mana" : 2,
+    "name" : "Sentinel",
+    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
+    "colors" : [ "Black", "Grey", "Blue" ],
+    "health" : 3,
     "attackDamage" : 6
   } ]
 } ]

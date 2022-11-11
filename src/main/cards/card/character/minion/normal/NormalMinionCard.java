@@ -3,12 +3,12 @@ package main.cards.card.character.minion.normal;
 import fileio.CardInput;
 import main.cards.card.character.minion.MinionCard;
 
-public final class Berserker extends NormalMinionCard {
-    public Berserker(final CardInput cardInput) {
+public abstract class NormalMinionCard extends MinionCard {
+    public NormalMinionCard(CardInput cardInput) {
         super(cardInput);
     }
 
-    public Berserker(final Berserker card) {
+    public NormalMinionCard(MinionCard card) {
         super(card);
     }
 }

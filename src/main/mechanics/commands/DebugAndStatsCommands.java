@@ -12,10 +12,12 @@ import main.cards.card.character.minion.MinionCard;
 import main.cards.card.environment.EnvironmentCard;
 import main.mechanics.player.Player;
 import main.mechanics.table.GameTable;
+import main.util.Determine;
 import main.util.GameConstants;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public final class DebugAndStatsCommands implements CommandUser {
     private int playerIdx;
@@ -28,9 +30,9 @@ public final class DebugAndStatsCommands implements CommandUser {
     @Getter
     private ArrayList<ActionsInput> actions;
 
-    public DebugAndStatsCommands(final ArrayNode output, final GameTable gameTable) {
+    public DebugAndStatsCommands(final ArrayNode output) {
         this.output = output;
-        this.gameTable = gameTable;
+        this.gameTable = GameTable.getGameTable();
     }
 
     /**
@@ -57,9 +59,9 @@ public final class DebugAndStatsCommands implements CommandUser {
 
             case GameConstants.GET_CARDS_IN_HAND -> {
                 if (isPlayerOne()) {
-                    outputJSON(this.gameTable.getPlayerOne().getPlayingCards());
+                    outputJSON(this.gameTable.getPlayerOne().getPlayingHand());
                 } else {
-                    outputJSON(this.gameTable.getPlayerTwo().getPlayingCards());
+                    outputJSON(this.gameTable.getPlayerTwo().getPlayingHand());
                 }
             }
 
@@ -79,16 +81,18 @@ public final class DebugAndStatsCommands implements CommandUser {
             case GameConstants.GET_TOTAL_GAMES_PLAYED -> outputJSON(Player.nrOfGames);
             case GameConstants.GET_PLAYER_TURN -> outputJSON(this.gameTable.getPlayerTurn());
             case GameConstants.GET_CARDS_ON_TABLE ->
-                    outputTableJSON(this.gameTable.getTable().getCardTable());
+                    outputTableJSON(this.gameTable.getCardTable().getCardTable());
             case GameConstants.GET_ENV_CARD_IN_HAND -> {
                 ArrayList<EnvironmentCard> outputArray = new ArrayList<>();
                 ArrayList<Card> inputArray;
                 if (isPlayerOne()) {
-                    inputArray = this.gameTable.getPlayerOne().getPlayingCards();
+                    inputArray = this.gameTable.getPlayerOne().getPlayingHand();
                 } else {
-                    inputArray = this.gameTable.getPlayerTwo().getPlayingCards();
+                    inputArray = this.gameTable.getPlayerTwo().getPlayingHand();
                 }
-                inputArray.stream().filter(card -> card instanceof EnvironmentCard).
+                //                TODO Posibil greseli cu ordinea cartilor in output
+
+                inputArray.stream().filter(Determine::determineEnv).toList().
                         forEach(card -> outputArray.add((EnvironmentCard) card));
                 this.objectNode.set("output", mapper.valueToTree(inputArray));
             }
@@ -96,10 +100,10 @@ public final class DebugAndStatsCommands implements CommandUser {
             case GameConstants.GET_FROZEN_CARDS_ON_TABLE -> {
 //                TODO Posibil greseli cu ordinea cartilor in output
                 ArrayList<ObjectNode> outputArray = new ArrayList<>();
-                this.gameTable.getTable().getCardTable()
+                this.gameTable.getCardTable().getCardTable()
                         .forEach(minionCardsList -> minionCardsList.stream().
-                                filter(Objects::nonNull).filter(CharacterCard::isFrozen).
-                                forEach(minionCard -> outputArray.add(removeFrozen(minionCard))));
+                                filter(Objects::nonNull).filter(MinionCard::isFrozen).
+                                forEach(minionCard -> outputArray.add(removeFiledNames(minionCard))));
                 this.objectNode.set("output", this.mapper.valueToTree(outputArray));
             }
             case GameConstants.GET_PLAYER_MANA -> {
@@ -110,7 +114,7 @@ public final class DebugAndStatsCommands implements CommandUser {
                 }
             }
             case GameConstants.GET_CARD_AT_POS -> {
-                Card card = this.gameTable.getTable().get(actionsInput.getX())
+                Card card = this.gameTable.getCardTable().get(actionsInput.getX())
                         .get(actionsInput.getY());
                 if (card == null) {
                     this.objectNode.put("output", "No card at that position.");
@@ -133,13 +137,13 @@ public final class DebugAndStatsCommands implements CommandUser {
     }
 
     private void outputJSON(final Card card) {
-        this.objectNode.set("output", removeFrozen(card));
+        this.objectNode.set("output", removeFiledNames(card));
     }
 
     private void outputJSON(final ArrayList<Card> list) {
         ArrayList<ObjectNode> outputNode = new ArrayList<>();
         for (Card card: list) {
-            outputNode.add(removeFrozen(card));
+            outputNode.add(removeFiledNames(card));
         }
         this.objectNode.set("output", this.mapper.valueToTree(outputNode));
     }
@@ -149,15 +153,17 @@ public final class DebugAndStatsCommands implements CommandUser {
         for (int i = 0; i < GameConstants.NR_TABLE_ROWS; i++) {
             ArrayList<ObjectNode> newRow = new ArrayList<>();
             cards.get(i).stream().filter(Objects::nonNull).
-                    forEach(minionCard -> newRow.add(removeFrozen(minionCard)));
+                    forEach(minionCard -> newRow.add(removeFiledNames(minionCard)));
             outputArray.add(newRow);
         }
         this.objectNode.set("output", this.mapper.valueToTree(outputArray));
     }
 
-    private ObjectNode removeFrozen(final Card card) {
+    private ObjectNode removeFiledNames(final Card card) {
         ObjectNode node = this.mapper.valueToTree(card);
         node.remove("frozen");
+        node.remove("hasAttacked");
+        node.remove("heroDead");
         return node;
     }
 }
