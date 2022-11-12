@@ -174,7 +174,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 4
+  "output" : 1
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,

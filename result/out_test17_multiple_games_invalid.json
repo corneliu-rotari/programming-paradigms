@@ -166,7 +166,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 4
+  "output" : 1
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -212,7 +212,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 4
+  "output" : 0
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -245,16 +245,11 @@
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
-  "output" : [ {
-    "mana" : 2,
-    "name" : "Winterfell",
-    "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
-    "colors" : [ "White", "Grey", "Black" ]
-  } ]
+  "output" : [ ]
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 7
+  "output" : 2
 }, {
   "command" : "getPlayerTurn",
   "output" : 1
@@ -332,13 +327,6 @@
     "name" : "Winterfell",
     "description" : "Premium card: All is white. My mouth is frozen and I must scream.",
     "colors" : [ "White", "Grey", "Black" ]
-  }, {
-    "mana" : 2,
-    "name" : "Sentinel",
-    "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
-    "colors" : [ "Black", "White" ],
-    "health" : 2,
-    "attackDamage" : 6
   } ]
 }, {
   "command" : "getCardsInHand",
@@ -348,13 +336,6 @@
     "name" : "Heart Hound",
     "description" : "Premium card: Your mind is ours. Your body is ours. Stop begging.",
     "colors" : [ "Green", "Black" ]
-  }, {
-    "mana" : 1,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 2,
-    "attackDamage" : 0
   } ]
 }, {
   "command" : "getTotalGamesPlayed",

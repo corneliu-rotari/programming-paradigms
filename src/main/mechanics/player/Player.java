@@ -50,13 +50,13 @@ public final class Player {
     }
 
     public void setPlayingDeck(final int deckIdx, Random random) {
+        this.mana = 0;
         this.playingDeck = new ArrayList<>();
         ArrayList<Card> deckToBePlayed = this.decks.get(deckIdx);
         for (Card card : deckToBePlayed) {
             this.playingDeck.add(Determine.createCard(card));
         }
         Collections.shuffle(this.playingDeck, random);
-        System.out.println(this.playingDeck);
         this.playingHand = new ArrayList<>();
     }
     public void setMana(final int manaCapacity) {

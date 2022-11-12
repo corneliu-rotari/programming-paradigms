@@ -15,9 +15,12 @@ public final class GameTable {
     @Getter private Player playerTwo;
 
     @Setter private StartGameInput gameCofig;
+//    isGameFinished
     @Getter @Setter private int playerTurn;
     @Getter private int manaCapacity;
     private int turnsPlayed = 0;
+    @Getter private boolean gameFinished = false;
+
 
 
     private GameTable(final DecksInput playerOne, final DecksInput playerTwo) {
@@ -51,10 +54,10 @@ public final class GameTable {
      * @param startGameInput - the default config for the game to be played
      */
     public void startGame(final StartGameInput startGameInput) {
+        this.gameFinished = false;
         this.cardTable = new CardTable(Const.NR_TABLE_ROWS, Const.NR_TABLE_COLUMNS);
         Player.nrOfGames++;
 
-        System.out.println("New game");
         this.playerOne.setHeroCard(startGameInput.getPlayerOneHero());
         this.playerTwo.setHeroCard(startGameInput.getPlayerTwoHero());
 
@@ -65,9 +68,10 @@ public final class GameTable {
         this.playerTwo.setPlayingDeck(startGameInput.getPlayerTwoDeckIdx(),
                 new Random(startGameInput.getShuffleSeed()));
 
-        playerTwo.setMana(0);
-        playerOne.setMana(0);
         this.manaCapacity = 0;
+        this.turnsPlayed = 0;
+        this.playerOne.setMana(0);
+        this.playerTwo.setMana(0);
 
         this.turnsCounter();
         this.roundStarts();
@@ -114,9 +118,6 @@ public final class GameTable {
     }
 
     private void roundStarts() {
-        if (manaCapacity == 0) {
-            System.out.println("Round Starts: manaCapacity = " + manaCapacity);
-        }
         if (manaCapacity < 10) {
             manaCapacity++;
         }
@@ -131,5 +132,9 @@ public final class GameTable {
     public void endGame() {
         getOffensivePlayer().setWin();
         cardTable.endTurnDestroyEffects(getOffensivePlayer());
+        this.gameFinished = true;
+//        startGame(this.gameCofig);
+//        playerTwo.setMana(0);
+//        playerOne.setMana(0);
     }
 }

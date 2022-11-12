@@ -90,9 +90,6 @@ public final class GameControlCommands implements CommandUser {
             }
 
         } catch (Exception exception) {
-            System.out.println("action failed " + actionsInput.getCommand());
-            System.out.println(actionsInput);
-            System.out.println("Player Hand" + this.gameTable.getOffensivePlayer().getPlayingHand());
             objectNode.put("error", exception.getMessage());
             output.add(this.objectNode);
 

@@ -16,7 +16,7 @@ public final class CommandController implements CommandUser {
     }
 
     public void determineCommand(final ActionsInput actionsInput) {
-        if (!actionsInput.getCommand().startsWith("get")) {
+        if (!actionsInput.getCommand().startsWith("get") && !GameTable.getGameTable().isGameFinished()) {
             gameControlCommands.determineCommand(actionsInput);
         } else {
             debugAndStatsCommands.determineCommand(actionsInput);
