@@ -20,5 +20,6 @@ public final class Const implements
     public static final int PLAYER_TWO_FRONT = 1;
     public static final int NR_TABLE_ROWS = 4;
     public static final int NR_TABLE_COLUMNS = 5;
+    public static final int MAX_MANA = 10;
 
 }

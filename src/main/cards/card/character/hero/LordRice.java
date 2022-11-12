@@ -12,8 +12,12 @@ public final class LordRice extends HeroCard {
         super(cardInput);
     }
 
+    /**
+     * Freezes the opponent MinionCard with the most attackDamage
+     * @param affectedRow - the valid row to alter
+     */
     @Override
-    public void useAbility(ArrayList<MinionCard> affectedRow) {
+    public void useAbility(final ArrayList<MinionCard> affectedRow) {
         affectedRow.stream().filter(Objects::nonNull).
                 max(Comparator.comparing(MinionCard::getAttackDamage)).
                 ifPresent(affectedCard -> affectedCard.setFrozen(true));

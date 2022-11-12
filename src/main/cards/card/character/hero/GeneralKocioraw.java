@@ -11,8 +11,12 @@ public final class GeneralKocioraw extends HeroCard {
         super(cardInput);
     }
 
+    /**
+     * Adds to his MinionCards 1 point of attackDamage
+     * @param affectedRow - the valid row to alter
+     */
     @Override
-    public void useAbility(ArrayList<MinionCard> affectedRow) {
+    public void useAbility(final ArrayList<MinionCard> affectedRow) {
         affectedRow.stream().filter(Objects::nonNull).
                 forEach(minionCard -> minionCard.setAttackDamage(minionCard.getAttackDamage() + 1));
     }

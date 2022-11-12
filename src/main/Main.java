@@ -72,11 +72,11 @@ public final class Main {
 
         ArrayNode output = objectMapper.createArrayNode();
 
-
+//      Entry point to the implementation
         GameTable gameTable = GameTable.getGameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
         CommandController commandController = new CommandController(output);
-        Player.nrOfGames = 0;
+        Player.setNrOfGames(0);
 
         inputData.getGames().forEach(gameInput -> {
                     gameTable.startGame(gameInput.getStartGame());

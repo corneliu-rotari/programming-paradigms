@@ -11,8 +11,12 @@ public final class Miraj extends SpecialMinionCard {
         super(card);
     }
 
+    /**
+     * Skyjack: Swaps his health with the attacked card
+     * @param attacked - MinionCard attacked
+     */
     @Override
-    public void useAbility(MinionCard attacked) {
+    public void useAbility(final MinionCard attacked) {
         int temp = this.health;
         this.health = attacked.getHealth();
         attacked.setHealth(temp);

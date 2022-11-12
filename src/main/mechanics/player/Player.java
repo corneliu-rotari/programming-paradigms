@@ -20,11 +20,11 @@ import java.util.Random;
 public final class Player {
     @Getter @Setter private int backRow;
     @Getter @Setter private int frontRow;
-    public static int nrOfGames = 0;
+    @Getter @Setter private static int nrOfGames = 0;
     @Getter @Setter private int nrOfWins = 0;
     @Setter @Getter private Decks decks;
 
-    @Getter private int mana = 0;
+    @Getter @Setter private int mana = 0;
     @Getter private HeroCard heroCard;
 
     @Getter private ArrayList<Card> playingDeck;
@@ -45,11 +45,16 @@ public final class Player {
         this.nrOfWins++;
     }
 
-    public void setHeroCard(CardInput cardInput) {
+    public void setHeroCard(final CardInput cardInput) {
         this.heroCard = Determine.createHero(cardInput);
     }
 
-    public void setPlayingDeck(final int deckIdx, Random random) {
+    /**
+     * Creates a copy of a deck and shuffles it
+     * @param deckIdx - deck Index
+     * @param random - Random object instance
+     */
+    public void setPlayingDeck(final int deckIdx, final Random random) {
         this.mana = 0;
         this.playingDeck = new ArrayList<>();
         ArrayList<Card> deckToBePlayed = this.decks.get(deckIdx);
@@ -59,14 +64,18 @@ public final class Player {
         Collections.shuffle(this.playingDeck, random);
         this.playingHand = new ArrayList<>();
     }
-    public void setMana(final int manaCapacity) {
-        this.mana = manaCapacity;
-    }
 
+    /**
+     * New round mana addition
+     * @param mana - int
+     */
     public void addMana(final int mana) {
         this.mana += mana;
     }
 
+    /**
+     * Places a new card in the players hand
+     */
     public void setNewCardInHand() {
         if (this.playingDeck.size() > 0) {
             this.playingHand.add(this.playingDeck.remove(0));
@@ -100,9 +109,9 @@ public final class Player {
     }
 
     /**
-     * Place card
-     * @param card -
-     * @throws Exception -
+     * Place card on a row and check if it is a valid place
+     * @param card - card to check
+     * @throws Exception - no room on table / no more cards
      */
     public void placeCardOnRow(final MinionCard card) throws Exception {
         ArrayList<MinionCard> rowToAdd;

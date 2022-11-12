@@ -5,19 +5,21 @@ import main.cards.card.character.minion.MinionCard;
 import main.util.Const;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
 
 public final class EmpressThorina extends HeroCard {
     public EmpressThorina(final CardInput cardInput) {
         super(cardInput);
     }
 
+    /**
+     * Removes form the opponent MinionCard with biggest attackDamage
+     * @param affectedRow - the valid row to alter
+     */
     @Override
-    public void useAbility(ArrayList<MinionCard> affectedRow) {
+    public void useAbility(final ArrayList<MinionCard> affectedRow) {
         MinionCard max = affectedRow.get(0);
         for (int i = 1; i < Const.NR_TABLE_COLUMNS; i++) {
-            if ( affectedRow.get(i) != null) {
+            if (affectedRow.get(i) != null) {
                 if (max != null && max.getAttackDamage() <= affectedRow.get(i).getAttackDamage()) {
                     max = affectedRow.get(i);
                 } else if (max == null) {

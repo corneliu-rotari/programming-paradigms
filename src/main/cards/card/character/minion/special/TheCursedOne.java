@@ -12,8 +12,12 @@ public final class TheCursedOne extends SpecialMinionCard {
         super(card);
     }
 
+    /**
+     * Shape shift: swaps the attacked card health and attackDamage
+     * @param attacked - MinionCard attacked
+     */
     @Override
-    public void useAbility(MinionCard attacked) {
+    public void useAbility(final MinionCard attacked) {
         int temp = attacked.getHealth();
         attacked.setHealth(attacked.getAttackDamage());
         attacked.setAttackDamage(temp);

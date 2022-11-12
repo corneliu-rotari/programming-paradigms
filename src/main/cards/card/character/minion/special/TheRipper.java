@@ -11,9 +11,12 @@ public final class TheRipper extends SpecialMinionCard {
         super(card);
     }
 
+    /**
+     * Weak Knees: -2 attackDamage to a minion card
+     * @param attacked - MinionCard attacked
+     */
     @Override
-    public void useAbility(MinionCard attacked) {
+    public void useAbility(final MinionCard attacked) {
         attacked.setAttackDamage(attacked.getAttackDamage() - 2);
-
     }
 }

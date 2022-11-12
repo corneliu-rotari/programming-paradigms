@@ -9,7 +9,7 @@ import main.cards.card.character.hero.HeroCard;
 import main.mechanics.table.GameTable;
 import main.util.Const;
 
-public final class GameControlCommands implements CommandUser {
+public final class GameControlCommands implements CommandControlHelper {
     private ObjectNode objectNode;
     private ObjectMapper mapper;
     private ArrayNode output;
@@ -47,8 +47,9 @@ public final class GameControlCommands implements CommandUser {
                 case Const.USE_ENV_CARD -> {
                     this.objectNode.put("handIdx", actionsInput.getHandIdx());
                     this.objectNode.put("affectedRow", actionsInput.getAffectedRow());
-                    this.gameTable.getOffensivePlayer().useEnvironmentCard(actionsInput.getHandIdx(),
-                            actionsInput.getAffectedRow());
+                    this.gameTable.getOffensivePlayer().
+                            useEnvironmentCard(actionsInput.getHandIdx(),
+                                                actionsInput.getAffectedRow());
                 }
                 case Const.CARD_USES_ABILITY -> {
                     Coordinates attacker = actionsInput.getCardAttacker();
@@ -99,7 +100,7 @@ public final class GameControlCommands implements CommandUser {
 
     }
 
-    private void outputCordJSON(Coordinates attacker, Coordinates attacked) {
+    private void outputCordJSON(final Coordinates attacker, final Coordinates attacked) {
         this.objectNode.set("cardAttacker", mapper.valueToTree(attacker));
         this.objectNode.set("cardAttacked", mapper.valueToTree(attacked));
     }

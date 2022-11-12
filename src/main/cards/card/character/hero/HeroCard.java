@@ -20,5 +20,9 @@ public abstract class HeroCard extends CharacterCard {
         return this.health <= 0;
     }
 
-    abstract public void useAbility(ArrayList<MinionCard> affectedRow);
+    /**
+     * Hero card has a special ability
+     * @param affectedRow - the valid row to alter
+     */
+    public abstract void useAbility(ArrayList<MinionCard> affectedRow);
 }

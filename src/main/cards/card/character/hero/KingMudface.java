@@ -12,8 +12,12 @@ public final class KingMudface extends HeroCard {
         super(cardInput);
     }
 
+    /**
+     * Adds to his MinionCards 1 point of health
+     * @param affectedRow - the valid row to alter
+     */
     @Override
-    public void useAbility(ArrayList<MinionCard> affectedRow) {
+    public void useAbility(final ArrayList<MinionCard> affectedRow) {
         affectedRow.stream().filter(Objects::nonNull).
                 forEach(minionCard -> minionCard.setHealth(minionCard.getHealth() + 1));
     }

@@ -6,7 +6,7 @@ import lombok.Setter;
 import main.cards.card.character.CharacterCard;
 
 public abstract class MinionCard extends CharacterCard {
-    @Getter @Setter protected int attackDamage;
+    @Getter protected int attackDamage;
     @Getter @Setter protected boolean isFrozen = false;
 
     public MinionCard(final CardInput cardInput) {
@@ -19,12 +19,20 @@ public abstract class MinionCard extends CharacterCard {
         this.isFrozen = false;
     }
 
-    public void attackCard(MinionCard card){
+    /**
+     * Removes health point from the opponent
+     * @param card - opponent
+     */
+    public void attackCard(final MinionCard card) {
         card.setHealth(card.getHealth() - this.attackDamage);
         this.hasAttacked = true;
     }
 
-    public void setAttackDamage(int attackDamage) {
+    /**
+     * Sets a new value to the attack damage
+     * @param attackDamage - new attack damage
+     */
+    public void setAttackDamage(final int attackDamage) {
         this.attackDamage = Math.max(attackDamage, 0);
     }
 }

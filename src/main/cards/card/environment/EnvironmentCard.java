@@ -17,9 +17,20 @@ public abstract class EnvironmentCard extends Card {
         super(card);
     }
 
+    /**
+     * Environment Card have natural abilities
+     * @param cardRow - the row affected
+     * @param affectedRow - row Index
+     * @throws Exception - error to print to the output
+     */
+    public abstract void useAbility(ArrayList<MinionCard> cardRow, int affectedRow)
+            throws Exception;
 
-    abstract public void useAbility(ArrayList<MinionCard> cardRow, int affectedRow) throws Exception;
-
+    /**
+     * Mirror row to player's row
+     * @param affectedRow row Index
+     * @return mirror row Index
+     */
     public int getMirrorRow(final int affectedRow) {
         int mirrorRow;
         if (affectedRow == Const.PLAYER_TWO_FRONT) {

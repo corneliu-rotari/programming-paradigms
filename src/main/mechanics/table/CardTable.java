@@ -95,7 +95,7 @@ public final class CardTable {
             throw exception;
         }
     }
-    
+
     public void endTurnDestroyEffects(final Player player) {
         player.getHeroCard().setHasAttacked(false);
         get(player.getBackRow()).stream().filter(Objects::nonNull).forEach(minionCard -> {
@@ -108,7 +108,7 @@ public final class CardTable {
                 });
     }
 
-    public void attackCard(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
+    public void attackCard(final Coordinates attackerCord, final Coordinates attackedCord) throws Exception {
         MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
         MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
         Player playerOff = GameTable.getGameTable().getOffensivePlayer();
@@ -123,7 +123,7 @@ public final class CardTable {
         attacker.attackCard(attacked);
     }
 
-    public void useAbility(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
+    public void useAbility(final Coordinates attackerCord, final Coordinates attackedCord) throws Exception {
         MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
         MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
         Player playerDef = GameTable.getGameTable().getDefensivePlayer();
@@ -149,8 +149,9 @@ public final class CardTable {
         attacker.setHasAttacked(true);
     }
 
-    public void checkCardForAttack(MinionCard attacker, MinionCard attacked,
+    private void checkCardForAttack(final MinionCard attacker, final MinionCard attacked,
                                    final int attackedX) throws Exception {
+//        Error check
         if (attacker.isHasAttacked()) {
             throw new Exception("Attacker card has already attacked this turn.");
         } else if (attacker.isFrozen()) {
@@ -164,6 +165,11 @@ public final class CardTable {
         }
     }
 
+    /**
+     * Check if there is a place to place a card
+     * @param row
+     * @return
+     */
     public boolean isRowIsFull(final int row) {
         return get(row).stream().filter(Objects::isNull).count() == Const.NR_TABLE_COLUMNS;
     }
@@ -177,6 +183,7 @@ public final class CardTable {
         Player defensivePlayer = GameTable.getGameTable().getDefensivePlayer();
         HeroCard hero = offensivePlayer.getHeroCard();
 
+//        Error check
         if (offensivePlayer.getMana() < hero.getMana()) {
             throw new Exception("Not enough mana to use hero's ability.");
         } else if (hero.isHasAttacked()) {
@@ -197,8 +204,16 @@ public final class CardTable {
         hero.setHasAttacked(true);
     }
 
-    public HeroCard attackHero(Coordinates attackerCord) throws Exception {
+    /**
+     * TODO
+     * @param attackerCord
+     * @return
+     * @throws Exception
+     */
+    public HeroCard attackHero(final Coordinates attackerCord) throws Exception {
         MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
+
+//        Error check
         if (attacker.isHasAttacked()) {
             throw new Exception("Attacker card has already attacked this turn.");
         } else if (attacker.isFrozen()) {

@@ -17,7 +17,7 @@ import main.util.Const;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public final class DebugAndStatsCommands implements CommandUser {
+public final class DebugAndStatsCommands implements CommandControlHelper {
     private int playerIdx;
     private ObjectNode objectNode;
     private ArrayNode output;
@@ -76,7 +76,7 @@ public final class DebugAndStatsCommands implements CommandUser {
             case Const.GET_PLAYER_TWO_WINS ->
                     outputJSON(this.gameTable.getPlayerTwo().getNrOfWins());
 
-            case Const.GET_TOTAL_GAMES_PLAYED -> outputJSON(Player.nrOfGames);
+            case Const.GET_TOTAL_GAMES_PLAYED -> outputJSON(Player.getNrOfGames());
             case Const.GET_PLAYER_TURN -> outputJSON(this.gameTable.getPlayerTurn());
             case Const.GET_CARDS_ON_TABLE ->
                     outputTableJSON(this.gameTable.getCardTable().getCardTable());
@@ -95,10 +95,13 @@ public final class DebugAndStatsCommands implements CommandUser {
 
             case Const.GET_FROZEN_CARDS_ON_TABLE -> {
                 ArrayList<ObjectNode> outputArray = new ArrayList<>();
+
                 this.gameTable.getCardTable().getCardTable()
                         .forEach(minionCardsList -> minionCardsList.stream().
                                 filter(Objects::nonNull).filter(MinionCard::isFrozen).
-                                forEach(minionCard -> outputArray.add(removeFiledNames(minionCard))));
+                                forEach(minionCard -> outputArray.
+                                        add(removeFiledNames(minionCard))));
+
                 this.objectNode.set("output", this.mapper.valueToTree(outputArray));
             }
             case Const.GET_PLAYER_MANA -> {

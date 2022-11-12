@@ -12,8 +12,12 @@ public final class Disciple extends SpecialMinionCard {
         super(card);
     }
 
+    /**
+     * God's Plan: +1 health to players Minions
+     * @param attacked - MinionCard attacked
+     */
     @Override
-    public void useAbility(MinionCard attacked) {
+    public void useAbility(final MinionCard attacked) {
         attacked.setHealth(attacked.getHealth() + 2);
     }
 

@@ -14,13 +14,10 @@ public final class GameTable {
     @Getter private Player playerOne;
     @Getter private Player playerTwo;
 
-    @Setter private StartGameInput gameCofig;
-//    isGameFinished
     @Getter @Setter private int playerTurn;
     @Getter private int manaCapacity;
     private int turnsPlayed = 0;
     @Getter private boolean gameFinished = false;
-
 
 
     private GameTable(final DecksInput playerOne, final DecksInput playerTwo) {
@@ -30,9 +27,9 @@ public final class GameTable {
 
     /**
      * Creates a game table for the players
-     * @param playerOne
-     * @param playerTwo
-     * @return
+     * @param playerOne - first player deck
+     * @param playerTwo - second player deck
+     * @return - instance of GameTable
      */
     public static GameTable getGameTable(final DecksInput playerOne,
                                          final DecksInput playerTwo) {
@@ -51,12 +48,12 @@ public final class GameTable {
 
     /**
      * Start a game
-     * @param startGameInput - the default config for the game to be played
+     * @param startGameInput - configuration for the game to be played
      */
     public void startGame(final StartGameInput startGameInput) {
         this.gameFinished = false;
         this.cardTable = new CardTable(Const.NR_TABLE_ROWS, Const.NR_TABLE_COLUMNS);
-        Player.nrOfGames++;
+        Player.setNrOfGames(Player.getNrOfGames() + 1);
 
         this.playerOne.setHeroCard(startGameInput.getPlayerOneHero());
         this.playerTwo.setHeroCard(startGameInput.getPlayerTwoHero());
@@ -79,7 +76,7 @@ public final class GameTable {
     }
 
     /**
-     * Return which player is able to take action
+     * Return player is able to attack
      * @return - Player
      */
     public Player getOffensivePlayer() {
@@ -88,7 +85,10 @@ public final class GameTable {
         }
         return this.playerTwo;
     }
-
+    /**
+     * Return player receives the attack
+     * @return - Player
+     */
     public Player getDefensivePlayer() {
         if (this.playerTurn != Const.PLAYER_ONE) {
             return this.playerOne;
@@ -97,7 +97,7 @@ public final class GameTable {
     }
 
     /**
-     *
+     * Destroys the effects on card and switches player turn
      */
     public void endPlayerTurn() {
         cardTable.endTurnDestroyEffects(getOffensivePlayer());
@@ -117,8 +117,11 @@ public final class GameTable {
         this.turnsPlayed++;
     }
 
+    /**
+     * Starts new round and adds new cards in playing hand
+     */
     private void roundStarts() {
-        if (manaCapacity < 10) {
+        if (manaCapacity < Const.MAX_MANA) {
             manaCapacity++;
         }
 
@@ -129,12 +132,12 @@ public final class GameTable {
         this.playerTwo.addMana(manaCapacity);
     }
 
+    /**
+     * Ends a game and interrupts game-input
+     */
     public void endGame() {
         getOffensivePlayer().setWin();
         cardTable.endTurnDestroyEffects(getOffensivePlayer());
         this.gameFinished = true;
-//        startGame(this.gameCofig);
-//        playerTwo.setMana(0);
-//        playerOne.setMana(0);
     }
 }
