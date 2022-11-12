@@ -76,7 +76,6 @@ public final class Main {
                                                         inputData.getPlayerTwoDecks());
         CommandController commandController = new CommandController(output);
 
-        System.out.println(filePath1);
         inputData.getGames().forEach(gameInput -> {
                     gameTable.startGame(gameInput.getStartGame());
                     gameInput.getActions().forEach(commandController::determineCommand);

@@ -13,9 +13,7 @@ public final class TheRipper extends SpecialMinionCard {
 
     @Override
     public void useAbility(MinionCard attacked) {
-        System.out.println("From " + attacked.getAttackDamage());
         attacked.setAttackDamage(attacked.getAttackDamage() - 2);
-        System.out.println("To " + attacked.getAttackDamage());
 
     }
 }

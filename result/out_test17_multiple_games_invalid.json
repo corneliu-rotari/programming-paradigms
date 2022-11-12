@@ -129,7 +129,7 @@
   } ]
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 18
+  "output" : 20
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0
@@ -262,6 +262,13 @@
     "attackDamage" : 6
   } ]
 }, {
+  "command" : "useAttackHero",
+  "cardAttacked" : {
+    "x" : 1,
+    "y" : 1
+  },
+  "error" : "Attacker card is frozen."
+}, {
   "command" : "placeCard",
   "handIdx" : 0,
   "error" : "Cannot place environment card on table."
@@ -285,6 +292,13 @@
   "command" : "getPlayerTurn",
   "output" : 1
 }, {
+  "command" : "useAttackHero",
+  "cardAttacked" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
+}, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
   "output" : [ ]
@@ -302,6 +316,13 @@
 }, {
   "command" : "getCardAtPosition",
   "output" : "No card at that position."
+}, {
+  "command" : "useAttackHero",
+  "cardAttacked" : {
+    "x" : 2,
+    "y" : 0
+  },
+  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
@@ -425,7 +446,7 @@
   } ]
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 19
+  "output" : 21
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0

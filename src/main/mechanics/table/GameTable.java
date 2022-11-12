@@ -93,7 +93,6 @@ public final class GameTable {
      *
      */
     public void endPlayerTurn() {
-        System.out.println("endPlayerTurn");
         cardTable.endTurnDestroyEffects(getOffensivePlayer());
         if (playerTurn == Const.PLAYER_ONE) {
             playerTurn = Const.PLAYER_TWO;
@@ -112,7 +111,6 @@ public final class GameTable {
     }
 
     private void roundStarts() {
-        System.out.println("\nRounds start\n");
         if (manaCapaity < 10) {
             manaCapaity++;
         }
@@ -122,4 +120,8 @@ public final class GameTable {
         this.playerTwo.setMana(manaCapaity);
     }
 
+    public void endGame() {
+        Player.nrOfGames++;
+        getOffensivePlayer().setWin();
+    }
 }

@@ -129,6 +129,13 @@
     "attackDamage" : 2
   }
 }, {
+  "command" : "useAttackHero",
+  "cardAttacked" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "error" : "Attacked card is not of type 'Tank'."
+}, {
   "command" : "getPlayerTurn",
   "output" : 2
 }, {
@@ -182,6 +189,8 @@
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
+}, {
+  "gameEnded" : "Player one killed the enemy hero."
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
@@ -282,11 +291,11 @@
   } ]
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 9
+  "output" : 10
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0
 }, {
   "command" : "getPlayerOneWins",
-  "output" : 0
+  "output" : 1
 } ]

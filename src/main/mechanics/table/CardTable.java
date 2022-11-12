@@ -21,7 +21,7 @@ public final class CardTable {
         for (int i = 0; i < Const.NR_TABLE_ROWS; i++) {
             this.cardTable.add(new ArrayList<>(columns));
             for (int j = 0; j < Const.NR_TABLE_COLUMNS; j++) {
-                this.cardTable.get(i).add(null);
+                get(i).add(null);
             }
         }
     }
@@ -32,10 +32,10 @@ public final class CardTable {
     public void printCardTable() {
         for (int i = 0; i < Const.NR_TABLE_ROWS; i++) {
             for (int j = 0; j < Const.NR_TABLE_COLUMNS; j++) {
-                if (this.cardTable.get(i).get(j) == null) {
+                if (get(i).get(j) == null) {
                     System.out.print("[]");
                 } else {
-                    System.out.print("[" + this.cardTable.get(i).get(j).getName() + "]");
+                    System.out.print("[" + get(i).get(j).getName() + "]");
                 }
             }
             System.out.println();
@@ -58,10 +58,9 @@ public final class CardTable {
     public void checkCardsHealth() {
         for (int i = 0; i < Const.NR_TABLE_ROWS; i++) {
             for (int j = 0; j < Const.NR_TABLE_COLUMNS; j++) {
-                MinionCard currentCard = cardTable.get(i).get(j);
+                MinionCard currentCard = get(i).get(j);
                 if (currentCard != null && currentCard.isDead()) {
-                    this.cardTable.get(i).set(j, null);
-                    System.out.println("Deleted " + currentCard.getName() + " " + currentCard.getHealth());
+                    get(i).set(j, null);
                     shiftToLeft(i);
                 }
             }
@@ -69,8 +68,7 @@ public final class CardTable {
     }
 
     public void shiftToLeft(final int rowIdx) {
-        System.out.println("shift row :" + rowIdx + "\n");
-        ArrayList<MinionCard> row = cardTable.get(rowIdx);
+        ArrayList<MinionCard> row = get(rowIdx);
         for (int i = 0; i < Const.NR_TABLE_COLUMNS; i++) {
             if (row.get(i) == null && (i + 1 != Const.NR_TABLE_COLUMNS) && row.get(i + 1) != null) {
                 row.set(i, row.get(i + 1));
@@ -83,7 +81,6 @@ public final class CardTable {
         Player player = GameTable.getGameTable().getOffensivePlayer();
         Card cardToPlace = player.getPlayingHand().get(handIdx);
 
-        System.out.println("Place card: " + cardToPlace.getName());
 
         if (Determine.determineEnv(cardToPlace)) {
             throw new Exception("Cannot place environment card on table.");
@@ -100,21 +97,20 @@ public final class CardTable {
     }
     
     public void endTurnDestroyEffects(final Player player) {
-        cardTable.get(player.getBackRow()).stream().filter(Objects::nonNull)
-                .forEach(minionCard -> {
+        player.getHeroCard().setHasAttacked(false);
+        get(player.getBackRow()).stream().filter(Objects::nonNull).forEach(minionCard -> {
                     minionCard.setFrozen(false);
                     minionCard.setHasAttacked(false);
                 });
-        cardTable.get(player.getFrontRow()).stream().filter(Objects::nonNull)
-                .forEach(minionCard -> {
+        get(player.getFrontRow()).stream().filter(Objects::nonNull).forEach(minionCard -> {
                     minionCard.setFrozen(false);
                     minionCard.setHasAttacked(false);
                 });
     }
 
     public void attackCard(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
-        MinionCard attacker = cardTable.get(attackerCord.getX()).get(attackerCord.getY());
-        MinionCard attacked = cardTable.get(attackedCord.getX()).get(attackedCord.getY());
+        MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
+        MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
 
         try {
             checkCardForAttack(attacker, attacked, attackedCord.getX());
@@ -126,13 +122,11 @@ public final class CardTable {
     }
 
     public void useAbility(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
-        MinionCard attacker = cardTable.get(attackerCord.getX()).get(attackerCord.getY());
-        MinionCard attacked = cardTable.get(attackedCord.getX()).get(attackedCord.getY());
+        MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
+        MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
         int attackedX = attackedCord.getX();
 
         if (!attacker.getName().equals(Const.DISCIPLE)) {
-            System.out.println("----------------------------------------------------");
-            printCardTable();
             checkCardForAttack(attacker, attacked, attackedX);
         } else {
             if (attacker.isHasAttacked()) {
@@ -165,16 +159,18 @@ public final class CardTable {
     }
 
     public boolean isRowIsFull(final int row) {
-        return this.cardTable.get(row).stream().filter(Objects::isNull).count() == Const.NR_TABLE_COLUMNS;
+        return get(row).stream().filter(Objects::isNull).count() == Const.NR_TABLE_COLUMNS;
     }
 
     public boolean hasATank(final int row) {
-        return this.cardTable.get(row).stream().filter(Objects::nonNull).filter(Determine::isTank).count() > 0;
+        return get(row).stream().filter(Objects::nonNull).filter(Determine::isTank).count() > 0;
     }
 
     public void useHeroAbility(final int row) throws Exception {
         Player player = GameTable.getGameTable().getOffensivePlayer();
         HeroCard hero = player.getHeroCard();
+
+        System.out.println("Hero: " + hero.getName());
 
         if (player.getMana() < hero.getMana()) {
             throw new Exception("Not enough mana to use hero's ability.");
@@ -190,5 +186,24 @@ public final class CardTable {
                 throw new Exception("Selected row does not belong to the current player.");
             }
         }
+        hero.useAbility(get(row));
+        player.setMana(player.getMana() - hero.getMana());
+        hero.setHasAttacked(true);
+    }
+
+    public HeroCard attackHero(Coordinates attackerCord) throws Exception {
+        MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
+        if (attacker.isHasAttacked()) {
+            throw new Exception("Attacker card has already attacked this turn.");
+        } else if (attacker.isFrozen()) {
+            throw new Exception("Attacker card is frozen.");
+        } else if (hasATank(GameTable.getGameTable().getDefensivePlayer().getFrontRow())) {
+            throw new Exception("Attacked card is not of type 'Tank'.");
+        }
+
+        HeroCard hero = GameTable.getGameTable().getDefensivePlayer().getHeroCard();
+        attacker.setHasAttacked(true);
+        hero.setHealth(hero.getHealth() - attacker.getAttackDamage());
+        return hero;
     }
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.ActionsInput;
 import fileio.Coordinates;
+import main.cards.card.character.hero.HeroCard;
 import main.mechanics.table.GameTable;
 import main.util.Const;
 
@@ -56,10 +57,31 @@ public final class GameControlCommands implements CommandUser {
                     this.gameTable.getCardTable().useAbility(attacker, attacked);
                 }
                 case Const.USE_ATTACK_ON_HERO -> {
+                    HeroCard hero = null;
+                    try {
+                        hero = this.gameTable.getCardTable().
+                                attackHero(actionsInput.getCardAttacker());
+                        if (hero.isHeroDead()) {
+                            this.objectNode = mapper.createObjectNode();
+                            if (this.gameTable.getPlayerTurn() == Const.PLAYER_ONE) {
+                                this.objectNode.put("gameEnded",
+                                        "Player one killed the enemy hero.");
+                            } else {
+                                this.objectNode.put("gameEnded",
+                                        "Player two killed the enemy hero.");
+                            }
+                            this.output.add(this.objectNode);
+                            this.gameTable.endGame();
+                        }
+                    } catch (Exception exception) {
+                        this.objectNode.set("cardAttacked", mapper.
+                                valueToTree(actionsInput.getCardAttacker()));
+                        throw exception;
+                    }
                 }
                 case Const.USE_HERO_ABILITY -> {
                     this.objectNode.put("affectedRow", actionsInput.getAffectedRow());
-//                    this.gameTable.getCardTable().useHeroAbility(actionsInput.getAffectedRow());
+                    this.gameTable.getCardTable().useHeroAbility(actionsInput.getAffectedRow());
                 }
                 default -> {
                 }

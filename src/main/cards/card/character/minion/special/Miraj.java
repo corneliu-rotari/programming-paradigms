@@ -16,6 +16,5 @@ public final class Miraj extends SpecialMinionCard {
         int temp = this.health;
         this.health = attacked.getHealth();
         attacked.setHealth(temp);
-        System.out.println("Miraj made " + attacked.getName() + " health " + attacked.getHealth());
     }
 }
