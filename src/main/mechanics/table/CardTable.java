@@ -111,6 +111,8 @@ public final class CardTable {
     public void attackCard(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
         MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
         MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
+        Player playerOff = GameTable.getGameTable().getOffensivePlayer();
+
 
         try {
             checkCardForAttack(attacker, attacked, attackedCord.getX());
@@ -124,6 +126,10 @@ public final class CardTable {
     public void useAbility(Coordinates attackerCord, Coordinates attackedCord) throws Exception {
         MinionCard attacker = get(attackerCord.getX()).get(attackerCord.getY());
         MinionCard attacked = get(attackedCord.getX()).get(attackedCord.getY());
+        Player playerDef = GameTable.getGameTable().getDefensivePlayer();
+        Player playerOff = GameTable.getGameTable().getOffensivePlayer();
+
+
         int attackedX = attackedCord.getX();
 
         if (!attacker.getName().equals(Const.DISCIPLE)) {
@@ -133,8 +139,8 @@ public final class CardTable {
                 throw new Exception("Attacker card has already attacked this turn.");
             } else if (attacker.isFrozen()) {
                 throw new Exception("Attacker card is frozen.");
-            }else if (attackedX == GameTable.getGameTable().getDefensivePlayer().getFrontRow()
-                    || attackedX == GameTable.getGameTable().getDefensivePlayer().getBackRow()) {
+            }else if (attackedX == playerDef.getFrontRow()
+                    || attackedX == playerDef.getBackRow()) {
                 throw new Exception("Attacked card does not belong to the current player.");
             }
         }
@@ -167,27 +173,28 @@ public final class CardTable {
     }
 
     public void useHeroAbility(final int row) throws Exception {
-        Player player = GameTable.getGameTable().getOffensivePlayer();
-        HeroCard hero = player.getHeroCard();
+        Player offensivePlayer = GameTable.getGameTable().getOffensivePlayer();
+        Player defensivePlayer = GameTable.getGameTable().getDefensivePlayer();
+        HeroCard hero = offensivePlayer.getHeroCard();
 
-        System.out.println("Hero: " + hero.getName());
-
-        if (player.getMana() < hero.getMana()) {
+        if (offensivePlayer.getMana() < hero.getMana()) {
             throw new Exception("Not enough mana to use hero's ability.");
         } else if (hero.isHasAttacked()) {
             throw new Exception("Hero has already attacked this turn.");
         } else if (Objects.equals(hero.getName(), Const.EMPRESS)
                 || Objects.equals(hero.getName(), Const.LORD)) {
-            if (row == player.getFrontRow() || row == player.getBackRow()) {
+            if (row == offensivePlayer.getFrontRow() || row == offensivePlayer.getBackRow()) {
                 throw new Exception("Selected row does not belong to the enemy.");
             }
-        } else {
-            if (row != player.getFrontRow() || row != player.getBackRow()) {
+        } else if (Objects.equals(hero.getName(), Const.KING)
+                || Objects.equals(hero.getName(), Const.GENERAL)){
+            if (row == defensivePlayer.getFrontRow() || row == defensivePlayer.getBackRow()) {
+                System.out.println("Hero: " + hero.getName());
                 throw new Exception("Selected row does not belong to the current player.");
             }
         }
         hero.useAbility(get(row));
-        player.setMana(player.getMana() - hero.getMana());
+        offensivePlayer.setMana(offensivePlayer.getMana() - hero.getMana());
         hero.setHasAttacked(true);
     }
 

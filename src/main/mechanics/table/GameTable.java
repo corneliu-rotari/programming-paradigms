@@ -116,8 +116,8 @@ public final class GameTable {
         }
         this.playerOne.setNewCardInHand();
         this.playerTwo.setNewCardInHand();
-        this.playerOne.setMana(manaCapaity);
-        this.playerTwo.setMana(manaCapaity);
+        this.playerOne.addMana(manaCapaity);
+        this.playerTwo.addMana(manaCapaity);
     }
 
     public void endGame() {

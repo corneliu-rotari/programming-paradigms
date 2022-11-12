@@ -19,6 +19,10 @@
     "attackDamage" : 2
   }
 }, {
+  "command" : "useHeroAbility",
+  "affectedRow" : 3,
+  "error" : "Selected row does not belong to the current player."
+}, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
 }, {
@@ -42,8 +46,16 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
-    "attackDamage" : 6
+    "attackDamage" : 7
   }
+}, {
+  "command" : "useHeroAbility",
+  "affectedRow" : 3,
+  "error" : "Hero has already attacked this turn."
+}, {
+  "command" : "useHeroAbility",
+  "affectedRow" : 1,
+  "error" : "Selected row does not belong to the current player."
 }, {
   "command" : "endPlayerTurn",
   "error" : "Index 0 out of bounds for length 0"
@@ -53,11 +65,11 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 7
+  "output" : 1
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 8
+  "output" : 2
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
@@ -66,7 +78,7 @@
     "description" : "Premium card: His presence is not known even by ghosts, success at all costs.",
     "colors" : [ "Black", "Grey", "Blue" ],
     "health" : 2,
-    "attackDamage" : 1
+    "attackDamage" : 2
   }, {
     "mana" : 3,
     "name" : "Disciple",
@@ -80,14 +92,14 @@
     "description" : "Premium card: Ravished by the winds of hell, no soul is to be forgiven.",
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
-    "attackDamage" : 6
+    "attackDamage" : 8
   }, {
     "mana" : 5,
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
     "health" : 3,
-    "attackDamage" : 4
+    "attackDamage" : 5
   }, {
     "mana" : 4,
     "name" : "The Ripper",
@@ -107,35 +119,35 @@
     "name" : "Warden",
     "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
     "colors" : [ "Black", "White", "Green" ],
-    "health" : 6,
+    "health" : 8,
     "attackDamage" : 2
   }, {
     "mana" : 4,
     "name" : "Miraj",
     "description" : "Standard card: When he is near, close your eyes. They betray your mind.",
     "colors" : [ "Yellow", "Orange", "Red" ],
-    "health" : 3,
+    "health" : 5,
     "attackDamage" : 5
   }, {
     "mana" : 2,
     "name" : "Warden",
     "description" : "Standard card: He has seen everything, his mind has never been asleep since the making of the realm.",
     "colors" : [ "Black", "White", "Green" ],
-    "health" : 5,
+    "health" : 7,
     "attackDamage" : 3
   }, {
     "mana" : 5,
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "health" : 4,
+    "health" : 6,
     "attackDamage" : 5
   }, {
     "mana" : 5,
     "name" : "Miraj",
     "description" : "Premium card: Insanity is always an option, now it is an absolute.",
     "colors" : [ "Red", "Black" ],
-    "health" : 4,
+    "health" : 6,
     "attackDamage" : 4
   } ], [ {
     "mana" : 2,

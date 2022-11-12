@@ -57,7 +57,11 @@ public final class Player {
         Collections.shuffle(this.playingDeck, random);
     }
     public void setMana(final int manaCapacity) {
-        this.mana += manaCapacity;
+        this.mana = manaCapacity;
+    }
+
+    public void addMana(final int mana) {
+        this.mana += mana;
     }
 
     public void setNewCardInHand() {

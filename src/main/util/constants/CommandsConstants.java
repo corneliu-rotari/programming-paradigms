@@ -21,7 +21,7 @@ public interface CommandsConstants {
     String CARD_USES_ATTACK = "cardUsesAttack";
     String CARD_USES_ABILITY = "cardUsesAbility";
     String USE_ATTACK_ON_HERO = "useAttackHero";
-    String USE_HERO_ABILITY = "useHeroABILITY";
+    String USE_HERO_ABILITY = "useHeroAbility";
     String USE_ENV_CARD = "useEnvironmentCard";
 
 }
