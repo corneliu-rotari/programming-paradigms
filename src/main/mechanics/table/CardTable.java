@@ -81,6 +81,7 @@ public final class CardTable {
         Player player = GameTable.getGameTable().getOffensivePlayer();
         Card cardToPlace = player.getPlayingHand().get(handIdx);
 
+//        System.out.println("Card to place " + cardToPlace.getName() + " costs mana "+ cardToPlace.getMana());
 
         if (Determine.determineEnv(cardToPlace)) {
             throw new Exception("Cannot place environment card on table.");
@@ -176,6 +177,7 @@ public final class CardTable {
         Player offensivePlayer = GameTable.getGameTable().getOffensivePlayer();
         Player defensivePlayer = GameTable.getGameTable().getDefensivePlayer();
         HeroCard hero = offensivePlayer.getHeroCard();
+        System.out.println("Hero :" + hero.getName());
 
         if (offensivePlayer.getMana() < hero.getMana()) {
             throw new Exception("Not enough mana to use hero's ability.");
@@ -193,6 +195,7 @@ public final class CardTable {
                 throw new Exception("Selected row does not belong to the current player.");
             }
         }
+//        System.out.println("Print for error check");
         hero.useAbility(get(row));
         offensivePlayer.setMana(offensivePlayer.getMana() - hero.getMana());
         hero.setHasAttacked(true);

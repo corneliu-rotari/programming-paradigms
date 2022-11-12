@@ -79,22 +79,20 @@ public final class ActionsInput {
 
     @Override
     public String toString() {
-        return "ActionsInput{"
-                +  "command='"
-                + command + '\''
+        return "ActionsInput{\n"
                 +  ", handIdx="
                 + handIdx
-                +  ", cardAttacker="
+                +  ",\n cardAttacker="
                 + cardAttacker
-                +  ", cardAttacked="
+                +  ",\n cardAttacked="
                 + cardAttacked
-                + ", affectedRow="
+                + ",\n affectedRow="
                 + affectedRow
-                + ", playerIdx="
+                + ",\n playerIdx="
                 + playerIdx
-                + ", x="
+                + ",\n x="
                 + x
-                + ", y="
+                + ",\n y="
                 + y
                 + '}';
     }

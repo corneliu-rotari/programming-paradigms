@@ -22,4 +22,5 @@ public final class CommandController implements CommandUser {
             gameControlCommands.determineCommand(actionsInput);
         }
     }
+
 }

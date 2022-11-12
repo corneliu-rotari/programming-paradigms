@@ -86,7 +86,18 @@ public final class GameControlCommands implements CommandUser {
                 default -> {
                 }
             }
+//
+//            System.out.println("\n----Comand " + actionsInput.getCommand() + "------------------");
+//            System.out.println("Offesnie:" + this.gameTable.getOffensivePlayer());
+//            System.out.println(actionsInput);
+//            System.out.println("Player Mana :" + this.gameTable.getOffensivePlayer().getMana());
+//            System.out.println("Raound Mana :" + this.gameTable.getManaCapacity());
+//            GameTable.getGameTable().getCardTable().printCardTable();
+//            System.out.println("------------------------------------------------\n");
+
         } catch (Exception exception) {
+//            System.out.println("action failed " + actionsInput.getCommand());
+//            System.out.println("Affected row " + actionsInput.getAffectedRow());
             objectNode.put("error", exception.getMessage());
             output.add(this.objectNode);
 
@@ -99,5 +110,7 @@ public final class GameControlCommands implements CommandUser {
         this.objectNode.set("cardAttacker", mapper.valueToTree(attacker));
         this.objectNode.set("cardAttacked", mapper.valueToTree(attacked));
     }
+
+
 
 }

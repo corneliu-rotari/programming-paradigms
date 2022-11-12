@@ -2,6 +2,7 @@ package main.cards.card.character.hero;
 
 import fileio.CardInput;
 import main.cards.card.character.minion.MinionCard;
+import main.util.Const;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,9 +15,19 @@ public final class EmpressThorina extends HeroCard {
 
     @Override
     public void useAbility(ArrayList<MinionCard> affectedRow) {
-//        TODO Posibil nu merge
-        affectedRow.stream().filter(Objects::nonNull).
-                max(Comparator.comparing(MinionCard::getAttackDamage)).
-                ifPresent(affectedCard -> affectedCard = null);
+        MinionCard max = affectedRow.get(0);
+        for (int i = 1; i < Const.NR_TABLE_COLUMNS; i++) {
+            if ( affectedRow.get(i) != null) {
+                if (max != null && max.getAttackDamage() <= affectedRow.get(i).getAttackDamage()) {
+                    max = affectedRow.get(i);
+                } else if (max == null) {
+                    max = affectedRow.get(i);
+                }
+            }
+        }
+        if (max != null) {
+            max.setHealth(0);
+        }
+
     }
 }

@@ -15,8 +15,8 @@ public final class GameTable {
     @Getter private Player playerTwo;
 
     @Getter @Setter private int playerTurn;
-    private int manaCapaity = 0;
-    private int turnsPlayed = 0;
+    @Getter private int manaCapacity = 0;
+    private int turnsPlayed = 1;
 
 
     private GameTable() {
@@ -67,7 +67,7 @@ public final class GameTable {
         this.playerTwo.setPlayingDeck(this.playerTwo.getDecks().get(startGameInput
                 .getPlayerTwoDeckIdx()), new Random(startGameInput.getShuffleSeed()));
 
-        this.turnsCounter();
+//        this.turnsCounter();
         this.roundStarts();
     }
 
@@ -111,13 +111,18 @@ public final class GameTable {
     }
 
     private void roundStarts() {
-        if (manaCapaity < 10) {
-            manaCapaity++;
+        if (manaCapacity == 0) {
+            System.out.println("Round Starts: manaCapacity = " + manaCapacity);
         }
+        if (manaCapacity < 10) {
+            manaCapacity++;
+        }
+
         this.playerOne.setNewCardInHand();
         this.playerTwo.setNewCardInHand();
-        this.playerOne.addMana(manaCapaity);
-        this.playerTwo.addMana(manaCapaity);
+
+        this.playerOne.addMana(manaCapacity);
+        this.playerTwo.addMana(manaCapacity);
     }
 
     public void endGame() {

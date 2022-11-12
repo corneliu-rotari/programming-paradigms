@@ -57,19 +57,13 @@
   "affectedRow" : 1,
   "error" : "Selected row does not belong to the current player."
 }, {
-  "command" : "endPlayerTurn",
-  "error" : "Index 0 out of bounds for length 0"
-}, {
-  "command" : "endPlayerTurn",
-  "error" : "Index 0 out of bounds for length 0"
-}, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 1
+  "output" : 9
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 2
+  "output" : 10
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {

@@ -65,7 +65,9 @@ public final class Player {
     }
 
     public void setNewCardInHand() {
-        this.playingHand.add(this.playingDeck.remove(0));
+        if (this.playingDeck.size() > 0) {
+            this.playingHand.add(this.playingDeck.remove(0));
+        }
     }
 
     /**
@@ -101,6 +103,10 @@ public final class Player {
      */
     public void placeCardOnRow(final MinionCard card) throws Exception {
         ArrayList<MinionCard> rowToAdd;
+        if (this.playingHand.size() == 0) {
+            throw new Exception("There are no more cards in deck");
+        }
+
         if (Determine.determineFrontRowCard(card)) {
             rowToAdd = GameTable.getGameTable().getCardTable().get(this.frontRow);
         } else {

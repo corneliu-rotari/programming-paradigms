@@ -176,7 +176,7 @@
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 20
+  "output" : 13
 }, {
   "command" : "cardUsesAbility",
   "cardAttacker" : {

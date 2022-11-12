@@ -9,12 +9,12 @@
 }, {
   "command" : "getCardAtPosition",
   "output" : {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
-    "colors" : [ "Black", "Grey", "Blue" ],
+    "mana" : 3,
+    "name" : "Disciple",
+    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
+    "colors" : [ "Yellow", "White" ],
     "health" : 2,
-    "attackDamage" : 1
+    "attackDamage" : 0
   }
 }, {
   "command" : "getCardAtPosition",
@@ -45,12 +45,12 @@
 }, {
   "command" : "getCardAtPosition",
   "output" : {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
-    "colors" : [ "Black", "Grey", "Blue" ],
+    "mana" : 3,
+    "name" : "Disciple",
+    "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
+    "colors" : [ "Yellow", "White" ],
     "health" : 2,
-    "attackDamage" : 1
+    "attackDamage" : 0
   }
 }, {
   "command" : "useHeroAbility",
@@ -61,64 +61,23 @@
   "affectedRow" : 1,
   "error" : "Selected row does not belong to the enemy."
 }, {
-  "command" : "endPlayerTurn",
-  "error" : "Index 0 out of bounds for length 0"
-}, {
-  "command" : "endPlayerTurn",
-  "error" : "Index 0 out of bounds for length 0"
-}, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
-  "output" : 5
+  "output" : 13
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
-  "output" : 3
+  "output" : 11
 }, {
   "command" : "getCardsOnTable",
   "output" : [ [ {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 2,
-    "attackDamage" : 1
-  }, {
     "mana" : 3,
     "name" : "Disciple",
     "description" : "Standard card: Everything is sacred to him, all is but a gift from the saints.",
     "colors" : [ "Yellow", "White" ],
     "health" : 2,
     "attackDamage" : 0
-  }, {
-    "mana" : 3,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 4,
-    "attackDamage" : 0
-  }, {
-    "mana" : 2,
-    "name" : "Disciple",
-    "description" : "Premium card: The will of Gods has been spoken, obey and you shall be saved...or not.",
-    "colors" : [ "Green", "Yellow", "Blue" ],
-    "health" : 4,
-    "attackDamage" : 0
-  }, {
-    "mana" : 1,
-    "name" : "Sentinel",
-    "description" : "Standard card: Trained by the best, nothing will catch him off-guard.",
-    "colors" : [ "Black", "Grey", "Blue" ],
-    "health" : 3,
-    "attackDamage" : 1
-  } ], [ {
-    "mana" : 4,
-    "name" : "The Ripper",
-    "description" : "Standard card: Death incarnate. No better time to die than now.",
-    "colors" : [ "Orange", "Red", "Black" ],
-    "health" : 3,
-    "attackDamage" : 6
-  } ], [ {
+  } ], [ ], [ {
     "mana" : 4,
     "name" : "Goliath",
     "description" : "Premium card: No matter how many, his body will fight. Save your breath for the Mountain is strong.",
