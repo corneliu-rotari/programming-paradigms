@@ -30,7 +30,7 @@
   }
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 2,
     "y" : 1
   },
@@ -85,14 +85,14 @@
   }
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 1,
     "y" : 1
   },
   "error" : "Attacked card is not of type 'Tank'."
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 3,
     "y" : 1
   },

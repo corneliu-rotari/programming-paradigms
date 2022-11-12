@@ -262,7 +262,7 @@
   "output" : 27
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 2,
     "y" : 2
   },

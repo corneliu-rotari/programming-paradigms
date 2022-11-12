@@ -130,7 +130,7 @@
   }
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 0,
     "y" : 0
   },

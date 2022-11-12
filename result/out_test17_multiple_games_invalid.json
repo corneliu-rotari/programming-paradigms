@@ -263,7 +263,7 @@
   } ]
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 1,
     "y" : 1
   },
@@ -293,7 +293,7 @@
   "output" : 1
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 2,
     "y" : 0
   },
@@ -318,7 +318,7 @@
   "output" : "No card at that position."
 }, {
   "command" : "useAttackHero",
-  "cardAttacked" : {
+  "cardAttacker" : {
     "x" : 2,
     "y" : 0
   },

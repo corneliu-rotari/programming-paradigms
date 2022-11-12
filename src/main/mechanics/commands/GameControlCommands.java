@@ -74,7 +74,7 @@ public final class GameControlCommands implements CommandUser {
                             this.gameTable.endGame();
                         }
                     } catch (Exception exception) {
-                        this.objectNode.set("cardAttacked", mapper.
+                        this.objectNode.set("cardAttacker", mapper.
                                 valueToTree(actionsInput.getCardAttacker()));
                         throw exception;
                     }
