@@ -17,7 +17,7 @@ public abstract class HeroCard extends CharacterCard {
      * @return - boolean
      */
     public boolean isHeroDead() {
-        return this.health == 0;
+        return this.health <= 0;
     }
 
     abstract public void useAbility(ArrayList<MinionCard> affectedRow);

@@ -14,10 +14,12 @@ public final class GameControlCommands implements CommandUser {
     private ObjectMapper mapper;
     private ArrayNode output;
     private GameTable gameTable;
+
     public GameControlCommands(final ArrayNode output) {
         this.gameTable = GameTable.getGameTable();
         this.output = output;
         this.mapper = new ObjectMapper();
+
     }
 
     /**
@@ -86,31 +88,23 @@ public final class GameControlCommands implements CommandUser {
                 default -> {
                 }
             }
-//
-//            System.out.println("\n----Comand " + actionsInput.getCommand() + "------------------");
-//            System.out.println("Offesnie:" + this.gameTable.getOffensivePlayer());
-//            System.out.println(actionsInput);
-//            System.out.println("Player Mana :" + this.gameTable.getOffensivePlayer().getMana());
-//            System.out.println("Raound Mana :" + this.gameTable.getManaCapacity());
-//            GameTable.getGameTable().getCardTable().printCardTable();
-//            System.out.println("------------------------------------------------\n");
 
         } catch (Exception exception) {
-//            System.out.println("action failed " + actionsInput.getCommand());
-//            System.out.println("Affected row " + actionsInput.getAffectedRow());
+            System.out.println("action failed " + actionsInput.getCommand());
+            System.out.println(actionsInput);
+            System.out.println("Player Hand" + this.gameTable.getOffensivePlayer().getPlayingHand());
             objectNode.put("error", exception.getMessage());
             output.add(this.objectNode);
 
         }
         this.objectNode = null;
         GameTable.getGameTable().getCardTable().checkCardsHealth();
+
     }
 
     private void outputCordJSON(Coordinates attacker, Coordinates attacked) {
         this.objectNode.set("cardAttacker", mapper.valueToTree(attacker));
         this.objectNode.set("cardAttacked", mapper.valueToTree(attacked));
     }
-
-
 
 }

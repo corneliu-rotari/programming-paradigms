@@ -33,14 +33,13 @@ public final class Player {
 
     public Player(final DecksInput decks, final int frontRow, final int backRow) {
         this.decks = new Decks(decks);
-        this.playingHand = new ArrayList<>();
         this.playingDeck = new ArrayList<>();
         this.backRow = backRow;
         this.frontRow = frontRow;
     }
 
     /**
-     * If a player won a game this function is called
+     * If a player won a game this function is called to recorde the win
      */
     public void setWin() {
         this.nrOfWins++;
@@ -50,11 +49,15 @@ public final class Player {
         this.heroCard = Determine.createHero(cardInput);
     }
 
-    public void setPlayingDeck(ArrayList<Card> playingHand, Random random) {
-        for (Card card : playingHand) {
+    public void setPlayingDeck(final int deckIdx, Random random) {
+        this.playingDeck = new ArrayList<>();
+        ArrayList<Card> deckToBePlayed = this.decks.get(deckIdx);
+        for (Card card : deckToBePlayed) {
             this.playingDeck.add(Determine.createCard(card));
         }
         Collections.shuffle(this.playingDeck, random);
+        System.out.println(this.playingDeck);
+        this.playingHand = new ArrayList<>();
     }
     public void setMana(final int manaCapacity) {
         this.mana = manaCapacity;

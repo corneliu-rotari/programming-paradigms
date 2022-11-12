@@ -291,7 +291,7 @@
   } ]
 }, {
   "command" : "getTotalGamesPlayed",
-  "output" : 10
+  "output" : 1
 }, {
   "command" : "getPlayerTwoWins",
   "output" : 0

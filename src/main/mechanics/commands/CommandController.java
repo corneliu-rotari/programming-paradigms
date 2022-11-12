@@ -16,10 +16,10 @@ public final class CommandController implements CommandUser {
     }
 
     public void determineCommand(final ActionsInput actionsInput) {
-        if (actionsInput.getCommand().startsWith("get")) {
-            debugAndStatsCommands.determineCommand(actionsInput);
-        } else {
+        if (!actionsInput.getCommand().startsWith("get")) {
             gameControlCommands.determineCommand(actionsInput);
+        } else {
+            debugAndStatsCommands.determineCommand(actionsInput);
         }
     }
 

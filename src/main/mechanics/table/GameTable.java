@@ -14,17 +14,13 @@ public final class GameTable {
     @Getter private Player playerOne;
     @Getter private Player playerTwo;
 
+    @Setter private StartGameInput gameCofig;
     @Getter @Setter private int playerTurn;
-    @Getter private int manaCapacity = 0;
-    private int turnsPlayed = 1;
+    @Getter private int manaCapacity;
+    private int turnsPlayed = 0;
 
-
-    private GameTable() {
-        this.cardTable = new CardTable(Const.NR_TABLE_ROWS, Const.NR_TABLE_COLUMNS);
-    }
 
     private GameTable(final DecksInput playerOne, final DecksInput playerTwo) {
-        this();
         this.playerOne = new Player(playerOne, Const.PLAYER_ONE_FRONT, Const.PLAYER_ONE_BACK);
         this.playerTwo = new Player(playerTwo, Const.PLAYER_TWO_FRONT, Const.PLAYER_TWO_BACK);
     }
@@ -55,20 +51,27 @@ public final class GameTable {
      * @param startGameInput - the default config for the game to be played
      */
     public void startGame(final StartGameInput startGameInput) {
+        this.cardTable = new CardTable(Const.NR_TABLE_ROWS, Const.NR_TABLE_COLUMNS);
         Player.nrOfGames++;
 
+        System.out.println("New game");
         this.playerOne.setHeroCard(startGameInput.getPlayerOneHero());
         this.playerTwo.setHeroCard(startGameInput.getPlayerTwoHero());
 
         this.playerTurn = startGameInput.getStartingPlayer();
 
-        this.playerOne.setPlayingDeck(this.playerOne.getDecks().get(startGameInput
-                .getPlayerOneDeckIdx()), new Random(startGameInput.getShuffleSeed()));
-        this.playerTwo.setPlayingDeck(this.playerTwo.getDecks().get(startGameInput
-                .getPlayerTwoDeckIdx()), new Random(startGameInput.getShuffleSeed()));
+        this.playerOne.setPlayingDeck(startGameInput.getPlayerOneDeckIdx(),
+                new Random(startGameInput.getShuffleSeed()));
+        this.playerTwo.setPlayingDeck(startGameInput.getPlayerTwoDeckIdx(),
+                new Random(startGameInput.getShuffleSeed()));
 
-//        this.turnsCounter();
+        playerTwo.setMana(0);
+        playerOne.setMana(0);
+        this.manaCapacity = 0;
+
+        this.turnsCounter();
         this.roundStarts();
+
     }
 
     /**
@@ -126,7 +129,7 @@ public final class GameTable {
     }
 
     public void endGame() {
-        Player.nrOfGames++;
         getOffensivePlayer().setWin();
+        cardTable.endTurnDestroyEffects(getOffensivePlayer());
     }
 }

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
 import fileio.Input;
 import main.mechanics.commands.CommandController;
+import main.mechanics.player.Player;
 import main.mechanics.table.GameTable;
 
 import java.io.File;
@@ -75,6 +76,7 @@ public final class Main {
         GameTable gameTable = GameTable.getGameTable(inputData.getPlayerOneDecks(),
                                                         inputData.getPlayerTwoDecks());
         CommandController commandController = new CommandController(output);
+        Player.nrOfGames = 0;
 
         inputData.getGames().forEach(gameInput -> {
                     gameTable.startGame(gameInput.getStartGame());
