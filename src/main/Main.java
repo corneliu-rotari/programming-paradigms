@@ -7,9 +7,9 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import checker.CheckerConstants;
 import fileio.Input;
-import main.mechanics.commands.CommandController;
-import main.mechanics.player.Player;
-import main.mechanics.table.GameTable;
+import implementation.mechanics.commands.CommandController;
+import implementation.mechanics.player.Player;
+import implementation.mechanics.table.GameTable;
 
 import java.io.File;
 import java.io.IOException;

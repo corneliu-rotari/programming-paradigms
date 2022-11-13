@@ -16,7 +16,9 @@
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
     "attackDamage" : 2
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -26,7 +28,9 @@
     "colors" : [ "Black", "White" ],
     "health" : 3,
     "attackDamage" : 1
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 1,
@@ -40,7 +44,9 @@
     "colors" : [ "Black", "White" ],
     "health" : 3,
     "attackDamage" : 1
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -50,7 +56,9 @@
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
     "attackDamage" : 2
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,

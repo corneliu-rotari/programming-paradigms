@@ -7,7 +7,9 @@
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
     "attackDamage" : 6
-  }
+  },
+  "x" : 1,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -17,7 +19,9 @@
     "colors" : [ "Black", "White", "Green" ],
     "health" : 6,
     "attackDamage" : 2
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "useHeroAbility",
   "affectedRow" : 3,
@@ -37,7 +41,9 @@
     "colors" : [ "Black", "White", "Green" ],
     "health" : 6,
     "attackDamage" : 2
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -47,7 +53,9 @@
     "colors" : [ "Black", "Yellow" ],
     "health" : 4,
     "attackDamage" : 7
-  }
+  },
+  "x" : 1,
+  "y" : 0
 }, {
   "command" : "useHeroAbility",
   "affectedRow" : 3,

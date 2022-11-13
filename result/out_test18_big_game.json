@@ -65,7 +65,9 @@
     "colors" : [ "Red", "Black" ],
     "health" : 2,
     "attackDamage" : 5
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -91,7 +93,9 @@
     "colors" : [ "Purple", "Yellow" ],
     "health" : 4,
     "attackDamage" : 2
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getPlayerTurn",
   "output" : 2
@@ -127,7 +131,9 @@
     "colors" : [ "Purple", "Yellow" ],
     "health" : 5,
     "attackDamage" : 2
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "useAttackHero",
   "cardAttacker" : {
@@ -147,7 +153,9 @@
     "colors" : [ "Red", "Black" ],
     "health" : 3,
     "attackDamage" : 5
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -178,7 +186,9 @@
     "colors" : [ "Purple", "Yellow" ],
     "health" : 5,
     "attackDamage" : 2
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]

@@ -7,7 +7,9 @@
     "colors" : [ "Pink", "Purple" ],
     "health" : 1,
     "attackDamage" : 0
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -17,7 +19,9 @@
     "colors" : [ "Black", "Yellow" ],
     "health" : 3,
     "attackDamage" : 6
-  }
+  },
+  "x" : 1,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]

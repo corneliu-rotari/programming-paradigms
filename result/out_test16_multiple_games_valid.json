@@ -25,7 +25,9 @@
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 1,
     "attackDamage" : 5
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -72,7 +74,9 @@
     "colors" : [ "Red", "Blue", "Pink" ],
     "health" : 2,
     "attackDamage" : 5
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "gameEnded" : "Player two killed the enemy hero."
 }, {
@@ -170,7 +174,9 @@
     "colors" : [ "Brown", "Blue" ],
     "health" : 5,
     "attackDamage" : 7
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
@@ -193,7 +199,9 @@
     "colors" : [ "Brown", "Blue" ],
     "health" : 7,
     "attackDamage" : 5
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,
@@ -213,7 +221,9 @@
     "colors" : [ "Pink", "Purple" ],
     "health" : 1,
     "attackDamage" : 0
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -226,7 +236,9 @@
     "colors" : [ "Brown", "Blue" ],
     "health" : 7,
     "attackDamage" : 5
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]

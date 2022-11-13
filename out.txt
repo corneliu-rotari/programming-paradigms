@@ -174,7 +174,7 @@
     "x" : 2,
     "y" : 0
   },
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
@@ -189,7 +189,7 @@
     "x" : 2,
     "y" : 0
   },
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.getName()\" because \"attacker\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.character.minion.MinionCard.getName()\" because \"attacker\" is null"
 }, {
   "command" : "getEnvironmentCardsInHand",
   "playerIdx" : 2,
@@ -223,14 +223,14 @@
     "x" : 2,
     "y" : 2
   },
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
 }, {
   "command" : "useAttackHero",
   "cardAttacker" : {
     "x" : 2,
     "y" : 1
   },
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
 }, {
   "command" : "useAttackHero",
   "cardAttacker" : {
@@ -264,7 +264,7 @@
     "x" : 2,
     "y" : 2
   },
-  "error" : "Cannot invoke \"main.cards.card.Card.getName()\" because \"card\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.Card.getName()\" because \"card\" is null"
 }, {
   "command" : "getFrozenCardsOnTable",
   "output" : [ ]
@@ -295,7 +295,7 @@
     "x" : 2,
     "y" : 2
   },
-  "error" : "Cannot invoke \"main.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
+  "error" : "Cannot invoke \"implementation.cards.card.character.minion.MinionCard.isHasAttacked()\" because \"attacker\" is null"
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 1,

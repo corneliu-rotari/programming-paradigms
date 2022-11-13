@@ -30,7 +30,9 @@
     "colors" : [ "Yellow", "Orange", "Red" ],
     "health" : 3,
     "attackDamage" : 6
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -40,7 +42,9 @@
     "colors" : [ "Black", "Grey", "Blue" ],
     "health" : 3,
     "attackDamage" : 6
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,
@@ -93,7 +97,9 @@
     "colors" : [ "Black", "White", "Red" ],
     "health" : 1,
     "attackDamage" : 0
-  }
+  },
+  "x" : 3,
+  "y" : 1
 }, {
   "command" : "getCardAtPosition",
   "output" : {
@@ -103,7 +109,9 @@
     "colors" : [ "Yellow", "Orange", "Red" ],
     "health" : 3,
     "attackDamage" : 6
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,

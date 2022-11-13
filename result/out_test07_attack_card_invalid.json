@@ -1,4 +1,9 @@
 [ {
+  "command" : "getCardAtPosition",
+  "output" : "No card available at that position.",
+  "x" : 0,
+  "y" : 3
+}, {
   "command" : "cardUsesAttack",
   "cardAttacker" : {
     "x" : 0,
@@ -18,7 +23,9 @@
     "colors" : [ "Yellow", "White" ],
     "health" : 2,
     "attackDamage" : 0
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 2,
@@ -46,7 +53,9 @@
     "colors" : [ "Yellow", "White" ],
     "health" : 4,
     "attackDamage" : 0
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "cardUsesAttack",
   "cardAttacker" : {

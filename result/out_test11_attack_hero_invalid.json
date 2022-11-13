@@ -7,7 +7,9 @@
     "colors" : [ "Red", "Purple" ],
     "health" : 8,
     "attackDamage" : 5
-  }
+  },
+  "x" : 2,
+  "y" : 0
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,
@@ -62,7 +64,9 @@
     "colors" : [ "Black", "White" ],
     "health" : 3,
     "attackDamage" : 6
-  }
+  },
+  "x" : 0,
+  "y" : 0
 }, {
   "command" : "getPlayerHero",
   "playerIdx" : 1,

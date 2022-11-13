@@ -30,7 +30,9 @@
     "colors" : [ "Black", "White", "Red" ],
     "health" : 3,
     "attackDamage" : 0
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getCardsInHand",
   "playerIdx" : 1,
@@ -63,7 +65,9 @@
     "colors" : [ "Black", "White", "Red" ],
     "health" : 3,
     "attackDamage" : 0
-  }
+  },
+  "x" : 3,
+  "y" : 0
 }, {
   "command" : "getPlayerMana",
   "playerIdx" : 2,
