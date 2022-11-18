@@ -65,3 +65,8 @@ Utils package :
 ## Bonus information
 To implement error handling in the commands' section is implemented using ``` throw Exepctions ``` and ```try {} catch() {}``` idea for a cleaner code.
 For array there were used streams for an easier parse of array members for placing affects on specific card (ex: Hero cards special abilities).
+
+## Feedback
+It was a lot of fun to implement this game.
+There were a lot o helpfull information on the forum.
+A suggestion is to make some more tests that don't require the whole class hierarchy to exist until it can be tested.
