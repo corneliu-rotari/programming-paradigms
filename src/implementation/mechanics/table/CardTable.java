@@ -7,8 +7,8 @@ import implementation.cards.card.character.hero.HeroCard;
 import implementation.cards.card.character.minion.MinionCard;
 import implementation.cards.card.character.minion.special.SpecialMinionCard;
 import implementation.mechanics.player.Player;
-import implementation.util.Determine;
-import implementation.util.Const;
+import implementation.utils.Determine;
+import implementation.utils.Const;
 
 import java.util.ArrayList;
 import java.util.Objects;

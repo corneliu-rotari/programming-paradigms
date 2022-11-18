@@ -4,7 +4,7 @@ import fileio.*;
 import lombok.Getter;
 import lombok.Setter;
 import implementation.mechanics.player.Player;
-import implementation.util.Const;
+import implementation.utils.Const;
 
 import java.util.Random;
 

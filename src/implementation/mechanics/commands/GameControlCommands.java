@@ -7,7 +7,7 @@ import fileio.ActionsInput;
 import fileio.Coordinates;
 import implementation.cards.card.character.hero.HeroCard;
 import implementation.mechanics.table.GameTable;
-import implementation.util.Const;
+import implementation.utils.Const;
 
 public final class GameControlCommands implements CommandControlHelper {
     private ObjectNode objectNode;

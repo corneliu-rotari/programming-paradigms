@@ -3,7 +3,7 @@ package implementation.cards.card.environment;
 import fileio.CardInput;
 import implementation.cards.card.Card;
 import implementation.cards.card.character.minion.MinionCard;
-import implementation.util.Const;
+import implementation.utils.Const;
 
 import java.util.ArrayList;
 

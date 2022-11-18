@@ -1,9 +1,9 @@
-package implementation.util;
+package implementation.utils;
 
-import implementation.util.constants.CommandsConstants;
-import implementation.util.constants.EnvironmentCardConstants;
-import implementation.util.constants.HeroCardConst;
-import implementation.util.constants.MinionCardConstants;
+import implementation.utils.constants.CommandsConstants;
+import implementation.utils.constants.EnvironmentCardConstants;
+import implementation.utils.constants.HeroCardConst;
+import implementation.utils.constants.MinionCardConstants;
 
 /**
  * Class of constants used for developments

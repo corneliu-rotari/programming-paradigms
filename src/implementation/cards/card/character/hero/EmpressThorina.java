@@ -2,7 +2,7 @@ package implementation.cards.card.character.hero;
 
 import fileio.CardInput;
 import implementation.cards.card.character.minion.MinionCard;
-import implementation.util.Const;
+import implementation.utils.Const;
 
 import java.util.ArrayList;
 

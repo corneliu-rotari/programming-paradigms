@@ -1,4 +1,4 @@
-package implementation.util;
+package implementation.utils;
 
 import fileio.CardInput;
 import implementation.cards.card.Card;

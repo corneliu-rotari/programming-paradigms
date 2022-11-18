@@ -3,7 +3,7 @@ package implementation.cards.card.environment;
 import fileio.CardInput;
 import implementation.cards.card.character.minion.MinionCard;
 import implementation.mechanics.table.GameTable;
-import implementation.util.Const;
+import implementation.utils.Const;
 
 import java.util.ArrayList;
 import java.util.Comparator;

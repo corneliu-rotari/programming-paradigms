@@ -1,4 +1,4 @@
-package implementation.util.constants;
+package implementation.utils.constants;
 
 public interface EnvironmentCardConstants {
     String FIRESTORM = "Firestorm";

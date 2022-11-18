@@ -10,8 +10,8 @@ import implementation.cards.card.character.hero.*;
 import implementation.cards.card.character.minion.MinionCard;
 import implementation.cards.card.environment.EnvironmentCard;
 import implementation.mechanics.table.GameTable;
-import implementation.util.Determine;
-import implementation.util.Const;
+import implementation.utils.Determine;
+import implementation.utils.Const;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,7 +67,7 @@ public final class Player {
 
     /**
      * New round mana addition
-     * @param mana - int
+     * @param manaToAdd - int
      */
     public void addMana(final int manaToAdd) {
         this.mana += manaToAdd;

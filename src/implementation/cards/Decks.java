@@ -4,7 +4,7 @@ import fileio.DecksInput;
 import lombok.Getter;
 import lombok.Setter;
 import implementation.cards.card.Card;
-import implementation.util.Determine;
+import implementation.utils.Determine;
 
 import java.util.ArrayList;
 
