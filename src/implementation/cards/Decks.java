@@ -22,8 +22,7 @@ public class Decks {
         this(deck.getNrDecks(), deck.getNrCardsInDeck());
         for (int i = 0; i < deck.getNrDecks(); i++) {
             for (int j = 0; j < deck.getNrCardsInDeck(); j++) {
-                this.decks.get(i).add(
-                        Determine.createCard(deck.getDecks().get(i).get(j)));
+                this.decks.get(i).add(Determine.createCard(deck.getDecks().get(i).get(j)));
             }
         }
     }

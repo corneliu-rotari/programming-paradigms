@@ -25,7 +25,7 @@ Author : Rotari Corneliu
 GwentStone is a card game that lets two players play a game of fantasy war, using different characters and abilities.
 This game has the best attributes form two popular card games **Hearthston** and **Gwent**.
 
-<img src="src/implementation/utils/images/tema_poo_new.png">
+<img src="src/implementation/utils/images/Table.png">
 
 ## **Implementation**
 
