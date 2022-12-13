@@ -117,7 +117,7 @@ public final class Test {
      */
     public static void main(final String[] argv) {
         runTests();
-        preTestCleanUp();
+//        preTestCleanUp();
         System.exit(0);
     }
 
@@ -139,6 +139,7 @@ public final class Test {
         int manualScore = config.getReadmeScore() + config.getHomeworkDesignScore();
 
         for (final File testFile : Objects.requireNonNull(TEST_INPUTS_FILE.listFiles())) {
+            int i = 0;
             String testFileName = testFile.getName();
 
             preTestCleanUp();
@@ -147,6 +148,7 @@ public final class Test {
             final Future<Object> future = createTimerTask(testArgv);
 
             runTest(testFileName, config, future);
+            if (i == 0) break;
         }
 
         score += Checkstyle.testCheckstyle();
