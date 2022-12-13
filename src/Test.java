@@ -116,8 +116,8 @@ public final class Test {
      * @param argv String[]
      */
     public static void main(final String[] argv) {
-        runTests();
-//        preTestCleanUp();
+        runTests(1);
+        preTestCleanUp();
         System.exit(0);
     }
 
@@ -133,13 +133,12 @@ public final class Test {
         return null;
     }
 
-    private static void runTests() {
+    private static void runTests(int nrTest) {
         Config config = loadConfig();
         totalScore = config.getCheckstyleScore();
         int manualScore = config.getReadmeScore() + config.getHomeworkDesignScore();
 
         for (final File testFile : Objects.requireNonNull(TEST_INPUTS_FILE.listFiles())) {
-            int i = 0;
             String testFileName = testFile.getName();
 
             preTestCleanUp();
@@ -148,7 +147,6 @@ public final class Test {
             final Future<Object> future = createTimerTask(testArgv);
 
             runTest(testFileName, config, future);
-            if (i == 0) break;
         }
 
         score += Checkstyle.testCheckstyle();

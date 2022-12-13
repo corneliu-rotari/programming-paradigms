@@ -1,38 +1,59 @@
 import app.App;
+import app.action.Action;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import components.user.User;
 import io.output.Output;
 import io.input.Input;
-import io.output.error.Error;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public final class Main {
+
     private Main() {
+    }
+
+    private static void copyToOutput(String path) throws IOException {
+        FileInputStream in = new FileInputStream("results.out");
+        FileOutputStream out = new FileOutputStream(path.replace("\\in","\\out"));
+
+        try {
+            int n;
+            while ((n = in.read()) != -1) {
+                out.write(n);
+            }
+        }
+        finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
+        in = null;
+        out = null;
     }
 
     /**
      * Entry point in the system
-     * @param args - command line arguments
+     * @param args - paths to input and output file
      */
     public static void main(final String[] args) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Input input;
+        Input input = objectMapper.readValue(new File(args[0]), Input.class);
         Output output = Output.getInstance(args[1]);
 
-        try {
-            input = objectMapper.readValue(new File(args[0]), Input.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        for (User user:
-                input.getUsers()) {
-            System.out.println(user.getCredentials().getName());
-        }
 
         App application = App.getInstance(input);
 
-        output.writeToFile();
+        for (Action action : input.getActions()) {
+//            System.out.println(application.getCurrentPage().getClass());
+            application.getCurrentPage().takeAction(action);
+        }
+
+        application.end();
+        copyToOutput(args[0]);
     }
 }
