@@ -11,10 +11,10 @@ public class User {
     @Getter @Setter private Credentials credentials;
     @Getter @Setter private int tokensCount = 0;
     @Getter @Setter private int numFreePremiumMovies = 15;
-    @Getter @Setter private ArrayList<Movie> watchedMovies = new ArrayList<>();;
-    @Getter @Setter private ArrayList<Movie> purchasedMovies = new ArrayList<>();;
-    @Getter @Setter private ArrayList<Movie> likedMovies = new ArrayList<>();;
-    @Getter @Setter private ArrayList<Movie> ratedMovies = new ArrayList<>();;
+    @Getter @Setter private ArrayList<Movie> watchedMovies = new ArrayList<>();
+    @Getter @Setter private ArrayList<Movie> purchasedMovies = new ArrayList<>();
+    @Getter @Setter private ArrayList<Movie> likedMovies = new ArrayList<>();
+    @Getter @Setter private ArrayList<Movie> ratedMovies = new ArrayList<>();
 
     public User(Credentials credentials) {
         this.credentials = credentials;
@@ -23,8 +23,20 @@ public class User {
     public User() {
     }
 
-    public void addPurchase(Movie newMovie) {
+    public void addPurchased(Movie newMovie) {
         this.purchasedMovies.add(newMovie);
+    }
+
+    public void addWatched(Movie newMovie) {
+        this.watchedMovies.add(newMovie);
+    }
+
+    public void addLiked(Movie newMovie) {
+        this.likedMovies.add(newMovie);
+    }
+
+    public void addRated(Movie newMovie) {
+        this.ratedMovies.add(newMovie);
     }
 
     @Override

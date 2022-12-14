@@ -29,11 +29,8 @@ public final class PageFactory {
                 return new PageAuth();
             case MOVIES:
                 return new PageMovies();
-            case DETAILS: {
-                PageDetails page = new PageDetails();
-                page.setMovie(action.getMovie());
-                return page;
-            }
+            case DETAILS:
+                return new PageDetails(action.getMovie());
             case UPGRADE:
                 return new PageUpgrades();
             default:

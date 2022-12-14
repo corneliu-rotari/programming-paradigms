@@ -7,10 +7,12 @@ import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
 import io.output.Output;
+import io.output.response.Response;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -19,6 +21,7 @@ public class App {
     @Getter @Setter private User currentUser = null;
     @Getter @Setter private Page currentPage;
     @Getter private List<Movie> currentMovieList;
+    @Getter private Movie chosenMovie;
 
 
     private App(Input input) {
@@ -53,6 +56,23 @@ public class App {
 
     public void setCurrentMovieList(List<Movie> list) {
         this.currentMovieList = list;
+    }
+
+    public void setChosenMovie(String movieName) {
+        boolean added = false;
+        for (Movie movie: this.currentMovieList) {
+            if (movie.getName().equals(movieName)) {
+                this.chosenMovie = movie;
+                added = true;
+                this.currentMovieList = new ArrayList<>();
+                this.currentMovieList.add(movie);
+            }
+        }
+        if (!added) {
+            Output.getInstance().addToTree(new Response.Builder().fail().build());
+        } else {
+            Output.getInstance().addToTree(new Response.Builder().user().movies().build());
+        }
     }
 
 }

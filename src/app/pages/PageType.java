@@ -6,8 +6,8 @@ public enum PageType {
     REGISTER("register"),
     HOME("home"),
     MOVIES("movies"),
-    DETAILS("details"),
-    UPGRADE("upgrade"),
+    DETAILS("see details"),
+    UPGRADE("upgrades"),
     LOGOUT("logout");
 
     private final String type;

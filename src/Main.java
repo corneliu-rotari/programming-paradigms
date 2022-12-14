@@ -45,7 +45,7 @@ public final class Main {
         App application = App.getInstance(input);
 
         for (Action action : input.getActions()) {
-//            System.out.println(application.getCurrentPage().getClass());
+//            System.out.println(application.getCurrentPage().getClass() + " - " +action.getType());
             application.getCurrentPage().takeAction(action);
         }
 

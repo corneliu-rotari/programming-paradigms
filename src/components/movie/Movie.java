@@ -15,10 +15,22 @@ public class Movie {
     @Getter @Setter private ArrayList<String> genres;
     @Getter @Setter private ArrayList<String> actors;
     @Getter @Setter private ArrayList<String> countriesBanned;
-    @Getter @Setter private int numLikes;
+    @Getter @Setter private int numLikes = 0;
     @Getter @Setter private Double rating = (double) 0;
-    @Getter @Setter private int numRatings;
+    @Getter @Setter private int numRatings = 0;
 
     @JsonIgnore
     @Getter public static final int price = 2;
+    @JsonIgnore
+    @Getter private ArrayList<Integer> listOfRatings = new ArrayList<>();
+
+    public void addRating(int ratingAdded) {
+        int sum = ratingAdded;
+        for (Integer rate: this.listOfRatings) {
+            sum += rate;
+        }
+        this.numRatings++;
+        this.rating = (double) sum / (double) this.numRatings;
+    }
+
 }
