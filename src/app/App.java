@@ -1,24 +1,24 @@
 package app;
 
-import components.movie.Movie;
+import app.database.Database;
 import app.pages.Page;
 import app.pages.PageFactory;
+import components.movie.Movie;
 import components.user.User;
-import app.database.Database;
 import io.input.Input;
 import io.output.Output;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     private static App instance= null;
     @Getter private Database database;
     @Getter @Setter private User currentUser = null;
     @Getter @Setter private Page currentPage;
-    @Getter private ArrayList<Movie> currentMovieList;
+    @Getter private List<Movie> currentMovieList;
 
 
     private App(Input input) {
@@ -50,4 +50,9 @@ public class App {
     public void setCurrentMovieList() {
         this.currentMovieList = this.database.getMovies(this.currentUser.getCredentials().getCountry());
     }
+
+    public void setCurrentMovieList(List<Movie> list) {
+        this.currentMovieList = list;
+    }
+
 }

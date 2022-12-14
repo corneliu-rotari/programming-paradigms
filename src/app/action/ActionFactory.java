@@ -1,9 +1,8 @@
 package app.action;
 
-import app.action.auth.FilterAction;
-import app.action.auth.SearchAction;
+import app.action.auth.*;
 import app.action.noauth.LoginAction;
-import app.pages.noauth.regitser.RegisterAction;
+import app.action.noauth.RegisterAction;
 
 public class ActionFactory {
     public static ActionTacker createAction(String type) {
@@ -17,17 +16,17 @@ public class ActionFactory {
             case FILTER:
                 return new FilterAction();
             case PURCHASE:
-//                return new PageDetails();
+                return new PurchaseAction();
             case WATCH:
-//                return new PageUpgrades();
+                return new WatchAction();
             case LIKE:
-//                return new PageUpgrades();
+                return new LikeAction();
             case RATE:
-//                return new PageUpgrades();
+                return new RateAction();
             case BUYPREAMIUM:
-//                return new PageUpgrades();
+                return new BuyPremiumAction();
             case BUYTOKEN:
-//                return new PageUpgrades();
+                return new BuyTokenAction();
             default:
                 return new DefaultAction();
         }

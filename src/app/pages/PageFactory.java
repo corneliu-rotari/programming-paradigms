@@ -1,19 +1,22 @@
 package app.pages;
 
+import app.action.Action;
 import app.pages.auth.PageAuth;
-import app.pages.auth.details.PageDetails;
+import app.pages.auth.movies.details.PageDetails;
 import app.pages.auth.movies.PageMovies;
 import app.pages.auth.upgrade.PageUpgrades;
 import app.pages.noauth.login.PageLogin;
 import app.pages.noauth.PageNoAuth;
-import app.action.noauth.PageRegister;
+import app.pages.noauth.regitser.PageRegister;
 
 public final class PageFactory {
-    public static Page createPage(String type) {
-        return createPage(PageType.fromString(type));
+    private static Action action;
+    public static Page createPage(Action actionToTake) {
+        action = actionToTake;
+        return createPage(PageType.fromString(action.getPage()));
     }
     public static Page createPage() {
-        return createPage("");
+        return createPage(PageType.fromString(""));
     }
 
     public static Page createPage(PageType type) {
@@ -26,8 +29,11 @@ public final class PageFactory {
                 return new PageAuth();
             case MOVIES:
                 return new PageMovies();
-            case DETAILS:
-                return new PageDetails();
+            case DETAILS: {
+                PageDetails page = new PageDetails();
+                page.setMovie(action.getMovie());
+                return page;
+            }
             case UPGRADE:
                 return new PageUpgrades();
             default:

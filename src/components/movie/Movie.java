@@ -1,10 +1,11 @@
 package components.movie;
 
-import java.util.ArrayList;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
 
 @EqualsAndHashCode
 public class Movie {
@@ -17,4 +18,7 @@ public class Movie {
     @Getter @Setter private int numLikes;
     @Getter @Setter private Double rating = (double) 0;
     @Getter @Setter private int numRatings;
+
+    @JsonIgnore
+    @Getter public static final int price = 2;
 }

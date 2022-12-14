@@ -1,12 +1,11 @@
 package components.user;
 
 import components.movie.Movie;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
-import lombok.Getter;
-import lombok.Setter;
 
 public class User {
     @Getter @Setter private Credentials credentials;
@@ -22,6 +21,10 @@ public class User {
     }
 
     public User() {
+    }
+
+    public void addPurchase(Movie newMovie) {
+        this.purchasedMovies.add(newMovie);
     }
 
     @Override

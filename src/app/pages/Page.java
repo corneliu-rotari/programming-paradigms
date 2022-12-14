@@ -32,16 +32,18 @@ public abstract class Page implements ActionTacker {
     public void changePage(Action action) {
         App app = App.getInstance();
         if (pagesToChange.contains(PageType.fromString(action.getPage()))) {
-            app.setCurrentPage(PageFactory.createPage(action.getPage()));
-            return;
+            app.setCurrentPage(PageFactory.createPage(action));
+        } else {
+            Output.getInstance().addToTree(new Response.Builder().fail().build());
         }
-        Output.getInstance().addToTree(new Response.Builder().fail().build());
     }
 
     public void onPage(Action action) {
         if (typeOfActions.contains(ActionType.fromString(action.getFeature()))) {
             ActionTacker actionTacker = ActionFactory.createAction(action.getFeature());
             actionTacker.takeAction(action);
+        } else {
+            Output.getInstance().addToTree(new Response.Builder().fail().build());
         }
     }
 

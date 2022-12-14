@@ -25,12 +25,8 @@ public final class Main {
             }
         }
         finally {
-            if (in != null) {
-                in.close();
-            }
-            if (out != null) {
-                out.close();
-            }
+            in.close();
+            out.close();
         }
         in = null;
         out = null;

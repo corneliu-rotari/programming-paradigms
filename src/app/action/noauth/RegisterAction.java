@@ -1,4 +1,4 @@
-package app.pages.noauth.regitser;
+package app.action.noauth;
 
 import app.App;
 import app.action.Action;
