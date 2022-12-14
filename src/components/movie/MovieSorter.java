@@ -29,13 +29,14 @@ public class MovieSorter implements Comparator<Movie> {
     }
 
     private int ratingCompare(Double rating1, Double rating2) {
-        if (filter.getSort().getDuration() == null) {
+        if (filter.getSort().getRating() == null) {
             return 0;
         }
-        if (filter.getSort().getDuration().equals("decreasing")) {
-            return Double.compare(rating2, rating1);
+        if (filter.getSort().getRating().equals("decreasing")) {
+            return Double.compare(rating2,rating1);
         } else {
-            return Double.compare(rating1, rating2);
+            return Double.compare(rating1,rating2);
+
         }
     }
 }

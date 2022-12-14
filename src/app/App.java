@@ -58,7 +58,7 @@ public class App {
         this.currentMovieList = list;
     }
 
-    public void setChosenMovie(String movieName) {
+    public boolean setChosenMovie(String movieName) {
         boolean added = false;
         for (Movie movie: this.currentMovieList) {
             if (movie.getName().equals(movieName)) {
@@ -73,6 +73,7 @@ public class App {
         } else {
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         }
+        return added;
     }
 
 }

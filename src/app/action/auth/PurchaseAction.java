@@ -18,8 +18,11 @@ public class PurchaseAction implements ActionTacker {
         int nrFreeMovies = user.getNumFreePremiumMovies();
         if (nrFreeMovies > 0) {
             user.setNumFreePremiumMovies(nrFreeMovies - 1);
-        } else {
+        } else if (user.getTokensCount() >= Movie.price){
             user.setTokensCount(user.getTokensCount() - Movie.price);
+        } else {
+            Output.getInstance().addToTree(new Response.Builder().fail().build());
+            return;
         }
         user.addPurchased(movie);
         Output.getInstance().addToTree(new Response.Builder().user().movies().build());

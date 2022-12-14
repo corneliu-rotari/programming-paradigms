@@ -1,5 +1,6 @@
 package app.pages;
 
+import app.App;
 import app.action.Action;
 import app.pages.auth.PageAuth;
 import app.pages.auth.movies.details.PageDetails;
@@ -29,8 +30,11 @@ public final class PageFactory {
                 return new PageAuth();
             case MOVIES:
                 return new PageMovies();
-            case DETAILS:
-                return new PageDetails(action.getMovie());
+            case DETAILS: {
+                if (App.getInstance().setChosenMovie(action.getMovie())) {
+                    return new PageDetails();
+                } else return App.getInstance().getCurrentPage();
+            }
             case UPGRADE:
                 return new PageUpgrades();
             default:

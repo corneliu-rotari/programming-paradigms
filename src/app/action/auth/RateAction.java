@@ -13,7 +13,7 @@ public class RateAction implements ActionTacker {
     public void takeAction(Action action) {
         User user = App.getInstance().getCurrentUser();
         Movie active = App.getInstance().getChosenMovie();
-        if (user.getWatchedMovies().contains(active)) {
+        if (user.getWatchedMovies().contains(active) && action.getRate() <= 5 && action.getRate() >= 0) {
             user.addRated(active);
             active.addRating(action.getRate());
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
