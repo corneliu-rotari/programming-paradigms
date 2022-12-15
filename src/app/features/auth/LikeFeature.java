@@ -1,7 +1,7 @@
 package app.features.auth;
 
 import app.App;
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import io.input.action.Action;
 import app.features.ActionTacker;
 import components.movie.Movie;
@@ -21,7 +21,7 @@ public final class LikeFeature implements ActionTacker {
         Movie movie = App.getInstance().getChosenMovie();
         if (user.getWatchedMovies().contains(movie)) {
             movie.setNumLikes(movie.getNumLikes() + 1);
-            user.addMovieByFeature(movie, FeatureType.LIKE);
+            user.addMovieByFeature(movie, FeatureFactory.FeatureType.LIKE);
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());

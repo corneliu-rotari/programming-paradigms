@@ -3,7 +3,6 @@ package app.pages;
 import app.App;
 import app.features.ActionTacker;
 import app.features.FeatureFactory;
-import app.features.FeatureType;
 import io.input.action.Action;
 import io.output.Output;
 import io.output.response.Response;
@@ -16,10 +15,10 @@ import java.util.Set;
  */
 public abstract class Page implements ActionTacker {
     protected final Set<PageFactory.PageType> pagesToChange;
-    protected final Set<FeatureType> typeOfActions;
+    protected final Set<FeatureFactory.FeatureType> typeOfActions;
 
     public Page(final Set<PageFactory.PageType> pagesToChange,
-                final Set<FeatureType> typeOfActions) {
+                final Set<FeatureFactory.FeatureType> typeOfActions) {
         this.pagesToChange = pagesToChange;
         this.typeOfActions = typeOfActions;
     }
@@ -30,7 +29,8 @@ public abstract class Page implements ActionTacker {
      */
     @Override
     public void takeAction(final Action action) {
-        if (FeatureType.CHANGEPAGE == FeatureType.fromString(action.getType())) {
+        if (FeatureFactory.FeatureType.CHANGEPAGE
+                == FeatureFactory.FeatureType.fromString(action.getType())) {
             changePage(action);
         } else {
             onPage(action);
@@ -39,7 +39,7 @@ public abstract class Page implements ActionTacker {
 
     /**
      * Goes to the next allowed page or outputs an error
-     * @param action
+     * @param action - action input
      */
     public void changePage(final Action action) {
         App app = App.getInstance();
@@ -52,10 +52,10 @@ public abstract class Page implements ActionTacker {
 
     /**
      * Implements an allowed feature or outputs an error
-     * @param action
+     * @param action - action input
      */
     public void onPage(final Action action) {
-        if (typeOfActions.contains(FeatureType.fromString(action.getFeature()))) {
+        if (typeOfActions.contains(FeatureFactory.FeatureType.fromString(action.getFeature()))) {
             ActionTacker actionTacker = FeatureFactory.createAction(action.getFeature());
             actionTacker.takeAction(action);
         } else {

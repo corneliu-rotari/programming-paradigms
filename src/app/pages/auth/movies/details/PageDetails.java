@@ -1,6 +1,6 @@
 package app.pages.auth.movies.details;
 
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import app.pages.PageFactory;
 import app.pages.auth.movies.PageMovies;
 
@@ -12,8 +12,12 @@ public final class PageDetails extends PageMovies {
         super(new HashSet<>(Set.of(PageFactory.PageType.DETAILS, PageFactory.PageType.MOVIES,
                                     PageFactory.PageType.UPGRADE, PageFactory.PageType.LOGOUT,
                                     PageFactory.PageType.HOME)),
-                new HashSet<>(Set.of(FeatureType.LIKE, FeatureType.WATCH, FeatureType.PURCHASE,
-                                    FeatureType.RATE)));
+
+                new HashSet<>(Set.of(FeatureFactory.FeatureType.LIKE,
+                                    FeatureFactory.FeatureType.WATCH,
+                                    FeatureFactory.FeatureType.PURCHASE,
+                                    FeatureFactory.FeatureType.RATE))
+        );
     }
 
 }

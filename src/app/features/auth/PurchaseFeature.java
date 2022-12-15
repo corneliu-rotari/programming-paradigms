@@ -1,7 +1,7 @@
 package app.features.auth;
 
 import app.App;
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import io.input.action.Action;
 import app.features.ActionTacker;
 import components.movie.Movie;
@@ -30,7 +30,7 @@ public final class PurchaseFeature implements ActionTacker {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
             return;
         }
-        user.addMovieByFeature(movie, FeatureType.PURCHASE);
+        user.addMovieByFeature(movie, FeatureFactory.FeatureType.PURCHASE);
         Output.getInstance().addToTree(new Response.Builder().user().movies().build());
     }
 }

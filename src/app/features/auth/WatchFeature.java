@@ -2,7 +2,7 @@ package app.features.auth;
 
 import app.App;
 import app.features.ActionTacker;
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import components.movie.Movie;
 import components.user.User;
 import io.input.action.Action;
@@ -19,7 +19,7 @@ public final class WatchFeature implements ActionTacker {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
         if (user.getPurchasedMovies().contains(movie)) {
-            user.addMovieByFeature(movie, FeatureType.WATCH);
+            user.addMovieByFeature(movie, FeatureFactory.FeatureType.WATCH);
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());

@@ -1,6 +1,6 @@
 package app.pages.noauth;
 
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import app.pages.Page;
 import app.pages.PageFactory;
 
@@ -14,11 +14,11 @@ public class PageNoAuth extends Page {
     public PageNoAuth() {
         super(new HashSet<>(Set.of(PageFactory.PageType.NOAUTH, PageFactory.PageType.LOGIN,
                                     PageFactory.PageType.REGISTER)),
-                new HashSet<>(Set.of(FeatureType.CHANGEPAGE)));
+                new HashSet<>(Set.of(FeatureFactory.FeatureType.CHANGEPAGE)));
     }
 
     public PageNoAuth(final Set<PageFactory.PageType> pagesToChange,
-                      final Set<FeatureType> typeOfActions) {
+                      final Set<FeatureFactory.FeatureType> typeOfActions) {
         super(pagesToChange, typeOfActions);
     }
 }

@@ -1,6 +1,6 @@
 package app.pages.auth;
 
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import app.pages.Page;
 import app.pages.PageFactory;
 
@@ -15,7 +15,7 @@ public class PageAuth extends Page {
     }
 
     public PageAuth(final Set<PageFactory.PageType> pagesToChange,
-                    final Set<FeatureType> typeOfActions) {
+                    final Set<FeatureFactory.FeatureType> typeOfActions) {
         super(pagesToChange, typeOfActions);
     }
 }

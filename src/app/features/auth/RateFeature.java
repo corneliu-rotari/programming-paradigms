@@ -1,7 +1,7 @@
 package app.features.auth;
 
 import app.App;
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import io.input.action.Action;
 import app.features.ActionTacker;
 import components.movie.Movie;
@@ -23,7 +23,7 @@ public final class RateFeature implements ActionTacker {
 
         if (user.getWatchedMovies().contains(ratedMovie)
                 && action.getRate() <= MAX_RATING && action.getRate() >= 0) {
-            user.addMovieByFeature(ratedMovie, FeatureType.RATE);
+            user.addMovieByFeature(ratedMovie, FeatureFactory.FeatureType.RATE);
             ratedMovie.addRating(action.getRate());
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         } else {

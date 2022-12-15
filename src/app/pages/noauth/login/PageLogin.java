@@ -1,6 +1,6 @@
 package app.pages.noauth.login;
 
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import app.pages.PageFactory;
 import app.pages.noauth.PageNoAuth;
 
@@ -11,6 +11,6 @@ public final class PageLogin extends PageNoAuth {
     public PageLogin() {
         super(new HashSet<>(Set.of(PageFactory.PageType.LOGIN, PageFactory.PageType.REGISTER,
                                     PageFactory.PageType.NOAUTH)),
-                new HashSet<>(Set.of(FeatureType.LOGIN)));
+                new HashSet<>(Set.of(FeatureFactory.FeatureType.LOGIN)));
     }
 }

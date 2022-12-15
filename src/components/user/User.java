@@ -1,6 +1,6 @@
 package components.user;
 
-import app.features.FeatureType;
+import app.features.FeatureFactory;
 import components.movie.Movie;
 import components.user.account.Premium;
 import lombok.Getter;
@@ -31,14 +31,15 @@ public final class User {
      * @param newMovie - movie to be added
      * @param featureType - Feature type form which it was called
      */
-    public void addMovieByFeature(final Movie newMovie, final FeatureType featureType) {
-        if (featureType.equals(FeatureType.PURCHASE)) {
+    public void addMovieByFeature(final Movie newMovie,
+                                  final FeatureFactory.FeatureType featureType) {
+        if (featureType.equals(FeatureFactory.FeatureType.PURCHASE)) {
             this.purchasedMovies.add(newMovie);
-        } else if (featureType.equals(FeatureType.RATE)) {
+        } else if (featureType.equals(FeatureFactory.FeatureType.RATE)) {
             this.ratedMovies.add(newMovie);
-        } else if (featureType.equals(FeatureType.WATCH)) {
+        } else if (featureType.equals(FeatureFactory.FeatureType.WATCH)) {
             this.watchedMovies.add(newMovie);
-        } else if (featureType.equals(FeatureType.LIKE)) {
+        } else if (featureType.equals(FeatureFactory.FeatureType.LIKE)) {
             this.likedMovies.add(newMovie);
         }
 

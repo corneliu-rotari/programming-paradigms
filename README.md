@@ -1,14 +1,23 @@
 # streaming-service-backend
 `Author : Corneliu Rotari` `Group : 323 CD`
+___
+1. [Description](#description)
+2. [Project Structure](#project-structure)
+3. [Implementation](#implementation)
+   1. [Extension](#extension)
+4. [Design Patterns](#design-patterns)
+   1. [Singleton](#singleton)
+   2. [Builder](#builder)
+   3. [Factory](#factory)
+   4. [Possible Design Patterns](#possible-design-patterns)
 
-1. [Description](#desc)
-2. [Project Structure](#struct)
-3. [Design Patterns](#dp)
-4. [Extension](#ext)
+___
+## Description
+Simulates and backend for a streaming service application (ex. Netflix, Hulu, HBO, etc.).\
+The API supports User Authentication, Movie Ratings, Filtering and Sorting, Page Specific Features.
 
-## Description <a name="desc"></a>
-
-## Project Structure <a name="struct"></a>
+___
+## Project Structure
 ```
 └── src
     ├── app
@@ -24,12 +33,11 @@
     │       └── noauth
     │           ├── login
     │           └── regitser
-    ├── checker
     ├── components
     │   ├── filter
     │   ├── movie
     │   └── user
-    │       └── account
+    │       └── accountType
     ├── io
     │   ├── input
     │   │   └── action
@@ -37,5 +45,91 @@
     │       └── response
     └── utils
 ```
-## Design Patterns <a name="dp"></a>
-## Extension <a name="ext"></a>
+___
+## Implementation
+### App 
+Throughout the implementation I opted for `HashedSet` to store the `Movies` and `User` to ensure single insertion.
+
+There is [`Database.java`](./src/app/database/Database.java) that simulates the interaction with an External Database.
+
+### Pages
+Every Page has the allowed PagesTypes and FeaturesTypes to change/make in the constructor.
+
+<img src="./src/utils/PageStructure.svg" height="200">
+
+### Features
+Every Feature implements ActionTacker to allow abstraction.
+
+<img src="./src/utils/FeatureStructure.svg" height="200">
+
+### I/O
+Input and Output are managed using `Jackson Library` for `Json` Manipulation.
+
+### Extension
+Future plans for the API : 
+1. Adding addition of Movies.
+2. Adding UserTypes (ex. `"standard"`, `"premium"`, `...`).
+3. More Features on each Page.
+4. Multiple Filters.
+
+___
+## Design Patterns
+### Singleton
+<img height="100" src="https://refactoring.guru/images/patterns/content/singleton/singleton.png" alt="s">
+
+`Motivation` : 
+
+To centralise the information for the Application State.\
+To extract the dependencies for Output form the Application class.
+
+`Location` :
+- [`Output.java`](./src/io/output/Output.java)
+- [`App.java`](./src/app/App.java)
+
+### Builder
+<img height="150" src="https://refactoring.guru/images/patterns/content/builder/builder-en.png"  alt="b">
+
+`Motivation` :
+
+To easily build a response from every place of the application.
+
+`Location` :
+- [`Response.java`](./src/io/output/response/Response.java)
+
+
+### Factory 
+<img height="150" src="https://refactoring.guru/images/patterns/content/factory-method/factory-method-en.png" alt="f">
+
+`Motivation` :
+
+To separate the building process for Pages And Features.
+
+`Location` :
+- [`PageFactory.java`](./src/app/pages/PageFactory.java)
+- [`FeatureFactory.java`](./src/app/features/FeatureFactory.java)
+
+
+
+## Possible Design Patterns
+### Strategy
+<img alt="st" src="https://refactoring.guru/images/patterns/content/strategy/strategy.png" height="100">
+
+`Motivation` : To add new types of users or criteria to filter movies
+
+`Location` :
+- UserType :
+    - StandardStrategy
+    - PremiumStrategy
+- FiltersStrategy :
+    - SortStrategy
+    - ContainsStrategy
+
+### Facade 
+<img src="https://refactoring.guru/images/patterns/content/facade/facade.png?id=1f4be17305b6316fbd548edf1937ac3b" height="100">
+
+`Motivation` : To encapsulate all the information for major Action
+
+`Location` :
+- Pages
+- Features
+___
