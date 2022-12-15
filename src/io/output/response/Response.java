@@ -9,48 +9,59 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Response {
-    @Setter @Getter private String error;
-    @Setter @Getter private List<Movie> currentMoviesList;
-    @Setter @Getter private User currentUser;
-//    public static final String SUCCESS = "success";
-//    public static final String FAIL = "fail";
+@Getter @Setter
+public final class Response {
+    private String error;
+    private List<Movie> currentMoviesList;
+    private User currentUser;
 
-    public static class Builder {
+    /**
+     * Response Builder
+     * Every propriety is optional
+     */
+    public static final class Builder {
         private String error = null;
         private List<Movie> currentMoviesList = new ArrayList<>();
         private User currentUser = null;
 
+        /**
+         * Places "Error" in the error field
+         * @return builder
+         */
         public Builder fail() {
             this.error = "Error";
             return this;
         }
 
+        /**
+         * Places the current user in Response
+         * @return builder object
+         */
         public Builder user() {
             this.currentUser = App.getInstance().getCurrentUser();
             return this;
         }
 
+        /**
+         * Places the current movie list in the response
+         * @return builder object
+         */
         public Builder movies() {
-            App app = App.getInstance();
-            if (this.currentUser != null) {
-                this.currentMoviesList = app.getCurrentMovieList();
-            }
+            this.currentMoviesList = App.getInstance().getCurrentMovieList();
             return this;
         }
 
-        public Builder movies(List<Movie> currentMoviesList) {
-            this.currentMoviesList = currentMoviesList;
-            return this;
-        }
-
+        /**
+         * Creates the Response object
+         * @return Response object
+         */
         public Response build() {
             return new Response(this);
         }
 
     }
 
-    private Response(Builder builder) {
+    private Response(final Builder builder) {
         this.error = builder.error;
         this.currentUser = builder.currentUser;
         this.currentMoviesList = builder.currentMoviesList;

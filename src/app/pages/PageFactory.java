@@ -1,7 +1,7 @@
 package app.pages;
 
 import app.App;
-import app.action.Action;
+import io.input.action.Action;
 import app.pages.auth.PageAuth;
 import app.pages.auth.movies.details.PageDetails;
 import app.pages.auth.movies.PageMovies;
@@ -10,35 +10,96 @@ import app.pages.noauth.login.PageLogin;
 import app.pages.noauth.PageNoAuth;
 import app.pages.noauth.regitser.PageRegister;
 
+/**
+ * Creates a specific Page based on the Page type
+ */
 public final class PageFactory {
     private static Action action;
-    public static Page createPage(Action actionToTake) {
+
+    /**
+     * Creates a page based on input
+     * @param actionToTake - action information
+     * @return a child object of the Page class
+     */
+    public static Page createPage(final Action actionToTake) {
         action = actionToTake;
         return createPage(PageType.fromString(action.getPage()));
     }
+
+    /**
+     * Creates a default page
+     * @return - PageNoAuth
+     */
     public static Page createPage() {
-        return createPage(PageType.fromString(""));
+        return new PageNoAuth();
     }
 
-    public static Page createPage(PageType type) {
+
+    /**
+     * Creates a page Based on a page type
+     * @param type - Page type enum
+     * @return new Page object
+     */
+    public static Page createPage(final PageType type) {
         switch (type) {
-            case LOGIN:
+            case LOGIN -> {
                 return new PageLogin();
-            case REGISTER:
+            }
+            case REGISTER -> {
                 return new PageRegister();
-            case HOME:
+            }
+            case HOME -> {
                 return new PageAuth();
-            case MOVIES:
+            }
+            case MOVIES -> {
                 return new PageMovies();
-            case DETAILS: {
+            }
+            case DETAILS -> {
                 if (App.getInstance().setChosenMovie(action.getMovie())) {
                     return new PageDetails();
-                } else return App.getInstance().getCurrentPage();
+                } else {
+                    return App.getInstance().getCurrentPage();
+                }
             }
-            case UPGRADE:
+            case UPGRADE -> {
                 return new PageUpgrades();
-            default:
+            }
+            default -> {
                 return new PageNoAuth();
+            }
+        }
+    }
+    private PageFactory() {
+    }
+
+    public enum PageType {
+        NOAUTH("noAuth"),
+        LOGIN("login"),
+        REGISTER("register"),
+        HOME("home"),
+        MOVIES("movies"),
+        DETAILS("see details"),
+        UPGRADE("upgrades"),
+        LOGOUT("logout");
+
+        private final String type;
+        PageType(final String type) {
+            this.type = type;
+        }
+
+        /**
+         * Maps a string to a specific Page type.
+         *
+         * @param text the name of the Page type
+         * @return the Page type found, else if the string page does not exist NoAuth is returned.
+         */
+        public static PageType fromString(final String text) {
+            for (PageType pageType : PageType.values()) {
+                if (pageType.type.equalsIgnoreCase(text)) {
+                    return pageType;
+                }
+            }
+            return PageType.NOAUTH;
         }
     }
 }

@@ -4,38 +4,49 @@ import components.filter.Filter;
 
 import java.util.Comparator;
 
+/**
+ * Sorter for a Movie list based on a filter
+ */
 public class MovieSorter implements Comparator<Movie> {
-    private final Filter filter;
+    private final Filter.Sort sort;
 
-    public MovieSorter(Filter filter) {
-        this.filter = filter;
+    public MovieSorter(final Filter.Sort sortBy) {
+        this.sort = sortBy;
     }
 
+    /**
+     * Compares to movies based on input criteria.
+     * @param movie1 the first object to be compared.
+     * @param movie2 the second object to be compared.
+     * @return 1 if movie1 should be before movie2
+     *         -1 if movie2 should be before movie1
+     *         0 if they are equal
+     */
     @Override
-    public int compare(Movie movie1, Movie movie2) {
-        if (filter.getSort() == null) {
+    public int compare(final Movie movie1, final Movie movie2) {
+        if (sort == null) {
             return 0;
         }
 
-        if (filter.getSort().getDuration() == null || movie1.getDuration() == movie2.getDuration()) {
+        if (sort.getDuration() == null || movie1.getDuration() == movie2.getDuration()) {
             return ratingCompare(movie1.getRating(), movie2.getRating());
         }
 
-        if (filter.getSort().getDuration().equals("decreasing")) {
+        if (sort.getDuration().equals("decreasing")) {
             return Integer.compare(movie2.getDuration(), movie1.getDuration());
         } else {
             return Integer.compare(movie1.getDuration(), movie2.getDuration());
         }
     }
 
-    private int ratingCompare(Double rating1, Double rating2) {
-        if (filter.getSort().getRating() == null) {
+    private int ratingCompare(final Double rating1, final  Double rating2) {
+        if (sort.getRating() == null) {
             return 0;
         }
-        if (filter.getSort().getRating().equals("decreasing")) {
-            return Double.compare(rating2,rating1);
+        if (sort.getRating().equals("decreasing")) {
+            return Double.compare(rating2, rating1);
         } else {
-            return Double.compare(rating1,rating2);
+            return Double.compare(rating1, rating2);
 
         }
     }

@@ -4,17 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+@Getter @Setter
+public final class Filter {
+    private Sort sort;
+    private OptionalFilters contains;
 
-public class Filter {
-    @Getter @Setter Sort sort;
-    @Getter @Setter OptionalFilters contains;
-    public class Sort {
-        @Getter @Setter private String rating;
-        @Getter @Setter private String duration;
+    @Getter @Setter
+    public final class Sort {
+        private String rating;
+        private String duration;
     }
 
-    public class OptionalFilters {
-        @Getter @Setter private ArrayList<String> actors;
-        @Getter @Setter private ArrayList<String> genre;
+    @Getter @Setter
+    public final class OptionalFilters {
+        private ArrayList<String> actors;
+        private ArrayList<String> genre;
     }
 }

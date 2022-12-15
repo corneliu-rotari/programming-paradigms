@@ -1,13 +1,17 @@
-package app.action.auth;
+package app.features.auth;
 
 import app.App;
-import app.action.Action;
-import app.action.ActionTacker;
+import io.input.action.Action;
+import app.features.ActionTacker;
 import components.user.User;
 
-public class BuyTokenAction implements ActionTacker {
+public final class BuyTokenFeature implements ActionTacker {
+    /**
+     * Converts user amount of money into token currency.
+     * @param action - input for the feature
+     */
     @Override
-    public void takeAction(Action action) {
+    public void takeAction(final Action action) {
         User activeUser = App.getInstance().getCurrentUser();
         int balance = Integer.parseInt(activeUser.getCredentials().getBalance());
         activeUser.setTokensCount(activeUser.getTokensCount() + action.getCount());

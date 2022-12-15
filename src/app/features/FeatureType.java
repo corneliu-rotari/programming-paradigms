@@ -1,6 +1,9 @@
-package app.action;
+package app.features;
 
-public enum ActionType {
+/**
+ * Type of Feature that can happen in the application
+ */
+public enum FeatureType {
     CHANGEPAGE("change page"),
     ONPAGE("on page"),
     LOGIN("login"),
@@ -15,13 +18,19 @@ public enum ActionType {
     BUYTOKEN("buy tokens");
 
 
-    private String type;
-    ActionType(String type) {
+    private final String type;
+
+    FeatureType(final String type) {
         this.type = type;
     }
 
-    public static ActionType fromString(String text) {
-        for (ActionType actionType : ActionType.values()) {
+    /**
+     * Converts a string to a Feature type
+     * @param text - string to convert
+     * @return Type of Feature / null
+     */
+    public static FeatureType fromString(final String text) {
+        for (FeatureType actionType : FeatureType.values()) {
             if (actionType.type.equalsIgnoreCase(text)) {
                 return actionType;
             }

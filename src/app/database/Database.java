@@ -6,16 +6,24 @@ import components.user.User;
 
 import java.util.ArrayList;
 
-public class Database {
-    private ArrayList <User> users;
-    private ArrayList <Movie> movies;
+/**
+ * Stores the information of the application
+ */
+public final class Database {
+    private ArrayList<User> users;
+    private ArrayList<Movie> movies;
 
-    public Database(ArrayList<User> users, ArrayList<Movie> movies) {
+    public Database(final ArrayList<User> users, final ArrayList<Movie> movies) {
         this.users = users;
         this.movies = movies;
     }
 
-    public boolean addUser(Credentials credentials) {
+    /**
+     * Registers a new user to the Database
+     * @param credentials - user information
+     * @return if the addition was successful
+     */
+    public boolean addUser(final Credentials credentials) {
         if (authUser(credentials) != null) {
             return false;
         }
@@ -24,14 +32,12 @@ public class Database {
         return true;
     }
 
-    public void printUsers() {
-        for (User user :
-                users) {
-            System.out.println(user.getCredentials().getName());
-        }
-    }
-
-    public ArrayList<Movie> getMovies(String userCountry) {
+    /**
+     * Creates a movie list of what the user is able to see
+     * @param userCountry - user's country
+     * @return available movies
+     */
+    public ArrayList<Movie> getMovies(final String userCountry) {
         ArrayList<Movie> ableToSee = new ArrayList<>();
         for (Movie movie : movies) {
             if (!movie.getCountriesBanned().contains(userCountry)) {
@@ -41,16 +47,17 @@ public class Database {
         return ableToSee;
     }
 
-    public User authUser(Credentials credentials) {
+    /**
+     * Checks if the user can be logged in the system
+     * @param credentials - name and password
+     * @return the user found / null if not found.
+     */
+    public User authUser(final Credentials credentials) {
         for (User user : users) {
             if (credentials.equals(user.getCredentials())) {
                 return user;
             }
         }
-        return null;
-    }
-
-    public Movie findMovie(String startsWith) {
         return null;
     }
 }

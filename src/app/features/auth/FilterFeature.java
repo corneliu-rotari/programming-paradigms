@@ -1,8 +1,8 @@
-package app.action.auth;
+package app.features.auth;
 
 import app.App;
-import app.action.Action;
-import app.action.ActionTacker;
+import io.input.action.Action;
+import app.features.ActionTacker;
 import components.filter.Filter;
 import components.movie.Movie;
 import components.movie.MovieSorter;
@@ -11,11 +11,23 @@ import io.output.response.Response;
 
 import java.util.List;
 
-public class FilterAction implements ActionTacker {
+/**
+ * Filter are used to select specific movies based on a criteria.
+ */
+public class FilterFeature implements ActionTacker {
+    /**
+     * Filters the movie list:
+     * Sorts - by duration and rating.
+     * Contains - a certain actor or a genre or both.
+     * @param action - input for the feature
+     */
     @Override
-    public void takeAction(Action action) {
+    public void takeAction(final Action action) {
+        App.getInstance().setCurrentMovieList();
         List<Movie> sortedMovies = App.getInstance().getCurrentMovieList();
-        sortedMovies.sort(new MovieSorter(action.getFilters()));
+        if (action.getFilters().getSort() != null) {
+            sortedMovies.sort(new MovieSorter(action.getFilters().getSort()));
+        }
         Filter.OptionalFilters optionalFilters = action.getFilters().getContains();
         if (optionalFilters != null) {
             if (optionalFilters.getActors() != null) {
@@ -30,7 +42,7 @@ public class FilterAction implements ActionTacker {
             }
         }
         App.getInstance().setCurrentMovieList(sortedMovies);
-        Output.getInstance().addToTree(new Response.Builder().user().movies(sortedMovies).build());
+        Output.getInstance().addToTree(new Response.Builder().user().movies().build());
     }
 
 }

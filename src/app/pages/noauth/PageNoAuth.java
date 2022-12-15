@@ -1,20 +1,24 @@
 package app.pages.noauth;
 
-import app.action.ActionType;
+import app.features.FeatureType;
 import app.pages.Page;
-import app.pages.PageType;
+import app.pages.PageFactory;
 
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * The page the user sees when he is unauthenticated
+ */
 public class PageNoAuth extends Page {
     public PageNoAuth() {
-        super(new HashSet<>(Set.of(PageType.NOAUTH, PageType.LOGIN, PageType.REGISTER)),
-                new HashSet<>(Set.of(ActionType.CHANGEPAGE)));
+        super(new HashSet<>(Set.of(PageFactory.PageType.NOAUTH, PageFactory.PageType.LOGIN,
+                                    PageFactory.PageType.REGISTER)),
+                new HashSet<>(Set.of(FeatureType.CHANGEPAGE)));
     }
 
-    public PageNoAuth(Set<PageType> pagesToChange, Set<ActionType> typeOfActions) {
+    public PageNoAuth(final Set<PageFactory.PageType> pagesToChange,
+                      final Set<FeatureType> typeOfActions) {
         super(pagesToChange, typeOfActions);
     }
 }

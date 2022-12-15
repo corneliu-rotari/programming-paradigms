@@ -1,48 +1,58 @@
 package components.user;
 
+import app.features.FeatureType;
 import components.movie.Movie;
+import components.user.account.Premium;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 
-public class User {
-    @Getter @Setter private Credentials credentials;
-    @Getter @Setter private int tokensCount = 0;
-    @Getter @Setter private int numFreePremiumMovies = 15;
-    @Getter @Setter private ArrayList<Movie> watchedMovies = new ArrayList<>();
-    @Getter @Setter private ArrayList<Movie> purchasedMovies = new ArrayList<>();
-    @Getter @Setter private ArrayList<Movie> likedMovies = new ArrayList<>();
-    @Getter @Setter private ArrayList<Movie> ratedMovies = new ArrayList<>();
+@Getter @Setter
+public final class User {
+    private Credentials credentials;
+    private int tokensCount = 0;
+    private int numFreePremiumMovies = Premium.NR_FREE_MOVIES;
+    private LinkedHashSet<Movie> watchedMovies = new LinkedHashSet<>();
+    private LinkedHashSet<Movie> purchasedMovies = new LinkedHashSet<>();
+    private LinkedHashSet<Movie> likedMovies = new LinkedHashSet<>();
+    private LinkedHashSet<Movie> ratedMovies = new LinkedHashSet<>();
 
-    public User(Credentials credentials) {
+    public User(final Credentials credentials) {
         this.credentials = credentials;
     }
 
     public User() {
     }
 
-    public void addPurchased(Movie newMovie) {
-        this.purchasedMovies.add(newMovie);
+    /**
+     * Adds a movie to specific Set of movies based on the feature type
+     * @param newMovie - movie to be added
+     * @param featureType - Feature type form which it was called
+     */
+    public void addMovieByFeature(final Movie newMovie, final FeatureType featureType) {
+        if (featureType.equals(FeatureType.PURCHASE)) {
+            this.purchasedMovies.add(newMovie);
+        } else if (featureType.equals(FeatureType.RATE)) {
+            this.ratedMovies.add(newMovie);
+        } else if (featureType.equals(FeatureType.WATCH)) {
+            this.watchedMovies.add(newMovie);
+        } else if (featureType.equals(FeatureType.LIKE)) {
+            this.likedMovies.add(newMovie);
+        }
+
     }
 
-    public void addWatched(Movie newMovie) {
-        this.watchedMovies.add(newMovie);
-    }
-
-    public void addLiked(Movie newMovie) {
-        this.likedMovies.add(newMovie);
-    }
-
-    public void addRated(Movie newMovie) {
-        this.ratedMovies.add(newMovie);
-    }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
         return credentials.equals(user.credentials);
     }

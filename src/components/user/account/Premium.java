@@ -1,7 +1,7 @@
 package components.user.account;
 
-public class Premium {
-    public static final int price = 10;
-    public static final int nrFreeMovies = 15;
-    public static final String type = "premium";
+public interface Premium {
+    int PRICE = 10;
+    int NR_FREE_MOVIES = 15;
+    String TYPE = "premium";
 }
