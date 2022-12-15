@@ -4,7 +4,11 @@ ___
 1. [Description](#description)
 2. [Project Structure](#project-structure)
 3. [Implementation](#implementation)
-   1. [Extension](#extension)
+   1. [App](#app)
+   2. [Pages](#pages)
+   3. [Features](#features)
+   4. [I/O](#io)
+   4. [Extension](#extension)
 4. [Design Patterns](#design-patterns)
    1. [Singleton](#singleton)
    2. [Builder](#builder)
@@ -55,12 +59,12 @@ There is [`Database.java`](./src/app/database/Database.java) that simulates the 
 ### Pages
 Every Page has the allowed PagesTypes and FeaturesTypes to change/make in the constructor.
 
-<img src="./src/utils/PageStructure.svg" height="200">
+<img src="./src/utils/PageStructure.svg" height="400">
 
 ### Features
 Every Feature implements ActionTacker to allow abstraction.
 
-<img src="./src/utils/FeatureStructure.svg" height="200">
+<img src="./src/utils/FeatureStructure.svg" height="300">
 
 ### I/O
 Input and Output are managed using `Jackson Library` for `Json` Manipulation.
