@@ -19,7 +19,7 @@ ___
 ___
 ## Description
 Simulates and backend for a streaming service application (ex. Netflix, Hulu, HBO, etc.).\
-The API supports User Authentication, Movie Ratings, Filtering and Sorting, Page Specific Features.
+The API supports User Authentication, Movie Ratings, Filtering and Sorting. Each Page has Specific Features implemented.
 
 ___
 ## Project Structure
