@@ -4,12 +4,17 @@ ___
 1. [Description](#description)
 2. [Project Structure](#project-structure)
 3. [Implementation](#implementation)
-   1. [Extension](#extension)
+   1. [App](#app)
+   2. [Pages](#pages)
+   3. [Features](#features)
+   4. [I/O](#io)
+   5. [Extension](#extension)
 4. [Design Patterns](#design-patterns)
    1. [Singleton](#singleton)
    2. [Builder](#builder)
    3. [Factory](#factory)
-   4. [Design Patterns that can be added](#design-patterns-that-can-be-added)
+   4. [Command](#command) 
+   5. [Design Patterns that can be added](#design-patterns-that-can-be-added)
 
 ___
 ## Description
@@ -57,10 +62,12 @@ Every Page has the allowed PagesTypes and FeaturesTypes to change/make in the co
 
 <img src="./src/utils/PageStructure.svg" height="200" alt="fg">
 
+
 ### Features
 Every Feature implements ActionTacker to allow abstraction.
 
 <img src="./src/utils/FeatureStructure.svg" height="200" alt="gfg">
+
 
 ### I/O
 Input and Output are managed using `Jackson Library` for `Json` Manipulation.
