@@ -16,7 +16,7 @@ public final class BuyPremiumFeature implements ActionTacker {
     public void takeAction(final Action action) {
         User activeUser = App.getInstance().getCurrentUser();
         if (activeUser.getCredentials().getAccountType().equals(Standard.TYPE)) {
-            activeUser.setTokensCount(activeUser.getTokensCount() - Premium.PRICE);
+            activeUser.subtractTokens(Premium.PRICE);
             activeUser.getCredentials().setAccountType(Premium.TYPE);
             activeUser.setNumFreePremiumMovies(Premium.NR_FREE_MOVIES);
         }

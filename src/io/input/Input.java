@@ -1,8 +1,8 @@
 package io.input;
 
-import io.input.action.Action;
 import components.movie.Movie;
 import components.user.User;
+import io.input.action.Action;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -68,9 +68,9 @@ public final class App {
     }
 
     /**
-     * Sets a new
-     * @param movieName
-     * @return
+     * Sets a single movie to the user's currentMovieList
+     * @param movieName - full name of the movie
+     * @return - if it was added or not
      */
     public boolean setChosenMovie(final String movieName) {
         boolean added = false;

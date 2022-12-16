@@ -19,6 +19,8 @@ public final class LikeFeature implements ActionTacker {
     public void takeAction(final Action action) {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
+
+        /* Check if the user has watched the movie */
         if (user.getWatchedMovies().contains(movie)) {
             movie.setNumLikes(movie.getNumLikes() + 1);
             user.addMovieByFeature(movie, FeatureFactory.FeatureType.LIKE);

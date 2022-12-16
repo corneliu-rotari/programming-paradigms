@@ -30,20 +30,20 @@ public final class Movie {
     private HashMap<User, Integer> mapOfRatings = new HashMap<>();
 
     /**
-     * Sets a rating to a movie form the current User
-     * If the user already rated the movie the rating is changed.
-     * After each change in the mapOfRatings the rating is recalculated
+     * Sets a rating to a movie form the current User.
      * @param ratingAdded - the new rating from the current user
      */
     public void addRating(final int ratingAdded) {
-        double sum = 0;
         User user = App.getInstance().getCurrentUser();
+
+        /* If the user already rated the movie the rating is changed. */
         mapOfRatings.put(user, ratingAdded);
 
+        /* After each change in the mapOfRatings, the rating is recalculated.*/
+        double sum = 0;
         for (Map.Entry<User, Integer> entry : mapOfRatings.entrySet()) {
             sum += entry.getValue();
         }
-
         this.numRatings = this.mapOfRatings.size();
         this.rating = sum / (double) this.numRatings;
     }

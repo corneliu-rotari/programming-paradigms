@@ -30,12 +30,8 @@ public class MovieSorter implements Comparator<Movie> {
 
         if (sort.getDuration() == null || movie1.getDuration() == movie2.getDuration()) {
             return ratingCompare(movie1.getRating(), movie2.getRating());
-        }
-
-        if (sort.getDuration().equals("decreasing")) {
-            return Integer.compare(movie2.getDuration(), movie1.getDuration());
         } else {
-            return Integer.compare(movie1.getDuration(), movie2.getDuration());
+            return durationCompare(movie1.getDuration(), movie2.getDuration());
         }
     }
 
@@ -47,7 +43,14 @@ public class MovieSorter implements Comparator<Movie> {
             return Double.compare(rating2, rating1);
         } else {
             return Double.compare(rating1, rating2);
+        }
+    }
 
+    private int durationCompare(final int duration1, final int duration2) {
+        if (sort.getDuration().equals("decreasing")) {
+            return Integer.compare(duration2, duration1);
+        } else {
+            return Integer.compare(duration1, duration2);
         }
     }
 }

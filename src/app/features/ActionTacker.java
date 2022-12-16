@@ -3,7 +3,7 @@ package app.features;
 import io.input.action.Action;
 
 /**
- * Interface for an object that can change the state of the Application
+ * Interface for Command Design Pattern
  */
 public interface ActionTacker {
     /**

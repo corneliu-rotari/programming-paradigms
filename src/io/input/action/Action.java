@@ -5,6 +5,9 @@ import components.user.Credentials;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Request format
+ */
 @Getter @Setter
 public class Action {
     private String type;

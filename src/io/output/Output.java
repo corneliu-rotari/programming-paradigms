@@ -58,7 +58,7 @@ public final class Output {
     }
 
     /**
-     * deletes the output object
+     * Deletes the output object
      */
     public static void destroy() {
         outputInstance = null;

@@ -33,7 +33,7 @@ public final class Database {
     }
 
     /**
-     * Creates a movie list of what the user is able to see
+     * Creates a movie list of what the user is able to see based on users country
      * @param userCountry - user's country
      * @return available movies
      */

@@ -14,7 +14,7 @@ public final class BuyTokenFeature implements ActionTacker {
     public void takeAction(final Action action) {
         User activeUser = App.getInstance().getCurrentUser();
         int balance = Integer.parseInt(activeUser.getCredentials().getBalance());
-        activeUser.setTokensCount(activeUser.getTokensCount() + action.getCount());
+        activeUser.addTokens(action.getCount());
         activeUser.getCredentials().setBalance(Integer.toString(balance - action.getCount()));
     }
 }

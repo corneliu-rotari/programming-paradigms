@@ -25,20 +25,25 @@ public class FilterFeature implements ActionTacker {
     public void takeAction(final Action action) {
         App.getInstance().setCurrentMovieList();
         List<Movie> sortedMovies = App.getInstance().getCurrentMovieList();
+
+        /* Sorts the movies */
         if (action.getFilters().getSort() != null) {
             sortedMovies.sort(new MovieSorter(action.getFilters().getSort()));
         }
+
+        /* Filters based on  */
         Filter.OptionalFilters optionalFilters = action.getFilters().getContains();
         if (optionalFilters != null) {
+            /* Contains actor */
             if (optionalFilters.getActors() != null) {
-                for (String actor: optionalFilters.getActors()) {
-                    sortedMovies.removeIf(movie -> !movie.getActors().contains(actor));
-                }
+                optionalFilters.getActors().forEach(actor ->
+                        sortedMovies.removeIf(movie -> !movie.getActors().contains(actor)));
             }
+
+            /* Contains genre */
             if (optionalFilters.getGenre() != null) {
-                for (String genre: optionalFilters.getGenre()) {
-                    sortedMovies.removeIf(movie -> !movie.getGenres().contains(genre));
-                }
+                optionalFilters.getGenre().forEach(genre ->
+                        sortedMovies.removeIf(movie -> !movie.getGenres().contains(genre)));
             }
         }
         App.getInstance().setCurrentMovieList(sortedMovies);

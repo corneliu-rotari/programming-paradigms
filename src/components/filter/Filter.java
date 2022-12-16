@@ -10,13 +10,13 @@ public final class Filter {
     private OptionalFilters contains;
 
     @Getter @Setter
-    public final class Sort {
+    public static final class Sort {
         private String rating;
         private String duration;
     }
 
     @Getter @Setter
-    public final class OptionalFilters {
+    public static final class OptionalFilters {
         private ArrayList<String> actors;
         private ArrayList<String> genre;
     }

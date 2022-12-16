@@ -45,6 +45,22 @@ public final class User {
 
     }
 
+    /**
+     * Subtract an amount form the users token balance
+     * @param amount how much the user is charged
+     */
+    public void subtractTokens(final int amount) {
+        this.tokensCount -= amount;
+    }
+
+    /**
+     * Adds to user's account token count
+     * @param amount - the amount to add
+     */
+    public void addTokens(final int amount) {
+        this.tokensCount += amount;
+    }
+
 
     @Override
     public boolean equals(final Object o) {

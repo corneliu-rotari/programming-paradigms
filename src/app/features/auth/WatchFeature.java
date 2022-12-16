@@ -11,13 +11,15 @@ import io.output.response.Response;
 
 public final class WatchFeature implements ActionTacker {
     /**
-     * If the movie is already purchased it can be watched
+     * Adds the movie to a user's watched list
      * @param action - input for the feature
      */
     @Override
     public void takeAction(final Action action) {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
+
+        /* If the movie is already purchased it can be watched */
         if (user.getPurchasedMovies().contains(movie)) {
             user.addMovieByFeature(movie, FeatureFactory.FeatureType.WATCH);
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());

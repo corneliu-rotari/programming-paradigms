@@ -21,6 +21,7 @@ public final class RateFeature implements ActionTacker {
         User user = App.getInstance().getCurrentUser();
         Movie ratedMovie = App.getInstance().getChosenMovie();
 
+        /* Checks if the user has watched the film and the rating is correct */
         if (user.getWatchedMovies().contains(ratedMovie)
                 && action.getRate() <= MAX_RATING && action.getRate() >= 0) {
             user.addMovieByFeature(ratedMovie, FeatureFactory.FeatureType.RATE);

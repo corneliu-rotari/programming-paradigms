@@ -20,7 +20,8 @@ public final class SearchFeature implements ActionTacker {
     @Override
     public void takeAction(final Action action) {
         List<Movie> movieList = App.getInstance().getCurrentMovieList().stream().filter(movie ->
-                                movie.getName().startsWith(action.getStartsWith())).toList();
+                                    movie.getName().startsWith(action.getStartsWith())).toList();
+
         App.getInstance().setCurrentMovieList(movieList);
         Output.getInstance().addToTree(new Response.Builder().user().movies().build());
     }
