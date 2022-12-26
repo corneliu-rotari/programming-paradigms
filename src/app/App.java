@@ -143,11 +143,13 @@ public final class App {
      * @throws IOException if the output is null
      */
     public void end() throws IOException {
-        Output.getInstance().writeToFile();
+        if (this.currentUser != null) {
+            this.currentUser.getRecommendation();
+        }
         instance = null;
         this.database = null;
         this.currentUser = null;
-        Output.destroy();
+        Output.getInstance().writeToFile();
     }
 
 

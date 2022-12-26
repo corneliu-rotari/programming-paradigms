@@ -20,8 +20,12 @@ public class GenreManager {
     public void notifySubscribers(final Movie movie, final String message) {
         for (GenreSubscriber subscriber : this.subscribers) {
             User user = (User) subscriber;
+            Notification notification = new Notification(message, movie.getName());
+            if (user.getNotifications().size() != 0 && user.getNotifications().getLast().equals(notification)) {
+                return;
+            }
             if (!movie.getCountriesBanned().contains(user.getCredentials().getCountry())) {
-                subscriber.update(new Notification(message, movie.getName()));
+                subscriber.update(notification);
             }
         }
     }

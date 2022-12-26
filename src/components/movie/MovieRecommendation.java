@@ -23,10 +23,12 @@ public class MovieRecommendation {
             }
         }));
         int maxNrOfLikes = Collections.max(topGenres.values());
-        ArrayList<String> genresFound = new ArrayList<>(topGenres.entrySet().stream().filter(entry -> entry.getValue() == maxNrOfLikes)
+        List<String> genresFound = new ArrayList<>(topGenres.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxNrOfLikes)
                 .map(Map.Entry::getKey).toList());
+
         Collections.sort(genresFound);
-        genresFound.forEach(System.out::println);
+
 
         Set<Movie> watchedMovies = App.getInstance().getCurrentUser().getWatchedMovies();
 

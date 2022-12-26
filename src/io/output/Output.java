@@ -55,12 +55,6 @@ public final class Output {
     public void writeToFile() throws IOException {
         ObjectWriter objectWriter = this.objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(this.path), jsonTree);
-    }
-
-    /**
-     * Deletes the output object
-     */
-    public static void destroy() {
         outputInstance = null;
     }
 }
