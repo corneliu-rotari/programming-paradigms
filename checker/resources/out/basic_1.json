@@ -50,4 +50,8 @@
     "likedMovies" : [ ],
     "ratedMovies" : [ ]
   }
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
 } ]

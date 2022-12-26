@@ -1,15 +1,39 @@
 import app.App;
-import io.input.action.Action;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.input.Input;
+import io.input.action.Action;
 import io.output.Output;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public final class Main {
 
     private Main() {
+    }
+
+    private static void copyToOutput(String path) throws IOException {
+        FileInputStream in = new FileInputStream("results.out");
+        FileOutputStream out = new FileOutputStream(path.replace("\\in","\\out"));
+
+        try {
+            int n;
+            while ((n = in.read()) != -1) {
+                out.write(n);
+            }
+        }
+        finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
+        in = null;
+        out = null;
     }
 
     /**
@@ -29,5 +53,6 @@ public final class Main {
             application.getCurrentPage().takeAction(action);
         }
         application.end();
+        copyToOutput(args[0]);
     }
 }

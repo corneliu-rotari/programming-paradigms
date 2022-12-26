@@ -139,6 +139,16 @@
     "rating" : 0.0,
     "numRatings" : 0
   }, {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 0,
+    "rating" : 0.0,
+    "numRatings" : 0
+  }, {
     "name" : "Mistress",
     "year" : 2012,
     "duration" : 146,
@@ -176,6 +186,16 @@
     "numLikes" : 0,
     "rating" : 0.0,
     "numRatings" : 0
+  }, {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 0,
+    "rating" : 0.0,
+    "numRatings" : 0
   } ],
   "currentUser" : {
     "credentials" : {
@@ -193,9 +213,177 @@
     "ratedMovies" : [ ]
   }
 }, {
-  "error" : "Error",
-  "currentMoviesList" : [ ],
-  "currentUser" : null
+  "error" : null,
+  "currentMoviesList" : [ {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 0,
+    "rating" : 0.0,
+    "numRatings" : 0
+  } ],
+  "currentUser" : {
+    "credentials" : {
+      "name" : "Eduard",
+      "password" : "secret",
+      "accountType" : "premium",
+      "country" : "India",
+      "balance" : "50"
+    },
+    "tokensCount" : 0,
+    "numFreePremiumMovies" : 15,
+    "watchedMovies" : [ ],
+    "purchasedMovies" : [ ],
+    "likedMovies" : [ ],
+    "ratedMovies" : [ ]
+  }
+}, {
+  "error" : null,
+  "currentMoviesList" : [ {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 0,
+    "rating" : 0.0,
+    "numRatings" : 0
+  } ],
+  "currentUser" : {
+    "credentials" : {
+      "name" : "Eduard",
+      "password" : "secret",
+      "accountType" : "premium",
+      "country" : "India",
+      "balance" : "50"
+    },
+    "tokensCount" : 0,
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 0,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ ],
+    "ratedMovies" : [ ]
+  }
+}, {
+  "error" : null,
+  "currentMoviesList" : [ {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 0,
+    "rating" : 0.0,
+    "numRatings" : 0
+  } ],
+  "currentUser" : {
+    "credentials" : {
+      "name" : "Eduard",
+      "password" : "secret",
+      "accountType" : "premium",
+      "country" : "India",
+      "balance" : "50"
+    },
+    "tokensCount" : 0,
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 0,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 0,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ ],
+    "ratedMovies" : [ ]
+  }
+}, {
+  "error" : null,
+  "currentMoviesList" : [ {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
+  } ],
+  "currentUser" : {
+    "credentials" : {
+      "name" : "Eduard",
+      "password" : "secret",
+      "accountType" : "premium",
+      "country" : "India",
+      "balance" : "50"
+    },
+    "tokensCount" : 0,
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "ratedMovies" : [ ]
+  }
 }, {
   "error" : null,
   "currentMoviesList" : [ ],
@@ -415,9 +603,9 @@
     "genres" : [ "Comedy", "Mystery", "Fantasy" ],
     "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
     "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-    "numLikes" : 0,
-    "rating" : 3.0,
-    "numRatings" : 1
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
   } ],
   "currentUser" : {
     "credentials" : {
@@ -436,9 +624,9 @@
       "genres" : [ "Comedy", "Mystery", "Fantasy" ],
       "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
       "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-      "numLikes" : 0,
-      "rating" : 3.0,
-      "numRatings" : 1
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
     } ],
     "purchasedMovies" : [ {
       "name" : "My Sassy Girl",
@@ -447,23 +635,27 @@
       "genres" : [ "Comedy", "Mystery", "Fantasy" ],
       "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
       "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-      "numLikes" : 0,
-      "rating" : 3.0,
-      "numRatings" : 1
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
     } ],
-    "likedMovies" : [ ],
-    "ratedMovies" : [ {
+    "likedMovies" : [ {
       "name" : "My Sassy Girl",
       "year" : 2005,
       "duration" : 125,
       "genres" : [ "Comedy", "Mystery", "Fantasy" ],
       "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
       "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-      "numLikes" : 0,
-      "rating" : 3.0,
-      "numRatings" : 1
-    } ]
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "ratedMovies" : [ ]
   }
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
 }, {
   "error" : null,
   "currentMoviesList" : [ ],
@@ -482,6 +674,10 @@
     "likedMovies" : [ ],
     "ratedMovies" : [ ]
   }
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
 }, {
   "error" : null,
   "currentMoviesList" : [ {
@@ -630,8 +826,8 @@
     "duration" : 141,
     "genres" : [ "Comedy", "Mystery", "Drama" ],
     "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
-    "countriesBanned" : [ "China", "South Africa", "India" ],
-    "numLikes" : 0,
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 1,
     "rating" : 0.0,
     "numRatings" : 0
   }, {
@@ -980,8 +1176,8 @@
     "duration" : 141,
     "genres" : [ "Comedy", "Mystery", "Drama" ],
     "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
-    "countriesBanned" : [ "China", "South Africa", "India" ],
-    "numLikes" : 0,
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 1,
     "rating" : 0.0,
     "numRatings" : 0
   }, {
@@ -1068,10 +1264,40 @@
       "balance" : "50"
     },
     "tokensCount" : 0,
-    "numFreePremiumMovies" : 15,
-    "watchedMovies" : [ ],
-    "purchasedMovies" : [ ],
-    "likedMovies" : [ ],
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
     "ratedMovies" : [ ]
   }
 }, {
@@ -1093,9 +1319,9 @@
     "genres" : [ "Comedy", "Mystery", "Fantasy" ],
     "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
     "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-    "numLikes" : 0,
-    "rating" : 3.0,
-    "numRatings" : 1
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
   }, {
     "name" : "Kiwi!",
     "year" : 2002,
@@ -1197,6 +1423,16 @@
     "rating" : 0.0,
     "numRatings" : 0
   }, {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
+  }, {
     "name" : "Mistress",
     "year" : 2012,
     "duration" : 146,
@@ -1216,10 +1452,40 @@
       "balance" : "50"
     },
     "tokensCount" : 0,
-    "numFreePremiumMovies" : 15,
-    "watchedMovies" : [ ],
-    "purchasedMovies" : [ ],
-    "likedMovies" : [ ],
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
     "ratedMovies" : [ ]
   }
 }, {
@@ -1265,6 +1531,16 @@
     "rating" : 0.0,
     "numRatings" : 0
   }, {
+    "name" : "The Well-Digger's Daughter",
+    "year" : 1994,
+    "duration" : 141,
+    "genres" : [ "Comedy", "Mystery", "Drama" ],
+    "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+    "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
+  }, {
     "name" : "Shaolin Temple (Shao Lin si)",
     "year" : 1987,
     "duration" : 135,
@@ -1291,9 +1567,9 @@
     "genres" : [ "Comedy", "Mystery", "Fantasy" ],
     "actors" : [ "Mabel MacAless", "Iggy MacUchadair", "Arni Harrow", "Reg Kelleher" ],
     "countriesBanned" : [ "Dominican Republic", "Indonesia", "Japan" ],
-    "numLikes" : 0,
-    "rating" : 3.0,
-    "numRatings" : 1
+    "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
   }, {
     "name" : "Lord, Save Us from Your Followers",
     "year" : 1998,
@@ -1364,14 +1640,40 @@
       "balance" : "50"
     },
     "tokensCount" : 0,
-    "numFreePremiumMovies" : 15,
-    "watchedMovies" : [ ],
-    "purchasedMovies" : [ ],
-    "likedMovies" : [ ],
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ {
+      "name" : "The Well-Digger's Daughter",
+      "year" : 1994,
+      "duration" : 141,
+      "genres" : [ "Comedy", "Mystery", "Drama" ],
+      "actors" : [ "Fallon Sutcliff", "Maribeth Penas", "Codee Hooks", "Rubia Cotilard" ],
+      "countriesBanned" : [ "China", "South Africa", "Zimbabwe" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
     "ratedMovies" : [ ]
   }
-}, {
-  "error" : "Error",
-  "currentMoviesList" : [ ],
-  "currentUser" : null
 } ]

@@ -1,6 +1,7 @@
 package io.input.action;
 
 import components.filter.Filter;
+import components.movie.Movie;
 import components.user.Credentials;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,4 +20,7 @@ public class Action {
     private Filter filters;
     private int count;
     private int rate;
+    private String subscribedGenre;
+    private Movie addedMovie;
+    private String deletedMovie;
 }

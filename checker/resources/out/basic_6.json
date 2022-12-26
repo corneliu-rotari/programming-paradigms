@@ -363,6 +363,14 @@
     "ratedMovies" : [ ]
   }
 }, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
@@ -488,6 +496,10 @@
     } ],
     "ratedMovies" : [ ]
   }
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
 }, {
   "error" : "Error",
   "currentMoviesList" : [ ],
