@@ -15,7 +15,7 @@ public final class WatchFeature implements FeatureCommand {
      * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Request request) {
+    public void doCommand(final Request request) {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
 

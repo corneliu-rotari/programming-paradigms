@@ -52,7 +52,7 @@ public final class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return duration == movie.duration && name.equals(movie.name) && year.equals(movie.year);
+        return name.equals(movie.name);
     }
 
     @Override

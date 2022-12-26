@@ -3,6 +3,7 @@ package components.user;
 import app.features.FeatureFactory;
 import components.movie.Movie;
 import components.genre.GenreSubscriber;
+import components.movie.MovieRecommendation;
 import components.notification.Notification;
 import components.user.account.Premium;
 import io.output.Output;
@@ -91,7 +92,8 @@ public final class User implements GenreSubscriber {
 
     public void getRecommendation() {
         if (credentials.getAccountType().equals(Premium.TYPE)) {
-            this.notifications.add(new Notification("Recommendation", "No recommendation"));
+            MovieRecommendation recommendation = new MovieRecommendation(this.likedMovies);
+            this.notifications.add(new Notification("Recommendation", recommendation.getMovieName()));
             Output.getInstance().addToTree(new Response.Builder().user().noMovieList().build());
         }
     }

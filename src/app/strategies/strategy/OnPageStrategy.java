@@ -22,7 +22,7 @@ public class OnPageStrategy extends Strategy {
 
         if (App.getInstance().getCurrentPage().containsFeature(request.getFeature())) {
             FeatureCommand featureCommand = FeatureFactory.createFeature(request.getFeature());
-            featureCommand.takeAction(request);
+            featureCommand.doCommand(request);
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
         }

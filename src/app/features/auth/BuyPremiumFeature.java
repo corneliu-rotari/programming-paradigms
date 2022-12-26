@@ -13,7 +13,7 @@ public final class BuyPremiumFeature implements FeatureCommand {
      * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Request request) {
+    public void doCommand(final Request request) {
         User activeUser = App.getInstance().getCurrentUser();
         if (activeUser.getCredentials().getAccountType().equals(Standard.TYPE)) {
             activeUser.subtractTokens(Premium.PRICE);

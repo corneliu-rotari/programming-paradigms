@@ -18,7 +18,7 @@ public final class SearchFeature implements FeatureCommand {
      * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Request request) {
+    public void doCommand(final Request request) {
         List<Movie> movieList = App.getInstance().getCurrentMovieList().stream().filter(movie ->
                                     movie.getName().startsWith(request.getStartsWith())).toList();
 

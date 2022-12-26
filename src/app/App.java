@@ -68,8 +68,11 @@ public final class App {
      * Takes from the database a list of movies the user is allowed to see
      */
     public void setCurrentMovieList() {
-        this.currentMovieList = this.database.getMovies(this.currentUser.
-                                getCredentials().getCountry());
+        this.currentMovieList = getAllowedMovies();
+    }
+
+    public List<Movie> getAllowedMovies() {
+        return this.database.getMovies(this.currentUser.getCredentials().getCountry());
     }
 
     public void setCurrentMovieList(final List<Movie> list) {
@@ -146,5 +149,6 @@ public final class App {
         this.currentUser = null;
         Output.destroy();
     }
+
 
 }

@@ -13,6 +13,7 @@ public final class Filter {
     public static final class Sort {
         private String rating;
         private String duration;
+        private String likes;
     }
 
     @Getter @Setter
