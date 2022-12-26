@@ -1,6 +1,6 @@
 package app.features;
 
-import io.input.action.Action;
+import io.input.action.Request;
 
 /**
  * Interface for Command Design Pattern
@@ -8,7 +8,7 @@ import io.input.action.Action;
 public interface ActionTacker {
     /**
      * Changes the state of the Application
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
-    void takeAction(Action action);
+    void takeAction(Request request);
 }

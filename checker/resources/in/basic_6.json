@@ -22,7 +22,7 @@
   "movies": [
     {
       "name": "John Wick: Chapter 3 - Parabellum",
-      "year": "2019",
+      "year": 2019,
       "duration": 131,
       "genres": [
         "Action",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Titanic",
-      "year": "2019",
+      "year": 2019,
       "duration": 131,
       "genres": [
         "Action",
@@ -183,41 +183,18 @@
     },
     {
       "type": "on page",
-      "feature": "purchase"
+      "feature": "purchase",
+      "movie": "Titanic"
     },
     {
       "type": "on page",
-      "feature": "watch"
+      "feature": "watch",
+      "movie": "Titanic"
     },
     {
       "type": "on page",
-      "feature": "like"
-    },
-    {
-      "type": "subscribe",
-      "subscribedGenre": "Action"
-    },
-    {
-      "type": "database",
-      "feature": "add",
-      "addedMovie": {
-        "name": "Matrix 2",
-        "year": "1998",
-        "duration": 131,
-        "genres": [
-          "Action",
-          "Comedy",
-          "Crime"
-        ],
-        "actors": [
-          "Laurence Fishburne",
-          "Halle Berry",
-          "Keanu Reeves"
-        ],
-        "countriesBanned": [
-          "Ukraine"
-        ]
-      }
+      "feature": "like",
+      "movie": "Titanic"
     },
     {
       "type": "change page",
@@ -229,30 +206,31 @@
       "movie": "John Wick: Chapter 3 - Parabellum"
     },
     {
-      "type": "subscribe",
-      "subscribedGenre": "Action"
-    },
-    {
       "type": "on page",
-      "feature": "like"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "5"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "like"
+      "feature": "like",
+      "movie": "John Wick: Chapter 3 - Parabellum"
     },
     {
       "type": "on page",
       "feature": "rate",
-      "rate": "5"
+      "movie": "John Wick: Chapter 3 - Parabellum",
+      "rate": 5
+    },
+    {
+      "type": "on page",
+      "feature": "watch",
+      "movie": "John Wick: Chapter 3 - Parabellum"
+    },
+    {
+      "type": "on page",
+      "feature": "like",
+      "movie": "John Wick: Chapter 3 - Parabellum"
+    },
+    {
+      "type": "on page",
+      "feature": "rate",
+      "movie": "John Wick: Chapter 3 - Parabellum",
+      "rate": 5
     }
   ]
 }

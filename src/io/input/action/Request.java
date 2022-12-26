@@ -10,7 +10,7 @@ import lombok.Setter;
  * Request format
  */
 @Getter @Setter
-public class Action {
+public class Request {
     private String type;
     private String page;
     private String movie;

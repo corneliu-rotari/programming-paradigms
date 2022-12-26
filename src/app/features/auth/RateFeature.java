@@ -2,7 +2,7 @@ package app.features.auth;
 
 import app.App;
 import app.features.FeatureFactory;
-import io.input.action.Action;
+import io.input.action.Request;
 import app.features.ActionTacker;
 import components.movie.Movie;
 import components.user.User;
@@ -14,18 +14,18 @@ public final class RateFeature implements ActionTacker {
     /**
      * If the movie was watched it can be rated.
      * The value is stored in an HasMap with the user info
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Action action) {
+    public void takeAction(final Request request) {
         User user = App.getInstance().getCurrentUser();
         Movie ratedMovie = App.getInstance().getChosenMovie();
 
         /* Checks if the user has watched the film and the rating is correct */
         if (user.getWatchedMovies().contains(ratedMovie)
-                && action.getRate() <= MAX_RATING && action.getRate() >= 0) {
+                && request.getRate() <= MAX_RATING && request.getRate() >= 0) {
             user.addMovieByFeature(ratedMovie, FeatureFactory.FeatureType.RATE);
-            ratedMovie.addRating(action.getRate());
+            ratedMovie.addRating(request.getRate());
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());

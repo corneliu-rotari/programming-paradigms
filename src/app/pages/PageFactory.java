@@ -1,7 +1,7 @@
 package app.pages;
 
 import app.App;
-import io.input.action.Action;
+import io.input.action.Request;
 import app.pages.auth.PageAuth;
 import app.pages.auth.movies.details.PageDetails;
 import app.pages.auth.movies.PageMovies;
@@ -14,16 +14,16 @@ import app.pages.noauth.regitser.PageRegister;
  * Creates a specific Page based on the Page type
  */
 public final class PageFactory {
-    private static Action action;
+    private static Request request;
 
     /**
      * Creates a page based on input
-     * @param actionToTake - action information
+     * @param requestToTake - request information
      * @return a child object of the Page class
      */
-    public static Page createPage(final Action actionToTake) {
-        action = actionToTake;
-        return createPage(PageType.fromString(action.getPage()));
+    public static Page createPage(final Request requestToTake) {
+        request = requestToTake;
+        return createPage(PageType.fromString(request.getPage()));
     }
 
     /**
@@ -55,7 +55,7 @@ public final class PageFactory {
                 return new PageMovies();
             }
             case DETAILS -> {
-                if (App.getInstance().setChosenMovie(action.getMovie())) {
+                if (App.getInstance().setChosenMovie(request.getMovie())) {
                     return new PageDetails();
                 } else {
                     return App.getInstance().getCurrentPage();

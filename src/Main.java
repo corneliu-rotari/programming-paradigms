@@ -1,7 +1,8 @@
 import app.App;
+import app.strategies.StrategyFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.input.Input;
-import io.input.action.Action;
+import io.input.action.Request;
 import io.output.Output;
 
 import java.io.File;
@@ -49,8 +50,9 @@ public final class Main {
         /* Application creation and use */
         App application = App.getInstance(input);
 
-        for (Action action : input.getActions()) {
-            application.getCurrentPage().takeAction(action);
+        for (Request request : input.getActions()) {
+            application.setStrategy(StrategyFactory.createStrategy(request));
+            application.applyStrategy();
         }
         application.end();
         copyToOutput(args[0]);

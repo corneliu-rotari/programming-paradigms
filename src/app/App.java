@@ -3,6 +3,7 @@ package app;
 import app.database.Database;
 import app.pages.Page;
 import app.pages.PageFactory;
+import app.strategies.Strategy;
 import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
@@ -21,6 +22,7 @@ import java.util.List;
 public final class App {
     private static App instance = null;
     @Getter private Database database;
+    @Setter private Strategy strategy;
     @Getter @Setter private User currentUser;
     @Getter @Setter private Page currentPage;
     @Getter private List<Movie> currentMovieList;
@@ -32,6 +34,7 @@ public final class App {
         this.currentPage = PageFactory.createPage();
         this.currentUser = null;
         this.currentMovieList = null;
+        this.strategy = null;
     }
 
     /**
@@ -68,7 +71,8 @@ public final class App {
     }
 
     /**
-     * Sets a single movie to the user's currentMovieList
+     * Sets a chosen movie from the list of the movies that the user is allowed to see.
+     * Operations that use it are : Purchase, Watch, Like, Rate.
      * @param movieName - full name of the movie
      * @return - if it was added or not
      */
@@ -88,6 +92,10 @@ public final class App {
             Output.getInstance().addToTree(new Response.Builder().user().movies().build());
         }
         return added;
+    }
+
+    public void applyStrategy() {
+        this.strategy.execute();
     }
 
     /**

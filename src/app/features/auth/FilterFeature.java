@@ -1,7 +1,7 @@
 package app.features.auth;
 
 import app.App;
-import io.input.action.Action;
+import io.input.action.Request;
 import app.features.ActionTacker;
 import components.filter.Filter;
 import components.movie.Movie;
@@ -19,20 +19,20 @@ public class FilterFeature implements ActionTacker {
      * Filters the movie list:
      * Sorts - by duration and rating.
      * Contains - a certain actor or a genre or both.
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Action action) {
+    public void takeAction(final Request request) {
         App.getInstance().setCurrentMovieList();
         List<Movie> sortedMovies = App.getInstance().getCurrentMovieList();
 
         /* Sorts the movies */
-        if (action.getFilters().getSort() != null) {
-            sortedMovies.sort(new MovieSorter(action.getFilters().getSort()));
+        if (request.getFilters().getSort() != null) {
+            sortedMovies.sort(new MovieSorter(request.getFilters().getSort()));
         }
 
         /* Filters based on  */
-        Filter.OptionalFilters optionalFilters = action.getFilters().getContains();
+        Filter.OptionalFilters optionalFilters = request.getFilters().getContains();
         if (optionalFilters != null) {
             /* Contains actor */
             if (optionalFilters.getActors() != null) {

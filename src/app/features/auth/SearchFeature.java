@@ -1,7 +1,7 @@
 package app.features.auth;
 
 import app.App;
-import io.input.action.Action;
+import io.input.action.Request;
 import app.features.ActionTacker;
 import components.movie.Movie;
 import io.output.Output;
@@ -15,12 +15,12 @@ import java.util.List;
 public final class SearchFeature implements ActionTacker {
     /**
      * Search from the movie list based on beginning of the movie name
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Action action) {
+    public void takeAction(final Request request) {
         List<Movie> movieList = App.getInstance().getCurrentMovieList().stream().filter(movie ->
-                                    movie.getName().startsWith(action.getStartsWith())).toList();
+                                    movie.getName().startsWith(request.getStartsWith())).toList();
 
         App.getInstance().setCurrentMovieList(movieList);
         Output.getInstance().addToTree(new Response.Builder().user().movies().build());

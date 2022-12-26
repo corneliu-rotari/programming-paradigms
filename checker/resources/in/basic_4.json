@@ -4,7 +4,7 @@
       "credentials": {
         "name": "Eduard",
         "password": "secret",
-        "accountType": "premium",
+        "accountType": "standard",
         "country": "Romania",
         "balance": "50"
       }
@@ -14,16 +14,7 @@
         "name": "Mihail",
         "password": "discret",
         "accountType": "premium",
-        "country": "Romania",
-        "balance": "1337"
-      }
-    },
-    {
-      "credentials": {
-        "name": "Florin",
-        "password": "TheWalkingDead",
-        "accountType": "premium",
-        "country": "Romania",
+        "country": "Russia",
         "balance": "1337"
       }
     }
@@ -31,7 +22,7 @@
   "movies": [
     {
       "name": "John Wick: Chapter 3 - Parabellum",
-      "year": "2019",
+      "year": 2019,
       "duration": 131,
       "genres": [
         "Action",
@@ -49,7 +40,7 @@
     },
     {
       "name": "Titanic",
-      "year": "2019",
+      "year": 2019,
       "duration": 131,
       "genres": [
         "Action",
@@ -113,172 +104,13 @@
       "page": "movies"
     },
     {
-      "type": "change page",
-      "page": "see details",
-      "movie": "Titanic"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "3"
-    },
-    {
-      "type": "back"
-    },
-    {
-      "type": "change page",
-      "page": "see details",
-      "movie": "John Wick: Chapter 3 - Parabellum"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "2"
-    },
-    {
-      "type": "change page",
-      "page": "logout"
-    },
-    {
-      "type": "change page",
-      "page": "login"
-    },
-    {
-      "type": "on page",
-      "feature": "login",
-      "credentials": {
-        "name": "Eduard",
-        "password": "secret"
-      }
-    },
-    {
-      "type": "change page",
-      "page": "movies"
-    },
-    {
-      "type": "change page",
-      "page": "see details",
-      "movie": "Titanic"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "1"
-    },
-    {
-      "type": "back"
-    },
-    {
-      "type": "change page",
-      "page": "see details",
-      "movie": "John Wick: Chapter 3 - Parabellum"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "3"
-    },
-    {
-      "type": "change page",
-      "page": "logout"
-    },
-    {
-      "type": "change page",
-      "page": "login"
-    },
-    {
-      "type": "on page",
-      "feature": "login",
-      "credentials": {
-        "name": "Mihail",
-        "password": "discret"
-      }
-    },
-    {
-      "type": "change page",
-      "page": "movies"
-    },
-    {
-      "type": "change page",
-      "page": "see details",
-      "movie": "Titanic"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "rate",
-      "rate": "5"
-    },
-    {
-      "type":"back"
-    },
-    {
       "type": "on page",
       "feature": "filter",
       "filters": {
         "sort": {
-          "rating": "decreasing"
+          "rating": "decreasing",
+          "duration": "decreasing"
         }
-      }
-    },
-    {
-      "type": "database",
-      "feature": "delete",
-      "deletedMovie": "Titanic"
-    },
-    {
-      "type": "change page",
-      "page": "logout"
-    },
-    {
-      "type": "change page",
-      "page": "login"
-    },
-    {
-      "type": "on page",
-      "feature": "login",
-      "credentials": {
-        "name": "Florin",
-        "password": "TheWalkingDead"
       }
     }
   ]

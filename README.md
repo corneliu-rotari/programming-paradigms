@@ -46,7 +46,7 @@ ___
     │       └── accountType
     ├── io
     │   ├── input
-    │   │   └── action
+    │   │   └── request
     │   └── output
     │       └── response
     └── utils

@@ -374,7 +374,7 @@
       "countriesBanned": [
         "China",
         "South Africa",
-        "Zimbabwe"
+        "India"
       ],
       "actors": [
         "Fallon Sutcliff",
@@ -424,7 +424,6 @@
     },
     {
       "type": "on page",
-      "page": "movies",
       "feature": "search",
       "startsWith": "The"
     },
@@ -432,18 +431,6 @@
       "type": "change page",
       "page": "see details",
       "movie": "The Well-Digger's Daughter"
-    },
-    {
-      "type": "on page",
-      "feature": "purchase"
-    },
-    {
-      "type": "on page",
-      "feature": "watch"
-    },
-    {
-      "type": "on page",
-      "feature": "like"
     },
     {
       "type": "change page",
@@ -480,10 +467,6 @@
     },
     {
       "type": "on page",
-      "feature": "like"
-    },
-    {
-      "type": "on page",
       "feature": "rate",
       "rate": 3
     },
@@ -501,31 +484,6 @@
       "credentials": {
         "name": "Iancu",
         "password": "corega"
-      }
-    },
-    {
-      "type": "database",
-      "feature": "add",
-      "addedMovie": {
-        "name": "Penelope",
-        "year": 2008,
-        "duration": 166,
-        "genres": [
-          "Fantasy",
-          "Drama",
-          "Thriller"
-        ],
-        "countriesBanned": [
-          "Azerbaijan",
-          "China",
-          "India"
-        ],
-        "actors": [
-          "Elnore Neild",
-          "Gay Cobbing",
-          "Guntar Holton",
-          "Merry Troni"
-        ]
       }
     },
     {
@@ -594,7 +552,6 @@
     },
     {
       "type": "on page",
-      "page": "movies",
       "feature": "filter",
       "filters": {
         "sort": {
@@ -602,6 +559,10 @@
           "duration": "decreasing"
         }
       }
+    },
+    {
+      "type": "change page",
+      "page": "login"
     }
   ]
 }

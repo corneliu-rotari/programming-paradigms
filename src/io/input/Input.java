@@ -2,7 +2,7 @@ package io.input;
 
 import components.movie.Movie;
 import components.user.User;
-import io.input.action.Action;
+import io.input.action.Request;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public final class Input {
     private ArrayList<User> users;
     private ArrayList<Movie> movies;
-    private ArrayList<Action> actions;
+    private ArrayList<Request> actions;
     public Input() {
     }
 }

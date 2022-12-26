@@ -5,17 +5,17 @@ import app.features.ActionTacker;
 import app.features.FeatureFactory;
 import components.movie.Movie;
 import components.user.User;
-import io.input.action.Action;
+import io.input.action.Request;
 import io.output.Output;
 import io.output.response.Response;
 
 public final class WatchFeature implements ActionTacker {
     /**
      * Adds the movie to a user's watched list
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Action action) {
+    public void takeAction(final Request request) {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
 

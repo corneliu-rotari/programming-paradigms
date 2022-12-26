@@ -2,7 +2,7 @@ package app.features.auth;
 
 import app.App;
 import app.features.FeatureFactory;
-import io.input.action.Action;
+import io.input.action.Request;
 import app.features.ActionTacker;
 import components.movie.Movie;
 import components.user.User;
@@ -13,10 +13,10 @@ public final class LikeFeature implements ActionTacker {
 
     /**
      * Likes a watched movie
-     * @param action - input for the feature
+     * @param request - input for the feature
      */
     @Override
-    public void takeAction(final Action action) {
+    public void takeAction(final Request request) {
         User user = App.getInstance().getCurrentUser();
         Movie movie = App.getInstance().getChosenMovie();
 
