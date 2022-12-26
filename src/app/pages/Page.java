@@ -1,6 +1,8 @@
 package app.pages;
 
 import app.features.FeatureFactory;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
@@ -11,6 +13,7 @@ import java.util.Set;
 public abstract class Page {
     protected final Set<PageFactory.PageType> pagesToChange;
     protected final Set<FeatureFactory.FeatureType> typeOfActions;
+    @Setter @Getter protected PageFactory.PageType pageTitle = null;
 
     public Page(final Set<PageFactory.PageType> pagesToChange,
                 final Set<FeatureFactory.FeatureType> typeOfActions) {

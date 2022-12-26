@@ -4,9 +4,11 @@ import app.database.Database;
 import app.pages.Page;
 import app.pages.PageFactory;
 import app.strategies.Strategy;
+import app.strategies.StrategyFactory;
 import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
+import io.input.action.Request;
 import io.output.Output;
 import io.output.response.Response;
 import lombok.Getter;
@@ -14,6 +16,7 @@ import lombok.Setter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,13 +27,15 @@ public final class App {
     @Getter private Database database;
     @Setter private Strategy strategy;
     @Getter @Setter private User currentUser;
-    @Getter @Setter private Page currentPage;
+    @Getter private Page currentPage;
     @Getter private List<Movie> currentMovieList;
     @Getter private Movie chosenMovie;
+    private LinkedList<Request> history;
 
 
     private App(final Input input) {
         this.database = new Database(input.getUsers(), input.getMovies());
+        this.history = new LinkedList<>();
         this.currentPage = PageFactory.createPage();
         this.currentUser = null;
         this.currentMovieList = null;
@@ -94,8 +99,30 @@ public final class App {
         return added;
     }
 
+    public void setCurrentPage(Page currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public void undoPageChange() {
+        if (this.history.size() != 0) {
+            this.strategy = StrategyFactory.createStrategy(this.history.pop());
+            applyStrategy();
+        } else {
+            Output.getInstance().addToTree(new Response.Builder().fail().build());
+        }
+    }
+
     public void applyStrategy() {
         this.strategy.execute();
+    }
+
+    /**
+     * Receives a requests and creates a strategy based on the request;
+     * @param request -
+     */
+    public void receiveRequest(final Request request) {
+        this.strategy = StrategyFactory.createStrategy(request);
+        this.history.push(request);
     }
 
     /**

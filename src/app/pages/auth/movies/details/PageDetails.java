@@ -18,6 +18,7 @@ public final class PageDetails extends PageMovies {
                                     FeatureFactory.FeatureType.PURCHASE,
                                     FeatureFactory.FeatureType.RATE))
         );
+        this.pageTitle = PageFactory.PageType.DETAILS;
     }
 
 }

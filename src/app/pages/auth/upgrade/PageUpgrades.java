@@ -13,5 +13,6 @@ public final class PageUpgrades extends PageAuth {
                                     PageFactory.PageType.LOGOUT, PageFactory.PageType.HOME)),
                 new HashSet<>(Set.of(FeatureFactory.FeatureType.BUYTOKEN,
                                     FeatureFactory.FeatureType.BUYPREAMIUM)));
+        this.pageTitle = PageFactory.PageType.UPGRADE;
     }
 }

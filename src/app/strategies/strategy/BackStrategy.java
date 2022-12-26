@@ -1,14 +1,16 @@
 package app.strategies.strategy;
 
+import app.App;
 import app.strategies.Strategy;
 import io.input.action.Request;
 
 public class BackStrategy extends Strategy {
-    public BackStrategy(Request request) {
+    public BackStrategy(final Request request) {
         super(request);
     }
 
     @Override
     public void execute() {
+        App.getInstance().undoPageChange();
     }
 }

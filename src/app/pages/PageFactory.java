@@ -65,6 +65,9 @@ public final class PageFactory {
                 return new PageUpgrades();
             }
             default -> {
+                if (App.getInstance() != null) {
+                    App.getInstance().setCurrentUser(null);
+                }
                 return new PageNoAuth();
             }
         }

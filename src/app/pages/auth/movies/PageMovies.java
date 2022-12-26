@@ -21,6 +21,7 @@ public class PageMovies extends PageAuth {
                                     FeatureFactory.FeatureType.SEARCH)));
         App.getInstance().setCurrentMovieList();
         Output.getInstance().addToTree(new Response.Builder().user().movies().build());
+        this.pageTitle = PageFactory.PageType.MOVIES;
     }
 
     public PageMovies(final Set<PageFactory.PageType> pagesToChange,

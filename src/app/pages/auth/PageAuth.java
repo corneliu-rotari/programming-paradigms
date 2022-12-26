@@ -12,6 +12,7 @@ public class PageAuth extends Page {
         super(new HashSet<>(Set.of(PageFactory.PageType.HOME, PageFactory.PageType.MOVIES,
                                     PageFactory.PageType.UPGRADE, PageFactory.PageType.LOGOUT)),
                 new HashSet<>());
+        this.pageTitle = PageFactory.PageType.HOME;
     }
 
     public PageAuth(final Set<PageFactory.PageType> pagesToChange,

@@ -1,9 +1,6 @@
 package app.strategies;
 
-import app.strategies.strategy.BackStrategy;
-import app.strategies.strategy.ChangePageStrategy;
-import app.strategies.strategy.OnPageStrategy;
-import app.strategies.strategy.SubscribeStrategy;
+import app.strategies.strategy.*;
 import io.input.action.Request;
 
 import java.util.Objects;
@@ -13,6 +10,7 @@ public class StrategyFactory {
         CHANGEPAGE("change page"),
         BACK("back"),
         SUBSCRIBE("subscribe"),
+        DATABASE("database"),
         ONPAGE("on page");
 
         private final String type;
@@ -36,6 +34,7 @@ public class StrategyFactory {
             case BACK -> new BackStrategy(request);
             case SUBSCRIBE -> new SubscribeStrategy(request);
             case ONPAGE -> new OnPageStrategy(request);
+            case DATABASE -> new DatabaseStrategy(request);
         };
     }
 }

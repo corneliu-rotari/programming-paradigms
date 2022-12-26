@@ -12,5 +12,6 @@ public final class PageLogin extends PageNoAuth {
         super(new HashSet<>(Set.of(PageFactory.PageType.LOGIN, PageFactory.PageType.REGISTER,
                                     PageFactory.PageType.NOAUTH)),
                 new HashSet<>(Set.of(FeatureFactory.FeatureType.LOGIN)));
+        this.pageTitle = PageFactory.PageType.LOGIN;
     }
 }

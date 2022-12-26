@@ -11,5 +11,6 @@ public final class PageRegister extends PageNoAuth {
     public PageRegister() {
         super(new HashSet<>(Set.of(PageFactory.PageType.REGISTER, PageFactory.PageType.NOAUTH)),
                 new HashSet<>(Set.of(FeatureFactory.FeatureType.REGISTER)));
+        this.pageTitle = PageFactory.PageType.REGISTER;
     }
 }

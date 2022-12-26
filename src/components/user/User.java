@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Objects;
 
 @Getter @Setter
@@ -18,6 +19,7 @@ public final class User {
     private LinkedHashSet<Movie> purchasedMovies = new LinkedHashSet<>();
     private LinkedHashSet<Movie> likedMovies = new LinkedHashSet<>();
     private LinkedHashSet<Movie> ratedMovies = new LinkedHashSet<>();
+    private LinkedList<String> notifications = new LinkedList<>();
 
     public User(final Credentials credentials) {
         this.credentials = credentials;

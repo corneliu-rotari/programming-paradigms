@@ -1,5 +1,4 @@
 import app.App;
-import app.strategies.StrategyFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.input.Input;
 import io.input.action.Request;
@@ -51,7 +50,7 @@ public final class Main {
         App application = App.getInstance(input);
 
         for (Request request : input.getActions()) {
-            application.setStrategy(StrategyFactory.createStrategy(request));
+            application.receiveRequest(request);
             application.applyStrategy();
         }
         application.end();
