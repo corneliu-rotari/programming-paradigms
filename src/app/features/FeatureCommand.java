@@ -5,7 +5,7 @@ import io.input.action.Request;
 /**
  * Interface for Command Design Pattern
  */
-public interface ActionTacker {
+public interface FeatureCommand {
     /**
      * Changes the state of the Application
      * @param request - input for the feature

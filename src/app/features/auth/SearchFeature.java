@@ -1,8 +1,8 @@
 package app.features.auth;
 
 import app.App;
+import app.features.FeatureCommand;
 import io.input.action.Request;
-import app.features.ActionTacker;
 import components.movie.Movie;
 import io.output.Output;
 import io.output.response.Response;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Search for movie name
  */
-public final class SearchFeature implements ActionTacker {
+public final class SearchFeature implements FeatureCommand {
     /**
      * Search from the movie list based on beginning of the movie name
      * @param request - input for the feature

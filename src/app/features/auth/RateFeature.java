@@ -3,13 +3,13 @@ package app.features.auth;
 import app.App;
 import app.features.FeatureFactory;
 import io.input.action.Request;
-import app.features.ActionTacker;
+import app.features.FeatureCommand;
 import components.movie.Movie;
 import components.user.User;
 import io.output.Output;
 import io.output.response.Response;
 
-public final class RateFeature implements ActionTacker {
+public final class RateFeature implements FeatureCommand {
     private static final int MAX_RATING = 5;
     /**
      * If the movie was watched it can be rated.

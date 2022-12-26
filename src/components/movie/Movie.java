@@ -3,19 +3,18 @@ package components.movie;
 import app.App;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import components.user.User;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-@EqualsAndHashCode
 @Getter @Setter
 public final class Movie {
     private String name;
-    private int year;
+    private String year;
     private int duration;
     private ArrayList<String> genres;
     private ArrayList<String> actors;
@@ -48,4 +47,16 @@ public final class Movie {
         this.rating = sum / (double) this.numRatings;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return duration == movie.duration && name.equals(movie.name) && year.equals(movie.year);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, year, duration);
+    }
 }

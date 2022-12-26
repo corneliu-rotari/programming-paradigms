@@ -33,7 +33,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -43,7 +43,7 @@
     "numRatings" : 0
   }, {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -91,7 +91,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -101,7 +101,7 @@
     "numRatings" : 0
   }, {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -153,7 +153,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -163,7 +163,7 @@
     "numRatings" : 0
   }, {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -200,7 +200,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -229,7 +229,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -251,7 +251,7 @@
     "watchedMovies" : [ ],
     "purchasedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -268,7 +268,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -289,7 +289,7 @@
     "numFreePremiumMovies" : 14,
     "watchedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -300,7 +300,7 @@
     } ],
     "purchasedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -317,7 +317,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -338,7 +338,7 @@
     "numFreePremiumMovies" : 14,
     "watchedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -349,7 +349,7 @@
     } ],
     "purchasedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -360,7 +360,7 @@
     } ],
     "likedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -376,7 +376,7 @@
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -386,12 +386,22 @@
     "numRatings" : 0
   }, {
     "name" : "Titanic",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
     "countriesBanned" : [ "Russia" ],
     "numLikes" : 1,
+    "rating" : 0.0,
+    "numRatings" : 0
+  }, {
+    "name" : "Matrix 2",
+    "year" : "1998",
+    "duration" : 131,
+    "genres" : [ "Action", "Comedy", "Crime" ],
+    "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
+    "countriesBanned" : [ "Ukraine" ],
+    "numLikes" : 0,
     "rating" : 0.0,
     "numRatings" : 0
   } ],
@@ -407,7 +417,7 @@
     "numFreePremiumMovies" : 14,
     "watchedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -418,7 +428,7 @@
     } ],
     "purchasedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -429,7 +439,7 @@
     } ],
     "likedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -439,13 +449,16 @@
       "numRatings" : 0
     } ],
     "ratedMovies" : [ ],
-    "notifications" : [ ]
+    "notifications" : [ {
+      "movieName" : "Matrix 2",
+      "message" : "ADD"
+    } ]
   }
 }, {
   "error" : null,
   "currentMoviesList" : [ {
     "name" : "John Wick: Chapter 3 - Parabellum",
-    "year" : 2019,
+    "year" : "2019",
     "duration" : 131,
     "genres" : [ "Action", "Thriller", "Crime" ],
     "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -466,7 +479,7 @@
     "numFreePremiumMovies" : 14,
     "watchedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -477,7 +490,7 @@
     } ],
     "purchasedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -488,7 +501,7 @@
     } ],
     "likedMovies" : [ {
       "name" : "Titanic",
-      "year" : 2019,
+      "year" : "2019",
       "duration" : 131,
       "genres" : [ "Action", "Thriller", "Crime" ],
       "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
@@ -498,7 +511,10 @@
       "numRatings" : 0
     } ],
     "ratedMovies" : [ ],
-    "notifications" : [ ]
+    "notifications" : [ {
+      "movieName" : "Matrix 2",
+      "message" : "ADD"
+    } ]
   }
 }, {
   "error" : "Error",
@@ -520,4 +536,63 @@
   "error" : "Error",
   "currentMoviesList" : [ ],
   "currentUser" : null
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
+  "error" : null,
+  "currentMoviesList" : null,
+  "currentUser" : {
+    "credentials" : {
+      "name" : "Eduard",
+      "password" : "secret",
+      "accountType" : "premium",
+      "country" : "Romania",
+      "balance" : "150"
+    },
+    "tokensCount" : 40,
+    "numFreePremiumMovies" : 14,
+    "watchedMovies" : [ {
+      "name" : "Titanic",
+      "year" : "2019",
+      "duration" : 131,
+      "genres" : [ "Action", "Thriller", "Crime" ],
+      "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
+      "countriesBanned" : [ "Russia" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "purchasedMovies" : [ {
+      "name" : "Titanic",
+      "year" : "2019",
+      "duration" : 131,
+      "genres" : [ "Action", "Thriller", "Crime" ],
+      "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
+      "countriesBanned" : [ "Russia" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "likedMovies" : [ {
+      "name" : "Titanic",
+      "year" : "2019",
+      "duration" : 131,
+      "genres" : [ "Action", "Thriller", "Crime" ],
+      "actors" : [ "Laurence Fishburne", "Halle Berry", "Keanu Reeves" ],
+      "countriesBanned" : [ "Russia" ],
+      "numLikes" : 1,
+      "rating" : 0.0,
+      "numRatings" : 0
+    } ],
+    "ratedMovies" : [ ],
+    "notifications" : [ {
+      "movieName" : "Matrix 2",
+      "message" : "ADD"
+    }, {
+      "movieName" : "No recommendation",
+      "message" : "Recommendation"
+    } ]
+  }
 } ]

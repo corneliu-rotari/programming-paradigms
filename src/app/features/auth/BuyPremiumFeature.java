@@ -1,13 +1,13 @@
 package app.features.auth;
 
 import app.App;
+import app.features.FeatureCommand;
 import components.user.account.Standard;
 import io.input.action.Request;
-import app.features.ActionTacker;
 import components.user.User;
 import components.user.account.Premium;
 
-public final class BuyPremiumFeature implements ActionTacker {
+public final class BuyPremiumFeature implements FeatureCommand {
     /**
      * Changes the users type from standard to premium
      * @param request - input for the feature

@@ -1,10 +1,13 @@
 package app.database;
 
+import components.genre.GenreManager;
 import components.movie.Movie;
 import components.user.Credentials;
 import components.user.User;
+import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Stores the information of the application
@@ -12,10 +15,12 @@ import java.util.ArrayList;
 public final class Database {
     private ArrayList<User> users;
     private ArrayList<Movie> movies;
+    @Getter private HashMap<String, GenreManager> subscribedGenres;
 
     public Database(final ArrayList<User> users, final ArrayList<Movie> movies) {
         this.users = users;
         this.movies = movies;
+        this.subscribedGenres = new HashMap<>();
     }
 
     /**
@@ -59,5 +64,28 @@ public final class Database {
             }
         }
         return null;
+    }
+
+    public boolean addMovie(final Movie movie) {
+        for (Movie movieInDb : movies) {
+            if (movieInDb.getName().equals(movie.getName())) {
+                return false;
+            }
+        }
+        movies.add(movie);
+        return true;
+    }
+
+    public Movie getMovie(final String nameMovie) {
+        for (Movie movie : movies) {
+            if (movie.getName().equals(nameMovie)) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    public boolean deleteMovie(final String nameMovie) {
+        return movies.removeIf(movie -> movie.getName().equals(nameMovie));
     }
 }

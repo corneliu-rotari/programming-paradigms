@@ -53,6 +53,11 @@ public final class Main {
             application.receiveRequest(request);
             application.applyStrategy();
         }
+
+        if (application.getCurrentUser() != null) {
+            application.getCurrentUser().getRecommendation();
+        }
+
         application.end();
         copyToOutput(args[0]);
     }

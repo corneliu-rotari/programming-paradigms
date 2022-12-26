@@ -1,7 +1,7 @@
 package app.strategies.strategy;
 
 import app.App;
-import app.features.ActionTacker;
+import app.features.FeatureCommand;
 import app.features.FeatureFactory;
 import app.strategies.Strategy;
 import io.input.action.Request;
@@ -16,9 +16,13 @@ public class OnPageStrategy extends Strategy {
 
     @Override
     public void execute() {
+        if (request == null) {
+            return;
+        }
+
         if (App.getInstance().getCurrentPage().containsFeature(request.getFeature())) {
-            ActionTacker actionTacker = FeatureFactory.createAction(request.getFeature());
-            actionTacker.takeAction(request);
+            FeatureCommand featureCommand = FeatureFactory.createFeature(request.getFeature());
+            featureCommand.takeAction(request);
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
         }

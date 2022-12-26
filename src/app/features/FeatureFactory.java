@@ -20,9 +20,9 @@ public final class FeatureFactory {
     /**
      * Creates a feature from a String
      * @param type - String name of the feature
-     * @return - an Feature that implements ActionTacker
+     * @return - an Feature that implements FeatureCommand
      */
-    public static ActionTacker createAction(final String type) {
+    public static FeatureCommand createFeature(final String type) {
         return switch (Objects.requireNonNull(FeatureType.fromString(type))) {
             case LOGIN -> new LoginFeature();
             case REGISTER -> new RegisterFeature();
@@ -34,7 +34,6 @@ public final class FeatureFactory {
             case RATE -> new RateFeature();
             case BUYPREAMIUM -> new BuyPremiumFeature();
             case BUYTOKEN -> new BuyTokenFeature();
-            default -> null;
         };
     }
     private FeatureFactory() {
@@ -44,8 +43,6 @@ public final class FeatureFactory {
      * Type of Feature that can happen in the application
      */
     public enum FeatureType {
-        CHANGEPAGE("change page"),
-        ONPAGE("on page"),
         LOGIN("login"),
         REGISTER("register"),
         SEARCH("search"),

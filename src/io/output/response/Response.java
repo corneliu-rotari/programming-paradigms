@@ -42,6 +42,11 @@ public final class Response {
             return this;
         }
 
+        public Builder noMovieList() {
+            this.currentMoviesList = null;
+            return this;
+        }
+
         /**
          * Places the current movie list in the response
          * @return builder object

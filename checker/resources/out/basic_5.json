@@ -68,8 +68,20 @@
   "currentMoviesList" : [ ],
   "currentUser" : null
 }, {
-  "error" : null,
+  "error" : "Error",
   "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
+  "error" : "Error",
+  "currentMoviesList" : [ ],
+  "currentUser" : null
+}, {
+  "error" : null,
+  "currentMoviesList" : null,
   "currentUser" : {
     "credentials" : {
       "name" : "Mihail",
@@ -84,6 +96,9 @@
     "purchasedMovies" : [ ],
     "likedMovies" : [ ],
     "ratedMovies" : [ ],
-    "notifications" : [ ]
+    "notifications" : [ {
+      "movieName" : "No recommendation",
+      "message" : "Recommendation"
+    } ]
   }
 } ]

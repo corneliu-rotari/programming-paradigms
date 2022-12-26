@@ -1,8 +1,8 @@
 package app.features.auth;
 
 import app.App;
+import app.features.FeatureCommand;
 import io.input.action.Request;
-import app.features.ActionTacker;
 import components.filter.Filter;
 import components.movie.Movie;
 import components.movie.MovieSorter;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Filter are used to select specific movies based on a criteria.
  */
-public class FilterFeature implements ActionTacker {
+public class FilterFeature implements FeatureCommand {
     /**
      * Filters the movie list:
      * Sorts - by duration and rating.

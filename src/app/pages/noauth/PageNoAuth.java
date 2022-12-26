@@ -14,9 +14,8 @@ public class PageNoAuth extends Page {
     public PageNoAuth() {
         super(new HashSet<>(Set.of(PageFactory.PageType.NOAUTH, PageFactory.PageType.LOGIN,
                                     PageFactory.PageType.REGISTER)),
-                new HashSet<>(Set.of(FeatureFactory.FeatureType.CHANGEPAGE)));
+                new HashSet<>());
         this.pageTitle = PageFactory.PageType.NOAUTH;
-
     }
 
     public PageNoAuth(final Set<PageFactory.PageType> pagesToChange,

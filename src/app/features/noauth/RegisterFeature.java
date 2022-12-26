@@ -1,11 +1,11 @@
 package app.features.noauth;
 
 import app.App;
+import app.features.FeatureCommand;
 import io.input.action.Request;
 import app.features.FeatureFactory;
-import app.features.ActionTacker;
 
-public final class RegisterFeature implements ActionTacker {
+public final class RegisterFeature implements FeatureCommand {
     /**
      * Check if the user already exists in the database
      * Calls the LoginFeature if successful
@@ -15,7 +15,7 @@ public final class RegisterFeature implements ActionTacker {
     public void takeAction(final Request request) {
         App app = App.getInstance();
         if (app.getDatabase().addUser(request.getCredentials())) {
-            FeatureFactory.createAction("login").takeAction(request);
+            FeatureFactory.createFeature("login").takeAction(request);
         }
     }
 }

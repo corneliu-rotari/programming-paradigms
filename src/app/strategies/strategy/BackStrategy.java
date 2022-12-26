@@ -11,6 +11,9 @@ public class BackStrategy extends Strategy {
 
     @Override
     public void execute() {
+        if (request == null) {
+            return;
+        }
         App.getInstance().undoPageChange();
     }
 }

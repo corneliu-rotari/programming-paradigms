@@ -5,6 +5,7 @@ import app.pages.Page;
 import app.pages.PageFactory;
 import app.strategies.Strategy;
 import app.strategies.StrategyFactory;
+import app.strategies.strategy.ChangePageStrategy;
 import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
@@ -30,7 +31,7 @@ public final class App {
     @Getter private Page currentPage;
     @Getter private List<Movie> currentMovieList;
     @Getter private Movie chosenMovie;
-    private LinkedList<Request> history;
+    @Getter @Setter private LinkedList<Request> history;
 
 
     private App(final Input input) {
@@ -105,7 +106,8 @@ public final class App {
 
     public void undoPageChange() {
         if (this.history.size() != 0) {
-            this.strategy = StrategyFactory.createStrategy(this.history.pop());
+            this.history.pop();
+            this.strategy = new ChangePageStrategy(this.history.peek());
             applyStrategy();
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
@@ -122,7 +124,15 @@ public final class App {
      */
     public void receiveRequest(final Request request) {
         this.strategy = StrategyFactory.createStrategy(request);
+    }
+
+    public void addToHistory(Request request) {
         this.history.push(request);
+    }
+
+    public void showHistory() {
+        this.history.forEach(request -> System.out.print(request.getPage() + " "));
+        System.out.println();
     }
 
     /**

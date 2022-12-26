@@ -2,7 +2,11 @@ package components.user;
 
 import app.features.FeatureFactory;
 import components.movie.Movie;
+import components.genre.GenreSubscriber;
+import components.notification.Notification;
 import components.user.account.Premium;
+import io.output.Output;
+import io.output.response.Response;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +15,7 @@ import java.util.LinkedList;
 import java.util.Objects;
 
 @Getter @Setter
-public final class User {
+public final class User implements GenreSubscriber {
     private Credentials credentials;
     private int tokensCount = 0;
     private int numFreePremiumMovies = Premium.NR_FREE_MOVIES;
@@ -19,7 +23,7 @@ public final class User {
     private LinkedHashSet<Movie> purchasedMovies = new LinkedHashSet<>();
     private LinkedHashSet<Movie> likedMovies = new LinkedHashSet<>();
     private LinkedHashSet<Movie> ratedMovies = new LinkedHashSet<>();
-    private LinkedList<String> notifications = new LinkedList<>();
+    private LinkedList<Notification> notifications = new LinkedList<>();
 
     public User(final Credentials credentials) {
         this.credentials = credentials;
@@ -44,7 +48,6 @@ public final class User {
         } else if (featureType.equals(FeatureFactory.FeatureType.LIKE)) {
             this.likedMovies.add(newMovie);
         }
-
     }
 
     /**
@@ -79,5 +82,17 @@ public final class User {
     @Override
     public int hashCode() {
         return Objects.hash(credentials);
+    }
+
+    @Override
+    public void update(Notification notification) {
+        this.notifications.add(notification);
+    }
+
+    public void getRecommendation() {
+        if (credentials.getAccountType().equals(Premium.TYPE)) {
+            this.notifications.add(new Notification("Recommendation", "No recommendation"));
+            Output.getInstance().addToTree(new Response.Builder().user().noMovieList().build());
+        }
     }
 }

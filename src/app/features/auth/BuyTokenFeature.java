@@ -2,10 +2,10 @@ package app.features.auth;
 
 import app.App;
 import io.input.action.Request;
-import app.features.ActionTacker;
+import app.features.FeatureCommand;
 import components.user.User;
 
-public final class BuyTokenFeature implements ActionTacker {
+public final class BuyTokenFeature implements FeatureCommand {
     /**
      * Converts user amount of money into token currency.
      * @param request - input for the feature

@@ -10,6 +10,8 @@ import app.pages.noauth.login.PageLogin;
 import app.pages.noauth.PageNoAuth;
 import app.pages.noauth.regitser.PageRegister;
 
+import java.util.LinkedList;
+
 /**
  * Creates a specific Page based on the Page type
  */
@@ -41,6 +43,7 @@ public final class PageFactory {
      * @return new Page object
      */
     public static Page createPage(final PageType type) {
+        App app = App.getInstance();
         switch (type) {
             case LOGIN -> {
                 return new PageLogin();
@@ -58,6 +61,7 @@ public final class PageFactory {
                 if (App.getInstance().setChosenMovie(request.getMovie())) {
                     return new PageDetails();
                 } else {
+                    app.getHistory().pop();
                     return App.getInstance().getCurrentPage();
                 }
             }
@@ -67,6 +71,7 @@ public final class PageFactory {
             default -> {
                 if (App.getInstance() != null) {
                     App.getInstance().setCurrentUser(null);
+                    App.getInstance().setHistory(new LinkedList<>());
                 }
                 return new PageNoAuth();
             }

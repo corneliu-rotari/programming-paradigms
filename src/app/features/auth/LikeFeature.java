@@ -3,13 +3,13 @@ package app.features.auth;
 import app.App;
 import app.features.FeatureFactory;
 import io.input.action.Request;
-import app.features.ActionTacker;
+import app.features.FeatureCommand;
 import components.movie.Movie;
 import components.user.User;
 import io.output.Output;
 import io.output.response.Response;
 
-public final class LikeFeature implements ActionTacker {
+public final class LikeFeature implements FeatureCommand {
 
     /**
      * Likes a watched movie
