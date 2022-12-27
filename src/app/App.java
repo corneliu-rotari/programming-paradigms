@@ -1,11 +1,11 @@
 package app;
 
 import app.database.Database;
+import app.history.History;
 import app.pages.Page;
 import app.pages.PageFactory;
 import app.strategies.Strategy;
 import app.strategies.StrategyFactory;
-import app.strategies.strategy.ChangePageStrategy;
 import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
@@ -17,7 +17,6 @@ import lombok.Setter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -31,12 +30,12 @@ public final class App {
     @Getter private Page currentPage;
     @Getter private List<Movie> currentMovieList;
     @Getter private Movie chosenMovie;
-    @Getter @Setter private LinkedList<Request> history;
+    @Getter @Setter private History history;
 
 
     private App(final Input input) {
         this.database = new Database(input.getUsers(), input.getMovies());
-        this.history = new LinkedList<>();
+        this.history = null;
         this.currentPage = PageFactory.createPage();
         this.currentUser = null;
         this.currentMovieList = null;
@@ -107,15 +106,6 @@ public final class App {
         this.currentPage = currentPage;
     }
 
-    public void undoPageChange() {
-        if (this.history.size() != 0) {
-            this.history.pop();
-            this.strategy = new ChangePageStrategy(this.history.peek());
-            applyStrategy();
-        } else {
-            Output.getInstance().addToTree(new Response.Builder().fail().build());
-        }
-    }
 
     public void applyStrategy() {
         this.strategy.execute();
@@ -129,13 +119,15 @@ public final class App {
         this.strategy = StrategyFactory.createStrategy(request);
     }
 
+    public void initHistory() {
+        this.history = new History();
+    }
     public void addToHistory(Request request) {
-        this.history.push(request);
+        this.history.add(request);
     }
 
-    public void showHistory() {
-        this.history.forEach(request -> System.out.print(request.getPage() + " "));
-        System.out.println();
+    public void undoPageChange() {
+        this.history.undo();
     }
 
     /**

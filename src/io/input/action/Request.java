@@ -23,4 +23,13 @@ public class Request {
     private String subscribedGenre;
     private Movie addedMovie;
     private String deletedMovie;
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "type='" + type + '\'' +
+                ", page='" + page + '\'' +
+                ", feature='" + feature + '\'' +
+                '}';
+    }
 }

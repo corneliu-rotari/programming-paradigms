@@ -1,16 +1,14 @@
 package app.pages;
 
 import app.App;
-import io.input.action.Request;
 import app.pages.auth.PageAuth;
-import app.pages.auth.movies.details.PageDetails;
 import app.pages.auth.movies.PageMovies;
+import app.pages.auth.movies.details.PageDetails;
 import app.pages.auth.upgrade.PageUpgrades;
-import app.pages.noauth.login.PageLogin;
 import app.pages.noauth.PageNoAuth;
+import app.pages.noauth.login.PageLogin;
 import app.pages.noauth.regitser.PageRegister;
-
-import java.util.LinkedList;
+import io.input.action.Request;
 
 /**
  * Creates a specific Page based on the Page type
@@ -52,26 +50,29 @@ public final class PageFactory {
                 return new PageRegister();
             }
             case HOME -> {
+                app.initHistory();
                 return new PageAuth();
             }
             case MOVIES -> {
+                app.addToHistory(request);
                 return new PageMovies();
             }
             case DETAILS -> {
-                if (App.getInstance().setChosenMovie(request.getMovie())) {
+                if (app.setChosenMovie(request.getMovie())) {
+                    app.addToHistory(request);
                     return new PageDetails();
                 } else {
-                    app.getHistory().pop();
                     return App.getInstance().getCurrentPage();
                 }
             }
             case UPGRADE -> {
+                app.addToHistory(request);
                 return new PageUpgrades();
             }
             default -> {
-                if (App.getInstance() != null) {
-                    App.getInstance().setCurrentUser(null);
-                    App.getInstance().setHistory(new LinkedList<>());
+                if (app != null) {
+                    app.setCurrentUser(null);
+                    app.setHistory(null);
                 }
                 return new PageNoAuth();
             }
@@ -108,6 +109,11 @@ public final class PageFactory {
                 }
             }
             return PageType.NOAUTH;
+        }
+
+        @Override
+        public String toString() {
+            return type;
         }
     }
 }

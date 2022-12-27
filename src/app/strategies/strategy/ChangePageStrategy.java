@@ -24,7 +24,6 @@ public class ChangePageStrategy extends Strategy {
         App app = App.getInstance();
 
         if (app.getCurrentPage().containsNextPage(request.getPage())) {
-            app.addToHistory(request);
             app.setCurrentPage(PageFactory.createPage(request));
         } else {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
