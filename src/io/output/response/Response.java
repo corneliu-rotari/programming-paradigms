@@ -42,6 +42,10 @@ public final class Response {
             return this;
         }
 
+        /**
+         * Places the null object in the currentMovieList field.
+         * @return the builder object
+         */
         public Builder noMovieList() {
             this.currentMoviesList = null;
             return this;
@@ -57,7 +61,7 @@ public final class Response {
         }
 
         /**
-         * Creates the Response object
+         * Creates the Response object from a builder object
          * @return Response object
          */
         public Response build() {

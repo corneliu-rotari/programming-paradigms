@@ -1,14 +1,14 @@
 package app.strategies.strategy;
 
 import app.App;
-import app.pages.PageFactory;
+import components.pages.PageFactory;
 import app.strategies.Strategy;
-import io.input.action.Request;
+import io.input.request.Request;
 import io.output.Output;
 import io.output.response.Response;
 
-public class ChangePageStrategy extends Strategy {
-    public ChangePageStrategy(Request request) {
+public final class ChangePageStrategy extends Strategy {
+    public ChangePageStrategy(final Request request) {
         super(request);
     }
 

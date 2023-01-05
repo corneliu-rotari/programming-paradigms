@@ -2,14 +2,14 @@ package app;
 
 import app.database.Database;
 import app.history.History;
-import app.pages.Page;
-import app.pages.PageFactory;
+import components.pages.Page;
+import components.pages.PageFactory;
 import app.strategies.Strategy;
 import app.strategies.StrategyFactory;
 import components.movie.Movie;
 import components.user.User;
 import io.input.Input;
-import io.input.action.Request;
+import io.input.request.Request;
 import io.output.Output;
 import io.output.response.Response;
 import lombok.Getter;
@@ -102,30 +102,55 @@ public final class App {
         return added;
     }
 
-    public void setCurrentPage(Page currentPage) {
+    public void setCurrentPage(final Page currentPage) {
         this.currentPage = currentPage;
     }
 
-
+    /**
+     * Executes the strategy set before.
+     * <p>
+     * {@link Strategy#execute()}
+     * <p>
+     * {@link StrategyFactory}
+     */
     public void applyStrategy() {
         this.strategy.execute();
     }
 
     /**
      * Receives a requests and creates a strategy based on the request;
-     * @param request -
+     * <p>
+     * {@link Strategy}
+     * <p>
+     * {@link StrategyFactory}
+     * {@link Request}
+     * @param request the request object form which the strategy is created.
      */
     public void receiveRequest(final Request request) {
         this.strategy = StrategyFactory.createStrategy(request);
     }
 
+    /**
+     * Initialise a new history for the new logged-in user.
+     * {@link History}
+     */
     public void initHistory() {
         this.history = new History();
     }
-    public void addToHistory(Request request) {
-        this.history.add(request);
+
+    /**
+     * Adds a new visited page to the history.
+     * {@link History#addToHistory(Request)}
+     * @param request the Request object of the new page
+     */
+    public void addToHistory(final Request request) {
+        this.history.addToHistory(request);
     }
 
+    /**
+     * Reverts to the last existing visited page.
+     * {@link History#undo()}
+     */
     public void undoPageChange() {
         this.history.undo();
     }

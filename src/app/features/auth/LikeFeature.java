@@ -2,7 +2,7 @@ package app.features.auth;
 
 import app.App;
 import app.features.FeatureFactory;
-import io.input.action.Request;
+import io.input.request.Request;
 import app.features.FeatureCommand;
 import components.movie.Movie;
 import components.user.User;
@@ -13,7 +13,7 @@ public final class LikeFeature implements FeatureCommand {
 
     /**
      * Likes a watched movie
-     * @param request - input for the feature
+     * @param request input for the feature
      */
     @Override
     public void doCommand(final Request request) {

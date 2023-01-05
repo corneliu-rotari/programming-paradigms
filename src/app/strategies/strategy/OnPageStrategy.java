@@ -4,16 +4,23 @@ import app.App;
 import app.features.FeatureCommand;
 import app.features.FeatureFactory;
 import app.strategies.Strategy;
-import io.input.action.Request;
+import io.input.request.Request;
 import io.output.Output;
 import io.output.response.Response;
 
-public class OnPageStrategy extends Strategy {
+public final class OnPageStrategy extends Strategy {
 
-    public OnPageStrategy(Request request) {
+    public OnPageStrategy(final Request request) {
         super(request);
     }
 
+    /**
+     * Executes the features that are allowed on a specific page.
+     * If the feature is not accessible outputs an error.
+     * {@link FeatureCommand#doCommand(Request)}
+     * {@link FeatureFactory#createFeature(String)}
+     * {@link Output}
+     */
     @Override
     public void execute() {
         if (request == null) {

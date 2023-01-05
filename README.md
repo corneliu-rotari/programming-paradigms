@@ -8,13 +8,14 @@ ___
    2. [Pages](#pages)
    3. [Features](#features)
    4. [I/O](#io)
-   5. [Extension](#extension)
 4. [Design Patterns](#design-patterns)
    1. [Singleton](#singleton)
    2. [Builder](#builder)
    3. [Factory](#factory)
-   4. [Command](#command) 
-   5. [Design Patterns that can be added](#design-patterns-that-can-be-added)
+   4. [Command](#command)
+   5. [Strategy](#strategy)
+   6. [Observer](#observer)
+5. [Feedback and extra](#feedback-and-extra)
 
 ___
 ## Description
@@ -31,25 +32,32 @@ ___
     │   ├── features
     │   │   ├── auth
     │   │   └── noauth
-    │   └── pages
-    │       ├── auth
-    │       │   ├── movies
-    │       │   │   └── details
-    │       │   └── upgrade
-    │       └── noauth
-    │           ├── login
-    │           └── regitser
+    │   ├── history
+    │   └── strategies
+    │       └── strategy
+    ├── checker
     ├── components
     │   ├── filter
+    │   ├── genre
     │   ├── movie
+    │   ├── notification
+    │   ├── pages
+    │   │   ├── auth
+    │   │   │   ├── movies
+    │   │   │   │   └── details
+    │   │   │   └── upgrade
+    │   │   └── noauth
+    │   │       ├── login
+    │   │       └── regitser
     │   └── user
-    │       └── accountType
+    │       └── account
     ├── io
     │   ├── input
     │   │   └── request
     │   └── output
     │       └── response
     └── utils
+
 ```
 ___
 ## Implementation
@@ -57,6 +65,15 @@ ___
 Throughout the implementation I opted for `HashedSet` to store the `Movies` and `User` to ensure single insertion.
 
 There is [`Database.java`](./src/app/database/Database.java) that simulates the interaction with an External Database.
+
+[`History.java`](src/app/history/History.java) is a stack of all the visited pages by a logged-in user.
+It's initialized with the home page inside
+
+## Strategies
+
+Every Strategy implements [`Strategy.java`](src/app/strategies/Strategy.java) interface and overrides the execute().
+
+<img src="./src/utils/Strategies.svg" height="200" alt="fg">
 
 ### Pages
 Every Page has the allowed PagesTypes and FeaturesTypes to change/make in the constructor.
@@ -71,14 +88,11 @@ Every Feature implements ActionTacker to allow abstraction.
 
 
 ### I/O
-Input and Output are managed using `Jackson Library` for `Json` Manipulation.
+[Input](src/io/input/Input.java) and 
+[Output](src/io/output/Output.java) are managed using `Jackson Library` for `Json` Manipulation.
 
-### Extension
-Future plans for the API : 
-1. Adding addition of Movies.
-2. Adding UserTypes (ex. `"standard"`, `"premium"`, `...`).
-3. More Features on each Page.
-4. Multiple Filters.
+
+
 
 ___
 ## Design Patterns
@@ -113,8 +127,9 @@ To easily build a response from every place of the application.
 To separate the building process for Pages And Features.
 
 `Location` :
-- [`PageFactory.java`](./src/app/pages/PageFactory.java)
+- [`PageFactory.java`](./src/components/pages/PageFactory.java)
 - [`FeatureFactory.java`](./src/app/features/FeatureFactory.java)
+- [`StrategyFactory`](./src/app/strategies/StrategyFactory.java)
 
 ### Command
 <img src="https://refactoring.guru/images/patterns/content/command/command-en.png" alt="com" height="150">
@@ -125,29 +140,39 @@ To separate the Features from the pages that implement them.
 To easily implement new features on extension.
 
 `Location` :
-- [`ActionTacker.java`](./src/app/features/ActionTacker.java) - Command Interface
-- [`Page.java`](./src/app/pages/Page.java) - Invoker
+- [`ActionTacker.java`](./src/app/features/FeatureCommand.java) - Command Interface
+- [`Page.java`](./src/components/pages/Page.java) - Invoker
 - [`*Feature.java`](./src/app/features) - Receivers that implement the command
-## Design Patterns that can be added
+- 
 ### Strategy
 <img alt="st" src="https://refactoring.guru/images/patterns/content/strategy/strategy.png" height="100">
 
-`Motivation` : To add new types of users or criteria to filter movies
+`Motivation` : To encapsulate different types of action that are in the application.
+
+`Location` :  
+- [`BackStrategy.java`](src/app/strategies/strategy/BackStrategy.java)
+- [`ChangePageStrategy.java`](src/app/strategies/strategy/ChangePageStrategy.java)
+- [`DatabaseStrategy.java`](src/app/strategies/strategy/DatabaseStrategy.java)
+- [`OnPageStrategy.java`](src/app/strategies/strategy/OnPageStrategy.java)
+
+### Observer
+<img src="https://refactoring.guru/images/patterns/content/observer/observer.png" height="100" alt="rty">
+
+`Motivation` : To easily notify the users about the addition or deletion of movies form the [Database](#App). 
 
 `Location` :
-- UserType :
-    - StandardStrategy
-    - PremiumStrategy
-- FiltersStrategy :
-    - SortStrategy
-    - ContainsStrategy
+- [`GenreManager.java`](src/components/genre/GenreManager.java) - the subscriber manager
+- [`GenreSubscriber.java`](src/components/genre/GenreSubscriber.java) - subscriber
 
-### Facade 
-<img src="https://refactoring.guru/images/patterns/content/facade/facade.png?id=1f4be17305b6316fbd548edf1937ac3b" height="100" alt="rty">
 
-`Motivation` : To encapsulate all the information for major Action
+## Feedback and extra
 
-`Location` :
-- Pages
-- Features
+### Extra
+Streams are used for mapping and manipulation Collections.
+Several classes extend a class (HashSet, LinkedList) for an easier encapsulation.
+
+### Feedback 
+
+It was a pleasure to work on this assignment.
+It would be more helpfully if the tests were a little more packed with actions to simulate a better user experience.
 ___

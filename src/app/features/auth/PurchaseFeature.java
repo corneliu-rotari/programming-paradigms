@@ -2,7 +2,7 @@ package app.features.auth;
 
 import app.App;
 import app.features.FeatureFactory;
-import io.input.action.Request;
+import io.input.request.Request;
 import app.features.FeatureCommand;
 import components.movie.Movie;
 import components.user.User;
@@ -10,11 +10,14 @@ import components.user.account.Premium;
 import io.output.Output;
 import io.output.response.Response;
 
+/**
+ * Purchase a specific movie by the user.
+ */
 public final class PurchaseFeature implements FeatureCommand {
 
     /**
      * Purchases a movie (if the user has active free movies, they are used first)
-     * @param request - input for the feature
+     * @param request input for the feature
      */
     @Override
     public void doCommand(final Request request) {
@@ -22,11 +25,6 @@ public final class PurchaseFeature implements FeatureCommand {
         Movie movie = App.getInstance().getChosenMovie();
         int nrFreeMovies = user.getNumFreePremiumMovies();
 
-//        if (user.getPurchasedMovies().stream().filter(movie1 -> movie1.getName().equals(movie.getName())).toList().size() != 0) {
-//            System.out.println("Tired to purchase again");
-//            Output.getInstance().addToTree(new Response.Builder().fail().build());
-//            return;
-//        }
         if (user.getPurchasedMovies().contains(movie)) {
             Output.getInstance().addToTree(new Response.Builder().fail().build());
             return;

@@ -85,15 +85,24 @@ public final class User implements GenreSubscriber {
         return Objects.hash(credentials);
     }
 
+    /**
+     * Adds the notification to the array.
+     * {@link GenreSubscriber#update(Notification)}
+     * @param notification the Notification
+     */
     @Override
-    public void update(Notification notification) {
+    public void update(final Notification notification) {
         this.notifications.add(notification);
     }
 
+    /**
+     * If the logged-in user is premium, at the last output it prints a new movie recommendation.
+     * {@link MovieRecommendation}
+     */
     public void getRecommendation() {
         if (credentials.getAccountType().equals(Premium.TYPE)) {
             MovieRecommendation recommendation = new MovieRecommendation(this.likedMovies);
-            this.notifications.add(new Notification("Recommendation", recommendation.getMovieName()));
+            update(new Notification("Recommendation", recommendation.getMovieName()));
             Output.getInstance().addToTree(new Response.Builder().user().noMovieList().build());
         }
     }

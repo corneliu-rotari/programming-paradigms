@@ -4,28 +4,31 @@ import app.App;
 import app.database.Database;
 import app.strategies.Strategy;
 import components.movie.Movie;
-import io.input.action.Request;
+import io.input.request.Request;
 import io.output.Output;
 import io.output.response.Response;
 
-public class DatabaseStrategy extends Strategy {
+public final class DatabaseStrategy extends Strategy {
 
-    private final String ADD = "add";
-    private final String DELETE = "delete";
+    private final String add = "add";
+    private final String delete = "delete";
 
-    public DatabaseStrategy(Request request) {
+    public DatabaseStrategy(final Request request) {
         super(request);
     }
 
+    /**
+     * Checks the request of the type of the operations and calls the specified function.
+     */
     @Override
     public void execute() {
         if (request == null) {
             return;
         }
 
-        if (request.getFeature().equals(ADD)) {
+        if (request.getFeature().equals(add)) {
             addMovie();
-        } else if (request.getFeature().equals(DELETE)) {
+        } else if (request.getFeature().equals(delete)) {
             deleteMovie();
         }
     }
@@ -35,8 +38,9 @@ public class DatabaseStrategy extends Strategy {
         Movie movieToAdd = request.getAddedMovie();
         if (database.addMovie(movieToAdd)) {
             for (String genre : movieToAdd.getGenres()) {
-                if (database.getSubscribedGenres().containsKey(genre)){
-                    database.getSubscribedGenres().get(genre).notifySubscribers(movieToAdd, ADD.toUpperCase());
+                if (database.getSubscribedGenres().containsKey(genre)) {
+                    database.getSubscribedGenres().get(genre)
+                            .notifySubscribers(movieToAdd, add.toUpperCase());
                 }
             }
         } else {
@@ -46,11 +50,12 @@ public class DatabaseStrategy extends Strategy {
 
     private void deleteMovie() {
         Database database = App.getInstance().getDatabase();
-        Movie foundMovie = database.getMovie(request.getDeletedMovie());
+        Movie foundMovie = database.deleteMovie(request.getDeletedMovie());
         if (foundMovie != null) {
             foundMovie.getGenres().forEach(s -> {
                 if (database.getSubscribedGenres().containsKey(s)) {
-                    database.getSubscribedGenres().get(s).notifySubscribers(foundMovie, DELETE.toUpperCase());
+                    database.getSubscribedGenres().get(s)
+                            .notifySubscribers(foundMovie, delete.toUpperCase());
                 }
             });
         } else {

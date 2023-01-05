@@ -2,17 +2,21 @@ package components.movie;
 
 import app.App;
 import lombok.Getter;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class MovieRecommendation {
     @Getter private String movieName = "No recommendation";
-    public MovieRecommendation(Set<Movie> likedMovies) {
+    public MovieRecommendation(final Set<Movie> likedMovies) {
         ArrayList<Movie> moviesInDb = new ArrayList<>(App.getInstance().getAllowedMovies());
         if (likedMovies.size() == 0 || moviesInDb.size() == 0) {
             return;
         }
-        moviesInDb.sort((o1,o2) -> Integer.compare(o2.getNumLikes(), o1.getNumLikes()));
+        moviesInDb.sort((o1, o2) -> Integer.compare(o2.getNumLikes(), o1.getNumLikes()));
 
         HashMap<String, Integer> topGenres = new HashMap<>();
         likedMovies.forEach(movie -> movie.getGenres().forEach(genre -> {

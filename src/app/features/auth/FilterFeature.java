@@ -4,7 +4,7 @@ import app.App;
 import app.features.FeatureCommand;
 import components.filter.Filter;
 import components.movie.Movie;
-import io.input.action.Request;
+import io.input.request.Request;
 import io.output.Output;
 import io.output.response.Response;
 
@@ -14,13 +14,13 @@ import java.util.List;
 /**
  * Filter are used to select specific movies based on a criteria.
  */
-public class FilterFeature implements FeatureCommand, Comparator<Movie> {
+public final class FilterFeature implements FeatureCommand, Comparator<Movie> {
     private Filter.Sort sortCriteria = null;
     /**
      * Filters the movie list:
-     * Sorts - by duration and rating.
-     * Contains - a certain actor or a genre or both.
-     * @param request - input for the feature
+     * Sorts by duration and rating.
+     * Contains a certain actor or a genre or both.
+     * @param request input for the feature
      */
     @Override
     public void doCommand(final Request request) {
@@ -49,7 +49,7 @@ public class FilterFeature implements FeatureCommand, Comparator<Movie> {
     }
 
     @Override
-    public int compare(Movie o1, Movie o2) {
+    public int compare(final Movie o1, final Movie o2) {
         if (sortCriteria.getDuration() == null || o1.getDuration() == o2.getDuration()) {
             if (sortCriteria.getRating().equals("decreasing")) {
                 return Double.compare(o2.getRating(), o1.getRating());

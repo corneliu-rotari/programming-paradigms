@@ -2,19 +2,22 @@ package app.features.auth;
 
 import app.App;
 import app.features.FeatureFactory;
-import io.input.action.Request;
+import io.input.request.Request;
 import app.features.FeatureCommand;
 import components.movie.Movie;
 import components.user.User;
 import io.output.Output;
 import io.output.response.Response;
 
+/**
+ * Rates a movie by the user
+ */
 public final class RateFeature implements FeatureCommand {
     private static final int MAX_RATING = 5;
     /**
      * If the movie was watched it can be rated.
      * The value is stored in an HasMap with the user info
-     * @param request - input for the feature
+     * @param request input for the feature
      */
     @Override
     public void doCommand(final Request request) {

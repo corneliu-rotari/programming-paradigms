@@ -1,6 +1,6 @@
 package app.features;
 
-import io.input.action.Request;
+import io.input.request.Request;
 
 /**
  * Interface for Command Design Pattern
@@ -8,7 +8,7 @@ import io.input.action.Request;
 public interface FeatureCommand {
     /**
      * Changes the state of the Application
-     * @param request - input for the feature
+     * @param request input for the feature
      */
     void doCommand(Request request);
 }

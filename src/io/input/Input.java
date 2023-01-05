@@ -2,7 +2,7 @@ package io.input;
 
 import components.movie.Movie;
 import components.user.User;
-import io.input.action.Request;
+import io.input.request.Request;
 import lombok.Getter;
 import lombok.Setter;
 
