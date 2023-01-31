@@ -1,0 +1,60 @@
+
+Run cpplint
+
+Task1.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task1.c:32:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task1.c:113:  Consider using strtok_r(...) instead of strtok(...) for improved thread safety.  [runtime/threadsafe_fn] [2]
+Task1.c:128:  Consider using strtok_r(...) instead of strtok(...) for improved thread safety.  [runtime/threadsafe_fn] [2]
+Task2.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task2.c:14:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:62:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:131:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:137:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:139:  Using C-style cast.  Use static_cast<char>(...) instead  [readability/casting] [4]
+Task2.c:154:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:155:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task3.c:15:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:40:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:64:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:93:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+tema2.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+tema2.c:4:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
+Done processing Task1.c
+Done processing Task2.c
+Done processing Task3.c
+Done processing tema2.c
+Total errors found: 19
+
+Run clang-tidy-12
+
+14 warnings generated.
+43 warnings generated.
+62 warnings generated.
+76 warnings generated.
+Suppressed 76 warnings (56 in non-user code, 20 with check filters).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+Task1.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task1.c:32:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task1.c:113:  Consider using strtok_r(...) instead of strtok(...) for improved thread safety.  [runtime/threadsafe_fn] [2]
+Task1.c:128:  Consider using strtok_r(...) instead of strtok(...) for improved thread safety.  [runtime/threadsafe_fn] [2]
+Task2.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task2.c:14:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:62:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:131:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:137:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:139:  Using C-style cast.  Use static_cast<char>(...) instead  [readability/casting] [4]
+Task2.c:154:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task2.c:155:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+Task3.c:15:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:40:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:64:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+Task3.c:93:  Using C-style cast.  Use static_cast<int>(...) instead  [readability/casting] [4]
+tema2.c:1:  Include the directory when naming .h files  [build/include_subdir] [4]
+tema2.c:4:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
+Done processing Task1.c
+Done processing Task2.c
+Done processing Task3.c
+Done processing tema2.c
+Total errors found: 19
