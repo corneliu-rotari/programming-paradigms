@@ -1,0 +1,4 @@
+Starting audit...
+[ERROR] C:\Users\corne\Dev\IdeaProjects\streaming-service-backend\.\src\components\user\account\Premium.java:3:1: interfaces should describe a type and hence have methods. [InterfaceIsType]
+Audit done.
+Checkstyle ends with 1 errors.

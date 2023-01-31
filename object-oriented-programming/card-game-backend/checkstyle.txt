@@ -1,0 +1,10 @@
+Starting audit...
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\mechanics\player\Player.java:9:48: Using the '.*' form of import should be avoided - implementation.cards.card.character.hero.*. [AvoidStarImport]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\mechanics\table\GameTable.java:3:14: Using the '.*' form of import should be avoided - fileio.*. [AvoidStarImport]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\utils\constants\CommandsConstants.java:3:1: interfaces should describe a type and hence have methods. [InterfaceIsType]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\utils\constants\EnvironmentCardConstants.java:3:1: interfaces should describe a type and hence have methods. [InterfaceIsType]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\utils\constants\HeroCardConst.java:3:1: interfaces should describe a type and hence have methods. [InterfaceIsType]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\utils\constants\MinionCardConstants.java:3:1: interfaces should describe a type and hence have methods. [InterfaceIsType]
+[ERROR] C:\Users\corne\IdeaProjects\GwentStone\.\src\implementation\utils\Determine.java:5:48: Using the '.*' form of import should be avoided - implementation.cards.card.character.hero.*. [AvoidStarImport]
+Audit done.
+Checkstyle ends with 7 errors.
