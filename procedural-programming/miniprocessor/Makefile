@@ -17,4 +17,4 @@ task4: task4.c
 
 
 clean:
-	rm -f task1 task2 task3 task4
+	rm -f task1 task2 task3 task4 a.out result.txt
