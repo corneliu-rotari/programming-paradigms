@@ -18,14 +18,19 @@ object Solution {
     val split_information: List[List[List[Char]]] = image.foldRight(Nil: List[List[Char]])(split('\n'))
       .map(_.foldRight(Nil: List[List[Char]])(split(' ')))
 
-    val params = split_information.slice(1, 2).map(_.map(_.foldRight("")(_ + _).toInt)).head
-    val column = params.head
+    val column = split_information.slice(1, 2)
+      .map(_.map(_.foldRight("")(_ + _).toInt))
+      .head
+      .head
 
-    split_information.drop(3).map(_.map(_.foldRight("")(_ + _).toInt))
+    split_information.drop(3)
+      .map(_.map(_.foldRight("")(_ + _).toInt))
       .map {
         case List(r, g, b) => Pixel(r, g, b)
         case _ => Pixel(0, 0, 0)
-      }.grouped(column).toList
+      }
+      .grouped(column)
+      .toList
   }
 
   def toStringPPM(image: Image): List[Char] = {
@@ -37,7 +42,8 @@ object Solution {
         case _ => e ++ List(delim) ++ acc
       }
 
-    val matrix = image.map(_.map(pixel => List(pixel.red, pixel.green, pixel.blue).map(_.toString.toList))
+    val matrix = image.map(_.map(pixel =>
+        List(pixel.red, pixel.green, pixel.blue).map(_.toString.toList))
       .foldRight(Nil: List[Char])((line, acc) =>
         line.foldRight(Nil: List[Char])(combineWith(' ')) ++ List('\n') ++ acc))
 
@@ -51,7 +57,8 @@ object Solution {
 
   // ex 2
   def horizontalConcat(image1: Image, image2: Image): Image = {
-    image1.zip(image2).map(pair => pair._1 ++ pair._2)
+    image1.zip(image2)
+      .map(pair => pair._1 ++ pair._2)
   }
 
   // ex 3
@@ -100,7 +107,8 @@ object Solution {
     val Mx = applyConvolution(blur, Gx)
     val My = applyConvolution(blur, Gy)
 
-    val combined = My.zip(Mx).map(pair => pair._1.zip(pair._2))
+    val combined = My.zip(Mx)
+      .map(pair => pair._1.zip(pair._2))
       .map(_.map(pair => math.abs(pair._1) + math.abs(pair._2)))
 
     combined.map(_.map(pix => if (pix < threshold) Pixel(0,0,0) else Pixel(255,255,255)))
@@ -108,8 +116,7 @@ object Solution {
 
   private def applyConvolution(image: GrayscaleImage, kernel: GrayscaleImage) : GrayscaleImage = {
     getNeighbors(image, kernel.size / 2)
-      .map(_.map(_.zip(kernel)
-        .map(pair => pair._2.zip(pair._1).map(pair => pair._1 * pair._2).sum).sum))
+      .map(_.map(_.zip(kernel).map(pair => pair._2.zip(pair._1).map(pair => pair._1 * pair._2).sum).sum))
   }
 
   // ex 5
