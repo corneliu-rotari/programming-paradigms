@@ -1,5 +1,6 @@
 import util.Pixel
-
+import util.Util.toGrayScale
+import util.Util.getNeighbors
 import scala.annotation.tailrec
 
 // Online viewer: https://0xc0de.fr/webppm/
@@ -27,28 +28,28 @@ object Solution {
   }
 
   def toStringPPM(image: Image): List[Char] = {
-    val intToChar: Int => Char = (nr) => (nr.toChar + '0').toChar
-    val header = "P3\n" + intToChar(image.head.size) + ' ' + intToChar(image.size) + "\n255\n"
+    val header = s"P3\n${image.head.size} ${image.size}\n255\n"
 
-    def op(delim: Char)(e: List[Char], acc: List[Char]): List[Char] =
+    def combineWith(delim: Char)(e: List[Char], acc: List[Char]): List[Char] =
       acc match {
         case Nil => e
         case _ => e ++ List(delim) ++ acc
       }
 
-    (header.toList :: image.map(_.map(pixel => List(pixel.red, pixel.green, pixel.blue).map(_.toString.toList))
-      .foldRight(Nil: List[Char])((line, acc) => line.foldRight(Nil: List[Char])(op(' ')) ++ List('\n') ++ acc)
-    )).flatten
+    val matrix = image.map(_.map(pixel => List(pixel.red, pixel.green, pixel.blue).map(_.toString.toList))
+      .foldRight(Nil: List[Char])((line, acc) => line.foldRight(Nil: List[Char])(combineWith(' ')) ++ List('\n') ++ acc))
+
+    (header.toList :: matrix).flatten
   }
 
   // ex 1
   def verticalConcat(image1: Image, image2: Image): Image = {
-    List(image1, image2).flatten
+    image1 ++ image2
   }
 
   // ex 2
   def horizontalConcat(image1: Image, image2: Image): Image = {
-    image1.zip(image2).map(pair => List(pair._1, pair._2).flatten)
+    image1.zip(image2).map(pair => pair._1 ++ pair._2)
   }
 
   // ex 3
@@ -91,10 +92,49 @@ object Solution {
     List(-1,-2,-1)
   )
 
-  def edgeDetection(image: Image, threshold : Double): Image = ???
+  def edgeDetection(image: Image, threshold : Double): Image = {
+    val grayScale : GrayscaleImage = image.map(_.map(toGrayScale))
+    val blur = applyConvolution(grayScale, gaussianBlurKernel)
+    val Mx = applyConvolution(blur, Gx)
+    val My = applyConvolution(blur, Gy)
 
-  def applyConvolution(image: GrayscaleImage, kernel: GrayscaleImage) : GrayscaleImage = ???
+    val combined = My.zip(Mx).map(pair => pair._1.zip(pair._2))
+      .map(_.map(pair => math.abs(pair._1) + math.abs(pair._2)))
+
+    combined.map(_.map(pix => if (pix < threshold) Pixel(0,0,0) else Pixel(255,255,255)))
+  }
+
+  def applyConvolution(image: GrayscaleImage, kernel: GrayscaleImage) : GrayscaleImage = {
+    val neighbor = getNeighbors(image, kernel.size / 2)
+    neighbor.map(_.map(_.zip(kernel).map(pair => pair._2.zip(pair._1).map(pair => pair._1 * pair._2).sum).sum))
+  }
 
   // ex 5
-  def moduloPascal(m: Integer, funct: Integer => Pixel, size: Integer): Image = ???
+  def moduloPascal(m: Integer, funct: Integer => Pixel, size: Integer): Image = {
+    def cMod(n: Integer, k: Integer, prev: List[Integer]): Integer = {
+      if (k > n) -1
+      else if (k == 1 || k == n) 1
+      else (prev.drop(prev.size - k).head + prev.drop(prev.size - k + 1).head) % m
+    }
+
+    @tailrec
+    def loop(n: Integer, acc: List[List[Integer]], k: Integer): List[List[Integer]] = {
+
+      @tailrec
+      def loopIntern(n: Integer, acc: List[Integer], k: Integer, prev: List[Integer]): List[Integer] = {
+        if (k > size) acc
+        else loopIntern(n, cMod(n, k, prev) :: acc, k + 1, prev)
+      }
+
+      val prev = acc match {
+        case Nil => Nil
+        case _ => acc.head
+      }
+
+      if (n > size) acc
+      else loop(n + 1, loopIntern(n, Nil, k, prev) :: acc, k)
+    }
+
+    loop(1, Nil, 1).map(_.map(funct).reverse).reverse
+  }
 }
