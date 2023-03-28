@@ -19,12 +19,13 @@ object Solution {
       .map(_.foldRight(Nil: List[List[Char]])(split(' ')))
 
     val params = split_information.slice(1, 2).map(_.map(_.foldRight("")(_ + _).toInt)).head
+    val column = params.head
 
     split_information.drop(3).map(_.map(_.foldRight("")(_ + _).toInt))
       .map {
         case List(r, g, b) => Pixel(r, g, b)
         case _ => Pixel(0, 0, 0)
-      }.grouped(params.head).toList
+      }.grouped(column).toList
   }
 
   def toStringPPM(image: Image): List[Char] = {
@@ -37,9 +38,10 @@ object Solution {
       }
 
     val matrix = image.map(_.map(pixel => List(pixel.red, pixel.green, pixel.blue).map(_.toString.toList))
-      .foldRight(Nil: List[Char])((line, acc) => line.foldRight(Nil: List[Char])(combineWith(' ')) ++ List('\n') ++ acc))
+      .foldRight(Nil: List[Char])((line, acc) =>
+        line.foldRight(Nil: List[Char])(combineWith(' ')) ++ List('\n') ++ acc))
 
-    (header.toList :: matrix).flatten
+    header.toList ++ matrix.flatten
   }
 
   // ex 1
@@ -56,14 +58,14 @@ object Solution {
   def rotate(image: Image, degrees: Integer): Image = {
     val nr_rotations = (degrees / 90) % 4
 
-    def rotate_aux(image: Image): Image =
-      image match {
-        case Nil :: _ => Nil
-        case _ => image.map(_.head) :: rotate_aux(image.map(_.tail))
-      }
-
     @tailrec
     def loop(im: Image, nr: Int): Image = {
+      def rotate_aux(image: Image): Image =
+        image match {
+          case Nil :: _ => Nil
+          case _ => image.map(_.head) :: rotate_aux(image.map(_.tail))
+        }
+
       if (nr == nr_rotations) im
       else loop(rotate_aux(im).reverse, nr + 1)
     }
@@ -104,9 +106,10 @@ object Solution {
     combined.map(_.map(pix => if (pix < threshold) Pixel(0,0,0) else Pixel(255,255,255)))
   }
 
-  def applyConvolution(image: GrayscaleImage, kernel: GrayscaleImage) : GrayscaleImage = {
-    val neighbor = getNeighbors(image, kernel.size / 2)
-    neighbor.map(_.map(_.zip(kernel).map(pair => pair._2.zip(pair._1).map(pair => pair._1 * pair._2).sum).sum))
+  private def applyConvolution(image: GrayscaleImage, kernel: GrayscaleImage) : GrayscaleImage = {
+    getNeighbors(image, kernel.size / 2)
+      .map(_.map(_.zip(kernel)
+        .map(pair => pair._2.zip(pair._1).map(pair => pair._1 * pair._2).sum).sum))
   }
 
   // ex 5
