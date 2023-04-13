@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tables.iml" filepath="$PROJECT_DIR$/.idea/modules/Tables.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tables-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Tables-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Query-Language.iml" filepath="$PROJECT_DIR$/.idea/modules/Query-Language.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Query-Language-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Query-Language-build.iml" />
     </modules>
   </component>
 </project>

@@ -5,24 +5,37 @@ import TestTables.tableFunctional
 import TestTables.tableObjectOriented
 
 trait FilterCond {
-  def &&(other: FilterCond): FilterCond = ???
-  def ||(other: FilterCond): FilterCond = ???
+  def &&(other: FilterCond): FilterCond = And(this, other)
+  def ||(other: FilterCond): FilterCond = Or(this, other)
   // fails if the column name is not present in the row
   def eval(r: Row): Option[Boolean]
 }
 case class Field(colName: String, predicate: String => Boolean) extends FilterCond {
   // 2.2.
-  override def eval(r: Row): Option[Boolean] = ???
+  override def eval(r: Row): Option[Boolean] = (r.getOrElse(colName, "")) match {
+    case "" => None
+    case t => Some(predicate(t))
+  }
 }
 
 case class And(f1: FilterCond, f2: FilterCond) extends FilterCond {
   // 2.2.
-  override def eval(r: Row): Option[Boolean] = ???
+  override def eval(r: Row): Option[Boolean] =
+      (f1.eval(r), f2.eval(r)) match {
+      case (_, None) => None
+      case (None, _) => None
+      case (Some(x), Some(y)) => Some(x && y)
+    }
 }
 
 case class Or(f1: FilterCond, f2: FilterCond) extends FilterCond {
   // 2.2.
-  override def eval(r: Row): Option[Boolean] = ???
+  override def eval(r: Row): Option[Boolean] =
+      (f1.eval(r), f2.eval(r)) match {
+      case (_, None) => None
+      case (None, _) => None
+      case (Some(x), Some(y)) => Some(x || y)
+    }
 }
 
 trait Query {
@@ -98,7 +111,20 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
   }
 
   // 2.2
-  def filter(cond: FilterCond): Option[Table] = ???
+  def filter(cond: FilterCond): Option[Table] =
+    {
+      val filtered = tabular.map(row => columnNames.zip(row).foldLeft(Map[String, String]())(_ + _)).filter(p => {
+        cond.eval(p) match {
+          case None => false
+          case Some(x: Boolean) => x
+        }
+      })
+
+      filtered match {
+        case Nil => None
+        case _ => Some(new Table(columnNames, filtered.map(_.values.toList)))
+      }
+    }
 
   // 2.3.
   def newCol(name: String, defaultVal: String): Table = {

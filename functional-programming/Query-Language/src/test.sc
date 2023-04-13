@@ -1,4 +1,17 @@
 type Line = List[String]
+type Row = Map[String, String]
+
+trait FilterCond {
+  def eval(r: Row): Option[Boolean]
+}
+
+case class Field(colName: String, predicate: String => Boolean) extends FilterCond {
+  // 2.2.
+  override def eval(r: Row): Option[Boolean] = (r.getOrElse(colName, "")) match {
+    case "" => None
+    case t => Some(predicate(t))
+  }
+}
 
 class Table (columnNames: Line, tabular: List[Line]) {
   def getColumnNames: Line = columnNames
@@ -33,6 +46,23 @@ class Table (columnNames: Line, tabular: List[Line]) {
     val default = tabular.transpose.head.foldLeft(Nil: List[String])((acc, name) => defaultVal :: acc)
     new Table(columnNames :+ name, (tabular.transpose :+ default).transpose)
   }
+
+  def filter(cond: FilterCond) ={
+    val filtered = tabular.map(row => columnNames.zip(row).foldLeft(Map[String, String]())(_ + _)).filter(p => {
+      cond.eval(p) match {
+        case None => false
+        case Some(x: Boolean) => x
+      }
+    })
+
+    filtered match {
+      case Nil => None
+      case _ => Some(new Table(columnNames, filtered.map(_.values.toList)))
+    }
+
+  }
+
+
 }
 
 object Table {
@@ -52,3 +82,4 @@ val csvContents: String =
     |Prolog,false,false""".stripMargin
 
 Table(csvContents).newCol("ff", "bullshit")
+Table(csvContents).filter(Field("Functional", _ == "true"))
