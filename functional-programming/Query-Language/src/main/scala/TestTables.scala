@@ -115,12 +115,37 @@ object TestTables {
   }
 
   // 3.1
-//  def programmingLanguages1: Table = ???
-//
-//  // 3.2
-//  val programmingLanguages2: Table = ???
-//
-//  // 3.3
-//  val programmingLanguages3: Table = ???
+  def programmingLanguages1: Table = {
+    val result =
+      Merge("Language",
+      NewCol("Functional", "Yes", Value(tableFunctional)),
+      Merge("Language",
+        NewCol("Object-Oriented", "Yes", Value(tableObjectOriented)),
+        NewCol("Imperative", "Yes", Value(tableImperative))
+    )).eval
+
+    result match {
+      case None => tableFunctional
+      case Some(t) => t
+    }
+  }
+  // 3.2
+  val programmingLanguages2: Table = {
+    val cond1 = Field("Original purpose", _.contains("Application"))
+    val cond2 = Field("Other paradigms", _.contains("concurrent"))
+
+    Filter(cond1 && cond2, Value(programmingLanguages1)).eval match {
+      case None => programmingLanguages1
+      case Some(t) => t
+    }
+  }
+
+  // 3.3
+  val programmingLanguages3: Table = {
+    Select(List("Language", "Object-Oriented","Functional"), Value(programmingLanguages2)).eval match {
+      case None => programmingLanguages2
+      case Some(t) => t
+    }
+  }
 
 }
