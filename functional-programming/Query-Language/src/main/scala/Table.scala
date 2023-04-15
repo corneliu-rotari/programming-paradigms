@@ -99,6 +99,12 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
   def getColumnNames : Line = columnNames
   def getTabular : List[List[String]] = tabular
 
+  private def toMap: List[Map[String, String]] =
+    tabular.map(row => columnNames.zip(row).foldLeft(Map[String, String]())(_ + _))
+
+  private def fromMapToList(ht: List[Map[String, String]], colNames: List[String]): List[List[String]] =
+    ht.map(t => colNames.foldRight(Nil: List[String])((elem, acc) => t.getOrElse(elem, elem) :: acc))
+
   // 1.1
   override def toString: String = {
     def addDelim(c: String)(elem: String, acc: String): String =
@@ -123,8 +129,6 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
     }
   }
 
-  def toMap: List[Map[String, String]] =
-    tabular.map(row => columnNames.zip(row).foldLeft(Map[String, String]())(_ + _))
 
   // 2.2
   def filter(cond: FilterCond): Option[Table] = {
@@ -137,7 +141,7 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
 
       filtered match {
         case Nil => None
-        case _ => Some(new Table(columnNames, filtered.map(ht => columnNames.foldRight(Nil: List[String])((elem, acc) => ht.getOrElse(elem, elem) :: acc))))
+        case _ => Some(new Table(columnNames, fromMapToList(filtered, columnNames)))
       }
     }
 
@@ -151,18 +155,24 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
   def merge(key: String, other: Table): Option[Table] = {
     if (!columnNames.contains(key) || !other.getColumnNames.contains(key)) None
     else {
+      // Columns to add for each table and the new columns
       val colAddFirst = other.getColumnNames.filter(!columnNames.contains(_))
       val colAddSecond = columnNames.filter(!other.getColumnNames.contains(_))
       val newColumns = columnNames ++ colAddFirst
 
-      val first_table = this.toMap.map((line: Map[String, String]) => colAddFirst.foldLeft(line)((acc, col) => acc + (col -> "")))
-      val second_table = other.toMap.map((line: Map[String, String]) => colAddSecond.foldLeft(line)((acc, col) => acc + (col -> "")))
+      // Tables with added columns
+      val first_table = colAddFirst.foldLeft(this)((acc, elem) => acc.newCol(elem, "")).toMap
+      val second_table = colAddSecond.foldLeft(other)((acc, elem) => acc.newCol(elem, "")).toMap
+
+      // List to determine the index of the row in each table
       val firstIndexList = first_table.map(_.getOrElse(key, ""))
       val secondIndexList = second_table.map(_.getOrElse(key, ""))
 
+      // Values to create the merged table
       val valuesToAddFromSecond = secondIndexList.filter(!firstIndexList.contains(_))
         .map(value => second_table(secondIndexList.indexOf(value)))
-      val valuesRemain = firstIndexList.filter(!secondIndexList.contains(_))
+
+      val valuesRemainUnchanged = firstIndexList.filter(!secondIndexList.contains(_))
         .map(value => first_table(firstIndexList.indexOf(value)))
 
       val changedValues = secondIndexList.filter(firstIndexList.contains(_))
@@ -177,10 +187,9 @@ class Table (columnNames: Line, tabular: List[List[String]]) {
             else (col, pair._1.getOrElse(col, col))
           }).foldLeft(Map[String, String]())((acc, elem) => acc + (elem._1 -> elem._2))
         })
-      val newInformation = (valuesRemain ++ changedValues ++ valuesToAddFromSecond)
-        .map(ht => newColumns.foldRight(Nil: List[String])((elem, acc) => ht.getOrElse(elem, elem) :: acc))
 
-      Some(new Table(newColumns, newInformation))
+      Some(new Table(newColumns,
+        fromMapToList(valuesRemainUnchanged ++ changedValues ++ valuesToAddFromSecond, newColumns)))
     }
   }
 }
@@ -189,7 +198,8 @@ object Table {
   // 1.2
   def apply(s: String): Table = {
     val res_split = s.split('\n').map(_.split(',').toList).toList
-    val ss = res_split.tail.map(line => if (line.size < res_split.head.size) line ++ List.fill(res_split.head.size - line.size)("") else line)
-    new Table(res_split.head, ss)
+    val newTab = res_split.tail.map(line =>
+      if (line.size < res_split.head.size) line ++ List.fill(res_split.head.size - line.size)("") else line)
+    new Table(res_split.head, newTab)
   }
 }

@@ -167,7 +167,6 @@ class Tests extends munit.FunSuite {
 
   test("3.2 - 5p") {
     val result = TestTables.programmingLanguages2
-    println(result)
     assertEquals(result.getColumnNames, TestTables.ref_programmingLanguages2.getColumnNames, "column names don't match")
     assertEquals(result.getTabular.sortBy(_.head), TestTables.ref_programmingLanguages2.getTabular.sortBy(_.head), "table contents don't match")
   }
