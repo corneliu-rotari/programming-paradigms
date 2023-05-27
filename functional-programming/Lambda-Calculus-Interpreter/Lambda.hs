@@ -102,10 +102,10 @@ evalCode :: (Expr -> Expr) -> [Code] -> [Expr]
 
 
 
-evalCode startegy cl = reverse (snd (foldl aux ([], []) cl))
+evalCode startegy cl = snd (foldl aux ([], []) cl)
     where
         aux :: ([(String, Expr)], [Expr]) -> Code -> ([(String, Expr)], [Expr])
         aux acc (Assign x e) = case lookup x (fst acc) of
             Nothing -> ((x,e) : fst acc, snd acc)
             Just v -> ((x,e) : delete (x,v) (fst acc), snd acc)
-        aux acc (Evaluate e) = (fst acc, startegy (evalMacros (fst acc) e) : snd acc)
+        aux acc (Evaluate e) = (fst acc, snd acc ++ [startegy (evalMacros (fst acc) e)])

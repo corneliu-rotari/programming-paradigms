@@ -6,7 +6,7 @@ module Parser where
 
 import Control.Applicative
 import Control.Monad
-import Data.Char (isAlphaNum)
+import Data.Char (isAlpha, isLower)
 import Expr
 
 -- Parser data type
@@ -35,58 +35,76 @@ instance Functor Parser where
     return $ f x
 
 instance Alternative Parser where
-  empty = failParser
+  empty = Parser $ const Nothing
   p1 <|> p2 = Parser $ \s -> case parse p1 s of
     Nothing -> parse p2 s
     ok -> ok
 
 --- type declaration over ---
-failParser :: Parser a
-failParser = Parser $ const Nothing
 
+{-
+Parses multiple characters that satisfy the predicate
+-}
 predParser :: (Char -> Bool) -> Parser Char
 predParser p = Parser $ \s -> case s of
   [] -> Nothing
   (x : xs) -> if p x then Just (x, xs) else Nothing
 
+{-
+Parse at least one time
+-}
 plusParser :: Parser a -> Parser [a]
-plusParser p =
-  do
-    x <- p
-    xs <- starParser p
-    return (x : xs)
+plusParser p = do
+  x <- p
+  xs <- starParser p
+  return (x : xs)
 
+{-
+Parse zero or more times
+-}
 starParser :: Parser a -> Parser [a]
 starParser p = plusParser p <|> return []
 
+{-
+Parses varible names as strings
+-}
 varParser :: Parser String
-varParser = do plusParser (predParser isAlphaNum)
+varParser = plusParser (predParser (\c -> isAlpha c && isLower c))
 
+{-
+Creates a Variable String from parsing
+-}
 varExprParser :: Parser Expr
 varExprParser = Variable <$> varParser
 
+{-
+Creates function that can have everything in its body
+-}
 funcExprParser :: Parser Expr
 funcExprParser = do
   predParser (== '\\')
   x <- varParser
   predParser (== '.')
-  e1 <- funcExprParser <|> macroParser <|> applExprParser <|> varExprParser
-  return (Function x e1)
+  Function x <$> atomicParser
 
-simpleApplExprParser :: Expr -> Parser Expr
-simpleApplExprParser ex = do
-  e2 <- applExprParser <|> funcExprParser <|> macroParser <|> varExprParser
-  predParser (== ' ') *> simpleApplExprParser (Application ex e2) <|> return (Application ex e2)
+{-
+Recusive function that on failure to parse another expr after a space.
+Returns application created so far or if there are no spaces returns the expr.
+-}
+openApplParser :: Parser Expr
+openApplParser = do
+  e1 <- atomicParser
+  predParser (== ' ') *> auxApplParse e1 <|> return e1
+  where
+    auxApplParse :: Expr -> Parser Expr
+    auxApplParse ex = do
+      e2 <- atomicParser
+      predParser (== ' ') *> auxApplParse (Application ex e2) <|> return (Application ex e2)
 
-startApplExprParser :: Parser Expr
-startApplExprParser = do
-  e1 <- applExprParser <|> funcExprParser <|> macroParser <|> varExprParser
-  predParser (== ' ') *> simpleApplExprParser e1 <|> return e1
-
-applExprParser :: Parser Expr
-applExprParser = do
+closedApplParser :: Parser Expr
+closedApplParser = do
   predParser (== '(')
-  e1 <- startApplExprParser
+  e1 <- openApplParser
   predParser (== ')')
   return e1
 
@@ -95,22 +113,23 @@ macroParser = do
   predParser (== '$')
   Macro <$> varParser
 
-exprParser :: Parser Expr
-exprParser = startApplExprParser <|> applExprParser
+atomicParser :: Parser Expr
+atomicParser = closedApplParser <|> funcExprParser <|> macroParser <|> varExprParser
 
--- TODO 2.1. parse a expression
+exprParser :: Parser Expr
+exprParser = openApplParser <|> closedApplParser
+
 parse_expr :: String -> Expr
 parse_expr s = case parse exprParser s of
   Just (x, s) -> x
   Nothing -> error "Cannot parse"
 
--- TODO 4.2. parse code
 assignParser :: Parser Code
 assignParser = do
   x <- varParser
-  starParser(predParser (== ' '))
+  starParser (predParser (== ' '))
   predParser (== '=')
-  starParser(predParser (== ' '))
+  starParser (predParser (== ' '))
   Assign x <$> exprParser
 
 evalParser :: Parser Code
