@@ -1,5 +1,7 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use camelCase" #-}
+{-# HLINT ignore "Use second" #-}
+{-# HLINT ignore "Use first" #-}
 
 module Lambda where
 
@@ -80,8 +82,30 @@ reduceAllA = reduceAllX stepA
 
 -- TODO 3.1. make substitutions into a expression with Macros
 evalMacros :: [(String, Expr)] -> Expr -> Expr
-evalMacros = undefined
+evalMacros dic exp = case exp of
+    Macro x -> case lookup x dic of
+                Nothing -> error "Macro is not in the env"
+                Just xv -> eM xv
+    Application e1 e2 -> a (eM e1) (eM e2)
+    Function x e1 -> f x (eM e1)
+    _ -> exp
+    where
+        eM :: Expr -> Expr
+        eM = evalMacros dic
 
 -- TODO 4.1. evaluate code sequence using given strategy
 evalCode :: (Expr -> Expr) -> [Code] -> [Expr]
-evalCode = undefined
+-- evalCode startegy code_list = fmap (startegy . evalMacros dict) to_eval
+--     where
+--         dict = [(s, e)| Assign s e <- code_list]
+--         to_eval = [e | Evaluate e <- code_list]
+
+
+
+evalCode startegy cl = reverse (snd (foldl aux ([], []) cl))
+    where
+        aux :: ([(String, Expr)], [Expr]) -> Code -> ([(String, Expr)], [Expr])
+        aux acc (Assign x e) = case lookup x (fst acc) of
+            Nothing -> ((x,e) : fst acc, snd acc)
+            Just v -> ((x,e) : delete (x,v) (fst acc), snd acc)
+        aux acc (Evaluate e) = (fst acc, startegy (evalMacros (fst acc) e) : snd acc)

@@ -70,17 +70,17 @@ funcExprParser = do
   predParser (== '\\')
   x <- varParser
   predParser (== '.')
-  e1 <- funcExprParser <|> varExprParser <|> applExprParser
+  e1 <- funcExprParser <|> macroParser <|> applExprParser <|> varExprParser
   return (Function x e1)
 
 simpleApplExprParser :: Expr -> Parser Expr
 simpleApplExprParser ex = do
-  e2 <- funcExprParser <|> applExprParser <|> varExprParser
-  predParser (== ' ') *> simpleApplExprParser (Application ex e2) <|> return (Application ex e2) -- problema e ca deja consum un spatiu si cand intra recursiv cade ca spatiul deja e consumat
+  e2 <- applExprParser <|> funcExprParser <|> macroParser <|> varExprParser
+  predParser (== ' ') *> simpleApplExprParser (Application ex e2) <|> return (Application ex e2)
 
 startApplExprParser :: Parser Expr
 startApplExprParser = do
-  e1 <- applExprParser <|> funcExprParser <|> varExprParser
+  e1 <- applExprParser <|> funcExprParser <|> macroParser <|> varExprParser
   predParser (== ' ') *> simpleApplExprParser e1 <|> return e1
 
 applExprParser :: Parser Expr
@@ -90,11 +90,13 @@ applExprParser = do
   predParser (== ')')
   return e1
 
+macroParser :: Parser Expr
+macroParser = do
+  predParser (== '$')
+  Macro <$> varParser
+
 exprParser :: Parser Expr
-exprParser =
-  funcExprParser
-    <|> startApplExprParser
-    <|> applExprParser
+exprParser = startApplExprParser <|> applExprParser
 
 -- TODO 2.1. parse a expression
 parse_expr :: String -> Expr
@@ -103,5 +105,19 @@ parse_expr s = case parse exprParser s of
   Nothing -> error "Cannot parse"
 
 -- TODO 4.2. parse code
+assignParser :: Parser Code
+assignParser = do
+  x <- varParser
+  starParser(predParser (== ' '))
+  predParser (== '=')
+  starParser(predParser (== ' '))
+  Assign x <$> exprParser
+
+evalParser :: Parser Code
+evalParser = do
+  Evaluate <$> exprParser
+
 parse_code :: String -> Code
-parse_code = undefined
+parse_code s = case parse (assignParser <|> (do Evaluate <$> exprParser)) s of
+  Just (x, st) -> x
+  Nothing -> error "Cannot parse code"
