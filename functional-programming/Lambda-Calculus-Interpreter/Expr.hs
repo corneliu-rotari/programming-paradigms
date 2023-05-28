@@ -43,7 +43,5 @@ instance Eq Expr where
 
         equal (Function x e1) (Function y e2) env = equal e1 e2 ((x,y):env)
         equal (Application e1 e2) (Application e3 e4) env = equal e1 e3 env && equal e2 e4 env
-        equal (Macro x) (Macro y) env = case lookup x env of
-                                                (Just xv) -> xv == y
-                                                Nothing -> x == y
+        equal (Macro x) (Macro y) env = y == x
         equal _ _ _ = False

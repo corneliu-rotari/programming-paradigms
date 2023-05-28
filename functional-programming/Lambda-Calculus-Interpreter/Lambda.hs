@@ -8,7 +8,9 @@ module Lambda where
 import Expr
 import Data.List
 
--- TODO 1.1. find free variables of a Expr
+{-
+Filters the free vars that can be found only in functions and varibles.
+-}
 free_vars :: Expr -> [String]
 free_vars expr =
     case expr of
@@ -21,7 +23,9 @@ create_new_name :: [String] -> String
 create_new_name lNames = show (head (dropWhile (\x -> show x `elem` lNames) [1..]))
 
 
--- TODO 1.2. reduce a redex
+{-
+Reduce a redex to the no reductible form
+-}
 reduce :: Expr -> String -> Expr -> Expr
 reduce exp1 x exp2 =
     case exp1 of
@@ -35,13 +39,18 @@ reduce exp1 x exp2 =
             new_var = create_new_name free_v_exp2
 
 
+{-
+Creates the intermediat steps of the reductions of a given strategy
+Returns a list of expresions.
+-}
 reduceAllX :: (Expr -> Expr) -> Expr -> [Expr]
 reduceAllX func expr =  if expr == next_step then [expr]
                 else expr : reduceAllX func next_step
                 where next_step = func expr
-
--- Normal Evaluation
--- TODO 1.3. perform one step of Normal Evaluation
+{-
+Normal Evaluation
+Outtermost leftmost.
+-}
 stepN :: Expr -> Expr
 stepN expr = case expr of
     Application e1 e2 ->  case e1 of
@@ -51,15 +60,19 @@ stepN expr = case expr of
     Function x e -> f x (stepN e)
     Variable x -> expr
 
--- TODO 1.4. perform Normal Evaluation
+{-
+Looks for the finall form of the expresion
+-}
 reduceN :: Expr -> Expr
 reduceN = last . reduceAllN
 
 reduceAllN :: Expr -> [Expr]
 reduceAllN = reduceAllX stepN
 
--- Applicative Evaluation
--- TODO 1.5. perform one step of Applicative Evaluation
+{-
+Applicative Evaluation
+Innermost Leftmost.
+-}
 stepA :: Expr -> Expr
 stepA expr = case expr of
     Application e1 e2 -> case (e1, e2) of
@@ -73,14 +86,19 @@ stepA expr = case expr of
     _ -> expr
 
 
--- TODO 1.6. perform Applicative Evaluation
+{-
+Looks for the finall form of the expresion.
+-}
 reduceA :: Expr -> Expr
 reduceA = last . reduceAllA
 
 reduceAllA :: Expr -> [Expr]
 reduceAllA = reduceAllX stepA
 
--- TODO 3.1. make substitutions into a expression with Macros
+{-
+If the macro is found it changes the macro
+If is any other expr except Variable it goes in the inner exprs.
+-}
 evalMacros :: [(String, Expr)] -> Expr -> Expr
 evalMacros dic exp = case exp of
     Macro x -> case lookup x dic of
@@ -93,15 +111,13 @@ evalMacros dic exp = case exp of
         eM :: Expr -> Expr
         eM = evalMacros dic
 
--- TODO 4.1. evaluate code sequence using given strategy
+
+{-
+    Evaluate one line of code at the time
+    If an assigment is recived, it checks if it was previously defined if not is added to the list
+    If the code is to Evaulate it changes the macros and applys the strategy.
+-}
 evalCode :: (Expr -> Expr) -> [Code] -> [Expr]
--- evalCode startegy code_list = fmap (startegy . evalMacros dict) to_eval
---     where
---         dict = [(s, e)| Assign s e <- code_list]
---         to_eval = [e | Evaluate e <- code_list]
-
-
-
 evalCode startegy cl = snd (foldl aux ([], []) cl)
     where
         aux :: ([(String, Expr)], [Expr]) -> Code -> ([(String, Expr)], [Expr])

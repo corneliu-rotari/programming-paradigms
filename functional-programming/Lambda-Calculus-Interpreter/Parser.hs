@@ -77,6 +77,9 @@ Creates a Variable String from parsing
 varExprParser :: Parser Expr
 varExprParser = Variable <$> varParser
 
+spaceParser :: Parser Char
+spaceParser = predParser (== ' ')
+
 {-
 Creates function that can have everything in its body
 -}
@@ -88,55 +91,71 @@ funcExprParser = do
   Function x <$> atomicParser
 
 {-
-Recusive function that on failure to parse another expr after a space.
-Returns application created so far or if there are no spaces returns the expr.
+Parser for application that are closed by parenthesis.
 -}
-openApplParser :: Parser Expr
-openApplParser = do
-  e1 <- atomicParser
-  predParser (== ' ') *> auxApplParse e1 <|> return e1
-  where
-    auxApplParse :: Expr -> Parser Expr
-    auxApplParse ex = do
-      e2 <- atomicParser
-      predParser (== ' ') *> auxApplParse (Application ex e2) <|> return (Application ex e2)
-
 closedApplParser :: Parser Expr
 closedApplParser = do
   predParser (== '(')
-  e1 <- openApplParser
+  e1 <- exprParser
   predParser (== ')')
   return e1
 
+{-
+Parser that fails if the next symbol is not $.
+It returns if a Macro can be created.
+-}
 macroParser :: Parser Expr
 macroParser = do
   predParser (== '$')
   Macro <$> varParser
 
+{-
+Parser that can create every intermediat expr
+-}
 atomicParser :: Parser Expr
 atomicParser = closedApplParser <|> funcExprParser <|> macroParser <|> varExprParser
 
+{-
+Recusive function that on failure to parse another expr after a space.
+Returns application created so far or if there are no spaces returns the expr.
+-}
 exprParser :: Parser Expr
-exprParser = openApplParser <|> closedApplParser
+exprParser = do
+  e1 <- atomicParser
+  spaceParser *> auxApplParse e1 <|> return e1
+  where
+    auxApplParse :: Expr -> Parser Expr
+    auxApplParse ex = do
+      e2 <- atomicParser
+      spaceParser *> auxApplParse (Application ex e2) <|> return (Application ex e2)
 
+{-
+Reutrns the parsed expresions on success.
+Else throws error
+-}
 parse_expr :: String -> Expr
 parse_expr s = case parse exprParser s of
   Just (x, s) -> x
-  Nothing -> error "Cannot parse"
+  Nothing -> error "Cannot parse expr"
+
 
 assignParser :: Parser Code
 assignParser = do
   x <- varParser
-  starParser (predParser (== ' '))
+  starParser (spaceParser)
   predParser (== '=')
-  starParser (predParser (== ' '))
+  starParser (spaceParser)
   Assign x <$> exprParser
 
 evalParser :: Parser Code
 evalParser = do
   Evaluate <$> exprParser
 
+{-
+Reutrns the parsed code on success.
+Else throws error
+-}
 parse_code :: String -> Code
-parse_code s = case parse (assignParser <|> (do Evaluate <$> exprParser)) s of
+parse_code s = case parse (assignParser <|> evalParser) s of
   Just (x, st) -> x
   Nothing -> error "Cannot parse code"
